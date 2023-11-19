@@ -12,16 +12,27 @@
 <header>
     <h1>Login</h1>
 </header>
-<form action="/placeholder.php" method="post">
+<form action="" method="post">
+    <?php
+        if(isset($_POST['submit'])) {
+            $user = $_POST['username'];
+            $password = $_POST['pword'];
+        if($user =="admin" && $password == "admin") {
+            echo "Erfolgreich eingeloggt! <br>";
+        } else {
+            echo "Benutzername oder Passwort ist falsch! <br>";
+        }
+        }
+    ?>
     <label for="username">Username:</label> <br>
     <input type="text" id="username" name="username" placeholder="Username" autocomplete="on" autofocus required> <br>
     <label for="pword">Passwort:</label><br>
     <input type="password" id="pword" name="pword" placeholder="Passwort" autocomplete="on"><br><br>
-    <input type="checkbox" name="rememberusername" id="rememberusername" required>
+    <input type="checkbox" name="rememberusername" id="rememberusername">
     <label for="rememberusername">Login merken</label><br><br>
-    <input type="submit" value="Einloggen">
+    <input type="submit" name = "submit" value="submit">
 </form>
-<p>Noch nicht registriert? <br> Hier geht es zur <a href="registrierung.html">Registrieren</a></h2>!</p>
+<p>Noch nicht registriert? <br> Hier geht es zur <a href="registrierung.html">Registrierung</a></h2>!</p>
 
     
 <footer>
