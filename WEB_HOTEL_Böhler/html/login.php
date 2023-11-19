@@ -12,7 +12,7 @@
 <header>
     <h1>Login</h1>
 </header>
-<form action="" method="post">
+<form action="homepage.html" method="post">
     <?php
         if(isset($_POST['submit'])) {
             $user = $_POST['username'];

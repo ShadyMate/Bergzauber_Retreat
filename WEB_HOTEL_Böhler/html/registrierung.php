@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 </head>
-<body style="background-color: #b3d4fc">
+<body>
 
 <header>
     <h2>Registrieren</h2>
@@ -14,14 +14,25 @@
 </header>
 <section>
     <form>
+        <?php
+        if(isset($_POST['submit'])) {
+            $user = $_POST['username'];
+            $password = $_POST['pword'];
+        if($user =="admin" && $password == "admin") {
+            echo "Erfolgreich registriert! <br>";
+        } else {
+            echo "Benutzername ist bereits in Verwendung! <br>";
+        }
+        } 
+        ?>
         <label for="anrede">Anrede:</label><br>
         <select id="anrede" name="anrede">
             <option value="Frau">Frau</option>
             <option value="Herr">Herr</option>
             <option value=" ">Leer/Divers</option>
         </select><br>
-        <label for="fname">Vorname:</label><br>
-        <input type="text" id="fname" name="fname"><br>
+        <label for="fname">Vorname:</label><br> 
+        <input type="text" id="fname" name="fname"><br> <!-- hi -->
         <label for="lname">Nachname:</label><br>
         <input type="text" id="lname" name="lname"><br>
         <label for="email">E-Mail:</label><br>
