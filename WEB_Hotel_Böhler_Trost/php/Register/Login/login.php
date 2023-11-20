@@ -43,14 +43,14 @@ session_start();
     <label for="rememberusername">Login merken</label><br><br>
     <input type="submit" name = "submit" value="submit">
 </form>
-<p>Noch nicht registriert? <br> Hier geht es zur <a href="registrierung.html">Registrierung</a></h2>!</p>
+<p>Noch nicht registriert? <br> Hier geht es zur <a href="registrierung.php">Registrierung</a>!</p>
 
-    
+
 <footer>
     <div>
-        <a href="homepage.html">Homepage</a> ||
-        <a href="impressum.html">Impressum</a> ||
-        <a href="hilfe.html">Hilfe</a>
+        <a href="../../homepage.php">Homepage</a> ||
+        <a href="../../impressum.php">Impressum</a> ||
+        <a href="../../hilfe.php">Hilfe</a>
     </div>
 </footer>
 
