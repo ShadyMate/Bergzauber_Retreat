@@ -52,12 +52,19 @@ session_start();
         $_SESSION["pwordconfirm"] = $_POST['pwordconfirm'];
         //echo $_SESSION["username"];
         //echo $_SESSION["pword"];
-        if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") {
-            echo '<p style="color:red">Passwort stimmt nicht überein! <p><br>';
-        } else if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
-            header("Location: erfolgreichregistriert.php");
-        } else {
-            echo '<p style="color:red">Etwas ist schiefgelaufen! Versuche Sie es erneut.<p>';
+        if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //passwort muss gleich sein
+            echo '<script type="text/javascript">';
+            echo 'alert("Passwort stimmt nicht überein!");';
+            echo '</script>';
+        } else if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") { //wenn daten richtig eingegeben werden
+            echo '<script type="text/javascript">';
+            echo 'alert("Sie haben sich erfolgreich registriert!");';
+            echo 'window.location.href = "http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php";';
+            echo '</script>';
+        } else { //wenn nicht "admin" eingegebn wird
+            echo '<script type="text/javascript">';
+            echo 'alert("Etwas ist schiefgelaufen! Versuche Sie es erneut.");';
+            echo '</script>';
         }
         } 
         ?>

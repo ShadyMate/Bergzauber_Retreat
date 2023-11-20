@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Herzlich Willkommen bei Bergzauber Retreat, Sie sind nun erfolgreich registriert.
-        <br> Nun können Sie ganz einfach unsere Zimmer buchen, Reservierungsdetails einsehen und ihr Profil verwalten!<p>
+    <p>Herzlich Willkommen bei Bergzauber Retreat, Sie sind nun erfolgreich registriert. <br> Nun können Sie ganz einfach unsere Zimmer buchen, Reservierungsdetails einsehen und ihr Profil verwalten!<p>
 </body>
 </html>
