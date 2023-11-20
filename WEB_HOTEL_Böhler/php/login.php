@@ -16,7 +16,7 @@ session_start();
 <header>
     <h1>Login</h1>
 </header>
-<form action="homepage.php" method="post">
+<form method="post">
     <?php
         if(isset($_POST['submit'])) {
             //$user = $_POST['username'];
@@ -24,7 +24,7 @@ session_start();
             $_SESSION["username"] = $_POST['username'];
             $_SESSION["pword"] = $_POST['pword'];
         if($_SESSION["username"] =="admin" && $_SESSION["pword"] == "admin") {
-            echo "Erfolgreich eingeloggt! <br>";
+            header("Location: erfolgreichlogin.php");
         } else {
             echo "Benutzername oder Passwort ist falsch! <br>";
         }

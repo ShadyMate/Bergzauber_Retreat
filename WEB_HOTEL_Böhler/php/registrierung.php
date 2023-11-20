@@ -17,22 +17,23 @@ session_start();
     <h4>Bereits registriert? <br> Hier gehts zum <a href="login.html">Login</a>!</h4>
 </header>
 <section>
-    <form action="registrierung.php" method="post">
+    <form method="post">
         <?php
+        if(isset($_POST['submit'])) {
         $_SESSION["firstname"] = $_POST['fname'];
         $_SESSION["lastname"] = $_POST['lname'];
         $_SESSION["email"] = $_POST['email'];
         $_SESSION["username"] = $_POST['username'];
         $_SESSION["pword"] = $_POST['pword'];
+        $_SESSION["pwordconfirm"] = $_POST['pwordconfirm'];
         //echo $_SESSION["username"];
         //echo $_SESSION["pword"];
-        if(isset($_POST['submit'])) {
-            $user = $_POST['username'];
-            $password = $_POST['pword'];
-        if($user == "admin" && $password == "admin") {
-            echo "Erfolgreich registriert! <br>";
+        if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
+            header("Location: erfolgreichregistriert.php");
+        } else if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") {
+            echo "Passwort stimmt nicht überein! <br>";
         } else {
-            echo "Registrierung fehlgeschlagen! <br>";
+            echo "Etwas ist schiefgelaufen! Versuche Sie es erneut.";
         }
         } 
         ?>
