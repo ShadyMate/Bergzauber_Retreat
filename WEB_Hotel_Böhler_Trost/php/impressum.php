@@ -56,15 +56,15 @@ session_start();
 
 <article>
   <section>
-    <p>Bei weiteren Fragen wenden sie sich an unser <a href="hilfe.html">FAQ</a></p>
+    <p>Bei weiteren Fragen wenden sie sich an unser <a href="hilfe.php">FAQ</a></p>
   </section>
 </article>
 
 <footer>
   <div>
-      <a href="homepage.html">Homepage</a> ||
-      <a href="login.html">Login</a> ||
-      <a href="registrierung.html">Registrierung</a>
+      <a href="homepage.php">Homepage</a> ||
+      <a href="Register/Login/login.php">Login</a> ||
+      <a href="Register/Login/registrierung.php">Registrierung</a>
   </div>
 </footer>
 

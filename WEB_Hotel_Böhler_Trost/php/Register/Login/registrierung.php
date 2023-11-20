@@ -14,7 +14,7 @@ session_start();
 
 <header>
     <h2>Registrieren</h2>
-    <h4>Bereits registriert? <br> Hier gehts zum <a href="login.html">Login</a>!</h4>
+    <h4>Bereits registriert? <br> Hier gehts zum <a href="login.php">Login</a>!</h4>
 </header>
 <section>
     <form method="post">
@@ -64,9 +64,9 @@ session_start();
 <br>
 <footer>
     <div>
-        <a href="homepage.html">Homepage</a> ||
-        <a href="impressum.html">Impressum</a> ||
-        <a href="hilfe.html">Hilfe</a>
+        <a href="../../homepage.php">Homepage</a> ||
+        <a href="../../impressum.php">Impressum</a> ||
+        <a href="../../hilfe.php">Hilfe</a>
     </div>
 </footer>
 

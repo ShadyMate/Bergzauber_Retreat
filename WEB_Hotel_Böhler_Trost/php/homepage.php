@@ -20,7 +20,7 @@ session_start();
 
     <style>
         body {
-          background-image: url('/WEB_HOTEL_Böhler/res/img/Hotel.jpg');
+          background-image: url('WEB_Hotel_Böhler_Trost/res/img/Hotel.jpg');
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-size: 100% 100%;
@@ -73,7 +73,7 @@ session_start();
         <div class="card-body">
           <h5 class="card-title">Zimmer Buchen.</h5>
           <p class="card-text">Hier finden Sie alle Angebote, sowie Infos zur Buchung</p>
-          <a href="Zimmer.php" class="btn btn-primary">Click me</a>
+          <a href="Zimmer/Zimmer.php" class="btn btn-primary">Click me</a>
         </div>
       </div>
     </div>
