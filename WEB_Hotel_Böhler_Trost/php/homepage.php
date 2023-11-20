@@ -28,44 +28,34 @@ session_start();
         </style>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="#" alt="Logo" width="30" height="24"></a>
+    <a class="navbar-brand" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php"><img src="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/res/img/Logo.jpeg" alt="Logo" width="50" height="50"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/Register/Login/registrierung.php">Registrierung</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/Register/Login/login.php">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/hilfe.php">Hilfe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/impressum.php">Impressum</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/Register/Login/Profil.php">Profil</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-<!--<div>
-    <div class="row grid text-center">
-        <div class="col-sm">
-            <h2><a class="btn btn-primary" href="registrierung.html" role="button">Registrierung</a></h2></button>
-        </div>
-        <div class="col-sm">
-            <h2><a class="btn btn-primary" href="login.php" role="button">Login</a></h2>
-        </div>
-        <div class="col-sm">
-            <h2><a class="btn btn-primary" href="impressum.html" role="button">Impressum</a></h2>
-        </div>
-        <div class="col-sm">
-            <h2><a class="btn btn-primary" href="hilfe.html" role="button">FAQ</a></h2>
-        </div>
-    </div>
-</div>  -->
     <div class="row w-100 p-3 mx-auto p-2" style="width: 120px;">
     <div class="col-sm">
       <div class="card">
