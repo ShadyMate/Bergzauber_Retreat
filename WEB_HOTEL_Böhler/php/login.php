@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -12,12 +16,14 @@
 <header>
     <h1>Login</h1>
 </header>
-<form action="homepage.html" method="post">
+<form action="homepage.php" method="post">
     <?php
         if(isset($_POST['submit'])) {
-            $user = $_POST['username'];
-            $password = $_POST['pword'];
-        if($user =="admin" && $password == "admin") {
+            //$user = $_POST['username'];
+            //$password = $_POST['pword'];
+            $_SESSION["username"] = $_POST['username'];
+            $_SESSION["pword"] = $_POST['pword'];
+        if($_SESSION["username"] =="admin" && $_SESSION["pword"] == "admin") {
             echo "Erfolgreich eingeloggt! <br>";
         } else {
             echo "Benutzername oder Passwort ist falsch! <br>";
