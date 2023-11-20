@@ -1,1 +1,2 @@
-# Web_Hotel_Project
+# Bergzauber Retreat Website
+von Luis Böhler & Thomas Trost
