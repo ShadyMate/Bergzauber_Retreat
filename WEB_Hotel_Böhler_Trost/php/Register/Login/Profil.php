@@ -17,7 +17,7 @@
   <input type="email" id="email" name="email"><br>
   <label for="username">Benutzername:</label><br>
   <input type="text" id="username" name="username"><br>
-  <label for="password">Passwort:</label><br>
+  <label for="password">Pasdswort:</label><br>sdfsdf
   <input type="password" id="password" name="password"><br><br>
   <input type="submit" value="Einreichen">
 </form>
