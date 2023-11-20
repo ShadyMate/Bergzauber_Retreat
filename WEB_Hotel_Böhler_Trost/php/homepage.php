@@ -14,7 +14,7 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <header>
-    <h1 class="hotelname">Bergzauber Retreat Homepage</h1>
+    <h1 class="hotelname">Bergzauber Retreat</h1>
 </header>
 <body>
 
@@ -26,8 +26,31 @@ session_start();
           background-size: 100% 100%;
         }
         </style>
-
-<div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="#" alt="Logo" width="30" height="24"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--<div>
     <div class="row grid text-center">
         <div class="col-sm">
             <h2><a class="btn btn-primary" href="registrierung.html" role="button">Registrierung</a></h2></button>
@@ -42,7 +65,7 @@ session_start();
             <h2><a class="btn btn-primary" href="hilfe.html" role="button">FAQ</a></h2>
         </div>
     </div>
-</div> 
+</div>  -->
     <div class="row w-100 p-3 mx-auto p-2" style="width: 120px;">
     <div class="col-sm">
       <div class="card">

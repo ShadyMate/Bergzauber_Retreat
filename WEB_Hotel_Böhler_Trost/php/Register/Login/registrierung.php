@@ -18,25 +18,6 @@ session_start();
 </header>
 <section>
     <form method="post">
-        <?php
-        if(isset($_POST['submit'])) {
-        $_SESSION["firstname"] = $_POST['fname'];
-        $_SESSION["lastname"] = $_POST['lname'];
-        $_SESSION["email"] = $_POST['email'];
-        $_SESSION["username"] = $_POST['username'];
-        $_SESSION["pword"] = $_POST['pword'];
-        $_SESSION["pwordconfirm"] = $_POST['pwordconfirm'];
-        //echo $_SESSION["username"];
-        //echo $_SESSION["pword"];
-        if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
-            header("Location: erfolgreichregistriert.php");
-        } else if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") {
-            echo "Passwort stimmt nicht überein! <br>";
-        } else {
-            echo "Etwas ist schiefgelaufen! Versuche Sie es erneut.";
-        }
-        } 
-        ?>
         <label for="anrede">Anrede:</label><br>
         <select id="anrede" name="anrede">
             <option value="Frau">Frau</option>
@@ -61,6 +42,25 @@ session_start();
         <input type="reset">
     </form>
 </section>
+<?php
+        if(isset($_POST['submit'])) {
+        $_SESSION["firstname"] = $_POST['fname'];
+        $_SESSION["lastname"] = $_POST['lname'];
+        $_SESSION["email"] = $_POST['email'];
+        $_SESSION["username"] = $_POST['username'];
+        $_SESSION["pword"] = $_POST['pword'];
+        $_SESSION["pwordconfirm"] = $_POST['pwordconfirm'];
+        //echo $_SESSION["username"];
+        //echo $_SESSION["pword"];
+        if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") {
+            echo '<p style="color:red">Passwort stimmt nicht überein! <p><br>';
+        } else if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
+            header("Location: erfolgreichregistriert.php");
+        } else {
+            echo '<p style="color:red">Etwas ist schiefgelaufen! Versuche Sie es erneut.<p>';
+        }
+        } 
+        ?>
 <br>
 <footer>
     <div>
