@@ -76,7 +76,7 @@ session_start();
     </div>
     <div class="col-sm">
       <div class="card">
-        <img src="../res/img/Spa.a6itg.7qnEO8xn.jpeg" class="card-img-top" alt="Spa">
+        <img src="../res/img/Spa.a6itg.7qnEO8xn.jpeg" class="card-img-top" alt="Spa" height="250px">
         <div class="card-body">
           <h5 class="card-title">Unser Spa-Bereich</h5>
           <p class="card-text">Hier können Sie eine erholsame Zeit verbringen.</p>
