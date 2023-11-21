@@ -1,11 +1,9 @@
-.hotelname {
-  font-family: 'Satisfy', cursive;
-}
+
 
 h1 {
     padding-top: 50px;
     text-align: center;
-    font-family: 'Satisfy', serif;
+    font-family:serif;
     padding-bottom: 50px;
 }
 
@@ -17,3 +15,6 @@ footer {
     flex: 1 0 0;
   }
 
+.card {
+
+}

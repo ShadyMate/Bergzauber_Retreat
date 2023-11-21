@@ -26,7 +26,7 @@ session_start();
         if($_SESSION["username"] =="admin" && $_SESSION["pword"] == "admin") { //alert für richtige eingabe und leitet auf homepage weiter
             echo '<script type="text/javascript">';
             echo 'alert("Herzlich Willkommen!");';
-            echo 'window.location.href = "http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php";';
+            echo 'window.location.href = "../../homepage.php";';
             echo '</script>';
         } else { //alert falls der user nicht die richtigen daten eingibt
             echo '<script type="text/javascript">';
