@@ -29,26 +29,26 @@ session_start();
         
 <nav class="navbar navbar-expand-lg bg-body-tertiary" >
   <div class="container-fluid">
-    <a class="navbar-brand" href="homepage.php"><img src="../../WEB_Hotel_Böhler_Trost/res/img/Logo.jpeg" alt="Logo" width="50" height="50">Home</a>
+    <a class="navbar-brand" href="homepage.php"><img src="../../WEB_Hotel_Böhler_Trost/res/img/Logoneu.png" alt="Logo" width="50" height="50">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="Register/Login/registrierung.php">Registrierung</a>
+          <a class="nav-link" href="Register/Login/registrierung.php" style="font-size: 25px;">Registrierung</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Register/Login/login.php">Login</a>
+          <a class="nav-link" href="Register/Login/login.php" style="padding-left: 20px; font-size: 25px;">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="hilfe.php">Hilfe</a>
+          <a class="nav-link" href="hilfe.php" style="padding-left: 20px; font-size: 25px;">Hilfe</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="impressum.php">Impressum</a>
+          <a class="nav-link" href="impressum.php" style="padding-left: 20px; font-size: 25px;">Impressum</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Register/Login/Profil.php">Profil</a>
+          <a class="nav-link" href="Register/Login/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>
         </li>
       </ul>
     </div>
