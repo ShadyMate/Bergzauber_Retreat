@@ -29,7 +29,7 @@ session_start();
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php"><img src="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/res/img/Logo.jpeg" alt="Logo" width="50" height="50">Home</a>
+    <a class="navbar-brand" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php"><img src="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/res/img/Logoneu.png" alt="Logo" width="50" height="50">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
