@@ -45,8 +45,11 @@ session_start();
   </div>
 </nav>
 
-<form>
-    <?php //die sessions zeigen die daten an, welche der user eingegeben hat.
+<form method="post">
+    <?php //die sessions zeigen die daten an, welche der user eingegeben hat. erstelle für vorname/nachname einen submit button und schreib dann die veränderten daten mit php dahin
+    // also zb: if(isset($_POST['neuerBenutzername'])){
+          //$_SESSION["username"] = $_POST['neuerBenutzername'];
+        //} und dann -> echo Neuer Benutzername: <input type="text" name="neuerBenutzername"><br>
         echo "Vorname: ";
         echo $_SESSION["firstname"];
         echo "<br>Nachname: ";
@@ -61,14 +64,13 @@ session_start();
         }
         $password = $_SESSION["pword"];
         echo "<br>Passwort: " . partialPassword($password);
+
+        
     ?>
+     
     <br>
-    <input type="submit" id="change" name="change" value="Daten ändern">
-    <?php
-        if(isset($_POST['submit'])) {
-            //if statement implementieren womit daten verändert werden können --> session reset machen und daten neu eingeben können
-        }
-    ?>
+    <input type="submit" id="change" name="submit" value="Daten ändern">
+    
     <br>
   <label for="fname">Vorname:</label><br>
   <input type="text" id="fname" name="fname"><br>
