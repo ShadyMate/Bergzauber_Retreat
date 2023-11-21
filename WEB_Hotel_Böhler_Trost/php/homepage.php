@@ -28,15 +28,12 @@ session_start();
         </style>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php"><img src="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/res/img/Logo.jpeg" alt="Logo" width="50" height="50"></a>
+    <a class="navbar-brand" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php"><img src="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/res/img/Logoneu.png" alt="Logo" width="50" height="50">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php">Home</a>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/Register/Login/registrierung.php">Registrierung</a>
         </li>
