@@ -6,7 +6,8 @@ session_start();
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>homepage</title>
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Bergzauber Retreat</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -24,10 +25,11 @@ session_start();
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-size: 100% 100%;
+          padding: 0;
         }
         </style>
         
-<nav class="navbar navbar-expand-lg bg-body-tertiary" >
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="homepage.php"><img src="../../WEB_Hotel_Böhler_Trost/res/img/Logoneu.png" alt="Logo" width="50" height="50">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,9 +56,9 @@ session_start();
     </div>
   </div>
 </nav>
-    <div class="row w-100 p-3 mx-auto p-2" style="width: 120px;">
-    <div class="col-sm">
-      <div class="card">
+    <div class="row row-cols-1 row-cols-md-3 g-4" style="width: 95%; margin: 0 auto">
+    <div class="col" style="padding-top: 20px;">
+      <div class="card h-100">
         <img src="../res/img/hotelzimmer.jpg" class="card-img-top" alt="Hotelzimmer">
         <div class="card-body">
           <h5 class="card-title">Zimmer Buchen.</h5>
@@ -65,8 +67,8 @@ session_start();
         </div>
       </div>
     </div>
-    <div class="col-sm">
-      <div class="card">
+    <div class="col" style="padding-top: 20px">
+      <div class="card h-100">
         <img src="../res/img/radfahren.jpg" class="card-img-top" alt="Radweg">
         <div class="card-body">
           <h5 class="card-title">Freizeitaktivitäten</h5>
@@ -74,9 +76,9 @@ session_start();
         </div>
       </div>
     </div>
-    <div class="col-sm">
-      <div class="card">
-        <img src="../res/img/SpaImage.jpeg" class="card-img-top" alt="Spa" height="250px">
+    <div class="col" style="padding-top: 20px">
+      <div class="card h-100">
+        <img src="../res/img/SpaImage.jpeg" class="card-img-top" alt="Spa">
         <div class="card-body">
           <h5 class="card-title">Unser Spa-Bereich</h5>
           <p class="card-text">Hier können Sie eine erholsame Zeit verbringen.</p>
