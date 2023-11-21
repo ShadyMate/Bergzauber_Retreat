@@ -10,45 +10,45 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/css/stylesheet.css">
+    <link rel="stylesheet" href="../css/stylesheet.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <header>
-    <h1 class="hotelname">Bergzauber Retreat</h1>
+    <h1 style="color: #FFFFFF" class="hotelname">Bergzauber Retreat</h1>
 </header>
 <body>
 
     <style>
         body {
-          background-image: url('WEB_Hotel_Böhler_Trost/res/img/Hotel.jpg');
+          background-image: url('../res/img/Hotel.jpg');
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-size: 100% 100%;
         }
         </style>
         
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary" >
   <div class="container-fluid">
-    <a class="navbar-brand" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php"><img src="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/res/img/Logo.jpeg" alt="Logo" width="50" height="50">Home</a>
+    <a class="navbar-brand" href="homepage.php"><img src="../../WEB_Hotel_Böhler_Trost/res/img/Logo.jpeg" alt="Logo" width="50" height="50">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/Register/Login/registrierung.php">Registrierung</a>
+          <a class="nav-link" href="Register/Login/registrierung.php">Registrierung</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/Register/Login/login.php">Login</a>
+          <a class="nav-link" href="Register/Login/login.php">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/hilfe.php">Hilfe</a>
+          <a class="nav-link" href="hilfe.php">Hilfe</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/impressum.php">Impressum</a>
+          <a class="nav-link" href="impressum.php">Impressum</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/Register/Login/Profil.php">Profil</a>
+          <a class="nav-link" href="Register/Login/Profil.php">Profil</a>
         </li>
       </ul>
     </div>
