@@ -74,7 +74,7 @@ session_start();
 
 <aside>
   <div style="position: relative; left:1200px; bottom:720px">
-    <img src="../res/img/4.jpeg" alt="Luis Böhler" width="5%" height="5%"/>
+    <img src="../res/img/Luis.jpeg" alt="Luis Böhler" width="5%" height="5%"/>
     <p>Luis Böhler</p>
     <p>Administration</p>
     <br>
