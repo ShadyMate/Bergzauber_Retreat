@@ -15,14 +15,15 @@ session_start();
 <header>
     <h1>Login</h1>
 </header>
-<form method="post">
-    <?php
+<div class="container">
+    <form method="post" class="text-center">
+        <?php
         if(isset($_POST['submit'])) {
             //$user = $_POST['username'];
             //$password = $_POST['pword'];
             $_SESSION["username"] = $_POST['username'];
             $_SESSION["pword"] = $_POST['pword'];
-        if($_SESSION["username"] =="admin" && $_SESSION["pword"] == "admin") { //alert für richtige eingabe und leitet auf homepage weiter
+            if($_SESSION["username"] =="admin" && $_SESSION["pword"] == "admin") { //alert für richtige eingabe und leitet auf homepage weiter
             echo '<script type="text/javascript">';
             echo 'alert("Herzlich Willkommen!");';
             echo 'window.location.href = "../../homepage.php";';
@@ -34,25 +35,23 @@ session_start();
         }
         }
     ?>
-    <label for="username">Username:</label> <br>
-    <input type="text" id="username" name="username" placeholder="Username" autocomplete="on" autofocus required> <br>
-    <label for="pword">Passwort:</label><br>
-    <input type="password" id="pword" name="pword" placeholder="Passwort" autocomplete="on"><br><br>
-    <input type="checkbox" name="rememberusername" id="rememberusername">
-    <label for="rememberusername">Login merken</label><br><br>
-    <input type="submit" name = "submit" value="submit">
-</form>
-<p>Noch nicht registriert? <br> Hier geht es zur <a href="registrierung.php">Registrierung</a>!</p>
+        <label for="username">Username:</label> <br>
+        <input type="text" id="username" name="username" placeholder="Username" autocomplete="on" autofocus required> <br>
+        <label for="pword">Passwort:</label><br>
+        <input type="password" id="pword" name="pword" placeholder="Passwort" autocomplete="on"><br><br>
+        <input type="checkbox" name="rememberusername" id="rememberusername">
+        <label for="rememberusername">Login merken</label><br><br>
+        <input type="submit" name = "submit" value="submit">
+    </form>
+<p class="text-center">Noch nicht registriert? <br> Hier geht es zur <a href="registrierung.php">Registrierung</a>!</p>
 
-
-<footer>
-    <div>
+<footer class="text-center" >
         <a href="../../homepage.php">Homepage</a> ||
         <a href="../../impressum.php">Impressum</a> ||
         <a href="../../hilfe.php">Hilfe</a>
-    </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</div>
 </body>
 </html>
