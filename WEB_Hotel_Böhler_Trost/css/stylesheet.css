@@ -1,8 +1,15 @@
 h1 {
-    padding-top: 0.3em;
+    padding-top: 0.2em;
     text-align: center;
     font-family:Copperplate, fantasy;
-    padding-bottom: 0.3em;
+    padding-bottom: 0.2em;
+}
+body {
+    background-image: url("../res/img/Hotel.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    padding: 0;
 }
 .navbar{
     font-family: Copperplate, fantasy;

@@ -18,16 +18,6 @@ session_start();
     <h1 class="hotelname">Bergzauber Retreat</h1>
 </header>
 <body>
-
-    <style>
-        body {
-          background-image: url('../res/img/Hotel.jpg');
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          background-size: 100% 100%;
-          padding: 0;
-        }
-        </style>
         
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">

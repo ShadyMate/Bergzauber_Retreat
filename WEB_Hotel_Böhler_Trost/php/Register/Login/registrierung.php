@@ -6,12 +6,12 @@ session_start();
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
     <title>register</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="../../../css/stylesheet.css">
 </head>
 <body>
-
 <header>
     <h2>Registrieren</h2>
     <h4>Bereits registriert? <br> Hier gehts zum <a href="login.php">Login</a>!</h4>
@@ -59,7 +59,7 @@ session_start();
         } else if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") { //wenn daten richtig eingegeben werden
             echo '<script type="text/javascript">';
             echo 'alert("Sie haben sich erfolgreich registriert!");';
-            echo 'window.location.href = "http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php";';
+            echo 'window.location.href = "../../homepage.php";';
             echo '</script>';
         } else { //wenn nicht "admin" eingegebn wird
             echo '<script type="text/javascript">';
