@@ -1,12 +1,16 @@
-
-
 h1 {
-    padding-top: 50px;
+    padding-top: 0.3em;
     text-align: center;
-    font-family:serif;
-    padding-bottom: 50px;
+    font-family:Copperplate, fantasy;
+    padding-bottom: 0.3em;
 }
-
+.navbar{
+    font-family: Copperplate, fantasy;
+}
+.hotelname{
+    font-size: 7em;
+    color: white;
+}
 
 footer {
     display:flex;
