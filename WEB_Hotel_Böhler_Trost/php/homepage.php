@@ -50,7 +50,15 @@ session_start();
           <a class="nav-link" href="impressum.php" style="padding-left: 20px; font-size: 25px;">Impressum</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="Register/Login/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>
+          <?php
+            if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
+              echo '<a class="nav-link" href="Register/Login/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
+            } else {
+            echo '<script type="text/javascript">';
+            echo 'alert("Sie müssen sich erst einloggen!");';
+            echo '</script>';
+            }
+          ?>        
         </li>
       </ul>
     </div>
