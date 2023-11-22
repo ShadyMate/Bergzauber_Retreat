@@ -25,6 +25,10 @@ body {
     justify-content: space-between;
     position: relative;
 }
+aside{
+    float: right;
+    text-align: center;
+}
 input[type="text"], input[type="password"], input[type="submit"], input[type="email"] {
     padding: 10px;
     border: 1px solid #ccc;

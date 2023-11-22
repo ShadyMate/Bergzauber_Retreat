@@ -19,7 +19,7 @@ session_start();
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="../../homepage.php"><img src="../../../res/img/Logoneu.png" alt="Logo" width="50" height="50">Home</a>
+    <a class="navbar-brand" href="../../homepage.php"><img src="../../../res/img/Logo.png" alt="Logo" width="50" height="50">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,7 +32,7 @@ session_start();
           <a class="nav-link" href="login.php">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../hilfe.php">Hilfe</a>
+          <a class="nav-link" href="../../faq.php">Hilfe</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../impressum.php">Impressum</a>
