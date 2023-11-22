@@ -32,11 +32,15 @@ body {
     justify-content: space-between;
     position: relative;
 }
+.hotelname{
+     font-size: 7em;
+ }
+
 aside{
     float: right;
     text-align: center;
 }
-input[type="text"], input[type="password"], input[type="submit"], input[type="email"] {
+input[type="text"], input[type="password"], input[type="submit"], input[type="email"], select{
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -82,9 +86,8 @@ input[type="checkbox"]:checked:hover {
 .navbar{
     font-family: Copperplate, fantasy;
 }
-.hotelname{
-    font-size: 7em;
-    color: white;
+nav{
+    margin-bottom: 2em;
 }
 
 footer {

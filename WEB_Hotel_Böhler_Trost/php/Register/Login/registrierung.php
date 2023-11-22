@@ -13,10 +13,44 @@ session_start();
 </head>
 <body>
 <header>
-    <h2>Registrieren</h2>
-    <h4>Bereits registriert? <br> Hier gehts zum <a href="login.php">Login</a>!</h4>
+    <h1>Registrierung</h1>
 </header>
-<section>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../../homepage.php"><img src="../../../res/img/Logo.png" alt="Logo" width="50" height="50">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="registrierung.php" style="font-size: 25px;">Registrierung</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php" style="padding-left: 20px; font-size: 25px;">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../faq.php" style="padding-left: 20px; font-size: 25px;">Hilfe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../impressum.php" style="padding-left: 20px; font-size: 25px;">Impressum</a>
+                </li>
+                <li class="nav-item">
+                    <?php
+                    if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
+                        echo '<a class="nav-link" href="Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
+                    } else {
+                        echo '<script type="text/javascript">';
+                        echo 'alert("Sie müssen sich erst einloggen!");';
+                        echo '</script>';
+                    }
+                    ?>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<form class="text-center">
     <form method="post">
         <label for="anrede">Anrede:</label><br>
         <select id="anrede" name="anrede">
@@ -41,7 +75,7 @@ session_start();
         <input type="submit" name="submit" value="Absenden"><br><br>
         <input type="reset">
     </form>
-</section>
+</form>
 <?php
         if(isset($_POST['submit'])) {
         $_SESSION["firstname"] = $_POST['fname'];
@@ -69,15 +103,6 @@ session_start();
         } 
         ?>
 <br>
-<footer>
-    <div>
-        <a href="../../homepage.php">Homepage</a> ||
-        <a href="../../impressum.php">Impressum</a> ||
-        <a href="../../faq.php">Hilfe</a>
-    </div>
-</footer>
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
