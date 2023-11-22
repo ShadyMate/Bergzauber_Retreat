@@ -5,6 +5,13 @@ h1 {
     padding-bottom: 0.02em;
     font-size: 7em;
 }
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
 form{
     background-color: white;
     border-style: groove;
