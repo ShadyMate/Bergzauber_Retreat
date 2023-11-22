@@ -1,5 +1,37 @@
 <?php
 session_start();
+if(isset($_POST['submit'])) {
+$_SESSION["firstname"] = $_POST['fname'];
+$_SESSION["lastname"] = $_POST['lname'];
+$_SESSION["email"] = $_POST['email'];
+$_SESSION["username"] = $_POST['username'];
+$_SESSION["pword"] = $_POST['pword'];
+$_SESSION["pwordconfirm"] = $_POST['pwordconfirm'];
+$_SESSION["registriert"] = $_POST['username'];
+if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //passwort muss gleich sein
+    echo '<script type="text/javascript">';
+    echo 'alert("Passwort stimmt nicht überein!");';
+    echo '</script>';
+} else if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") { //wenn sich admin registriert
+    echo '<script type="text/javascript">';
+    echo 'alert("Sie haben sich erfolgreich registriert!");';
+    echo 'window.location.href = "../php/index.php";';
+    echo '</script>';
+} else if($_SESSION["registriert"] == "user" && $_SESSION["pword"] == "1234") { //wenn sich jemand registriert
+    echo '<script type="text/javascript">';
+    echo 'alert("Sie haben sich erfolgreich registriert!");';
+    echo 'window.location.href = "../php/index.php";';
+    echo '</script>';
+}
+else { //wenn nicht "admin" eingegebn wird
+    echo '<script type="text/javascript">';
+    echo 'alert("Etwas ist schiefgelaufen! Versuche Sie es erneut.");';
+    echo '</script>';
+}
+} 
+$cookie_name = "user";
+$cookie_value = $_POST["username"];
+setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // cookie hält für einen tag
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -38,37 +70,6 @@ session_start();
         <input type="reset">
     </form>
 </section>
-    <?php
-        if(isset($_POST['submit'])) {
-        $_SESSION["firstname"] = $_POST['fname'];
-        $_SESSION["lastname"] = $_POST['lname'];
-        $_SESSION["email"] = $_POST['email'];
-        $_SESSION["username"] = $_POST['username'];
-        $_SESSION["pword"] = $_POST['pword'];
-        $_SESSION["pwordconfirm"] = $_POST['pwordconfirm'];
-        $_SESSION["registriert"] = $_POST['username'];
-        if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //passwort muss gleich sein
-            echo '<script type="text/javascript">';
-            echo 'alert("Passwort stimmt nicht überein!");';
-            echo '</script>';
-        } else if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") { //wenn sich admin registriert
-            echo '<script type="text/javascript">';
-            echo 'alert("Sie haben sich erfolgreich registriert!");';
-            echo 'window.location.href = "../php/index.php";';
-            echo '</script>';
-        } else if($_SESSION["registriert"] == "user" && $_SESSION["pword"] == "1234") { //wenn sich jemand registriert
-            echo '<script type="text/javascript">';
-            echo 'alert("Sie haben sich erfolgreich registriert!");';
-            echo 'window.location.href = "../php/index.php";';
-            echo '</script>';
-        }
-        else { //wenn nicht "admin" eingegebn wird
-            echo '<script type="text/javascript">';
-            echo 'alert("Etwas ist schiefgelaufen! Versuche Sie es erneut.");';
-            echo '</script>';
-        }
-        } 
-        ?>
     <br>
 <?php
     include "footer.php";

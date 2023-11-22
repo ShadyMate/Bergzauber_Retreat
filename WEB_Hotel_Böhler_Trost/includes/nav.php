@@ -29,6 +29,9 @@
           <a class="nav-link" href="../includes/impressum.php" style="padding-left: 20px; font-size: 25px;">Impressum</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="../includes/news.php" style="padding-left: 20px; font-size: 25px;">News</a>
+        </li>
+        <li class="nav-item">
       </li>
       </ul>
     </div>
