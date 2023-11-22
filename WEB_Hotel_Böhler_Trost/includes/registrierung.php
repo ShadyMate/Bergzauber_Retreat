@@ -1,14 +1,11 @@
 <?php
 session_start();
 ?>
-echo '<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Login</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+    <title>Registrierung</title>
+  <?php include "../includes/header.php"; ?>
 </head>
 <body>
 <header>
@@ -57,12 +54,12 @@ echo '<!DOCTYPE html>
         } else if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") { //wenn sich admin registriert
             echo '<script type="text/javascript">';
             echo 'alert("Sie haben sich erfolgreich registriert!");';
-            echo 'window.location.href = "../../homepage.php";';
+            echo 'window.location.href = "../php/index.php";';
             echo '</script>';
         } else if($_SESSION["registriert"] == "user" && $_SESSION["pword"] == "1234") { //wenn sich jemand registriert
             echo '<script type="text/javascript">';
             echo 'alert("Sie haben sich erfolgreich registriert!");';
-            echo 'window.location.href = "../../homepage.php";';
+            echo 'window.location.href = "../php/index.php";';
             echo '</script>';
         }
         else { //wenn nicht "admin" eingegebn wird
@@ -73,16 +70,11 @@ echo '<!DOCTYPE html>
         } 
         ?>
     <br>
-<footer>
-    <div>
-        <a href="../../homepage.php">Homepage</a> ||
-        <a href="../../impressum.php">Impressum</a> ||
-        <a href="../../faq.php">Hilfe</a>
-    </div>
-</footer>
+<?php
+    include "footer.php";
+?>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-</html>';
-?>
+</html>

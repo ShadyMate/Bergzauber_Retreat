@@ -1,38 +1,74 @@
 <?php
 session_start();
+
+    $frühstück = isset($_POST['frühstück']) ? $_POST['frühstück'] : 0;
+    $parkplatz = isset($_POST['parkplatz']) ? $_POST['parkplatz'] : 0;
+    $haustiere = isset($_POST['haustiere']) ? $_POST['haustiere'] : 0;
+    $_SESSION["gesamtkosten"] = 0;
+    $_SESSION["anreise"] = $_POST['arrival'] ?? '';
+    $_SESSION["abreise"] = $_POST['departure'] ?? '';
+    $_SESSION["reservierung"] = 0;
+    
+
+    if(isset($_POST['submit'])) {
+        $_SESSION["gesamtkosten"] = $_SESSION["kosten"] + $frühstück + $parkplatz + $haustiere;
+        //echo $gesamtkosten;
+        $_SESSION["reservierung"] = 1;
+        echo '<script type="text/javascript">';
+        echo 'alert("Die Buchung war erolgreich!");'; 
+        echo 'window.location.href = "../php/index.php";';
+        echo '</script>';
+        if ($frühstück != 0) {
+            $_SESSION["frühstück"] = "Ihnen wird ein köstliches Frühstück gebracht." ??'';
+        }
+        if ($parkplatz != 0) {
+            $_SESSION["parkplatz"] = "Ihnen wird ein Parkplatz reserviert." ??'';
+        }
+        if ($haustiere != 0) {
+            $_SESSION["haustier"] = "Für Ihre Haustiere wird gesorgt." ??'';
+        }
+    }
 ?>
-echo '<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>homepage</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Buchung</title>
+    <?php include "../includes/header.php"; ?>
+
 </head>
 <body>
     <?php
      if(isset($_GET['kosten'])) {
         $_SESSION["kosten"] = $_GET['kosten'];
      }
-     echo $_SESSION["kosten"];
      ?>
-    <form>
-    <label for="kosten"><?php 'Dieses Zimmer kostet '; 
+    <form method="post">
+    <label for="kosten">Dieses Zimmer kostet <?php 
     echo $_SESSION["kosten"]; 
     ?>
      Euro</label>
     <br>
     <br>
-    <input type="checkbox" id="frühstück" name="frühstück">
+    <label for="arrival">Anreisedatum:</label><br>
+    <input type="date" id="arrival" name="arrival" required><br>
+    <label for="departure">Abreisedatum:</label><br>
+    <input type="date" id="departure" name="departure" required><br>
+    <input type="checkbox" id="frühstück" name="frühstück" value="10">
     <label for="frühstück"> Frühstück (+10 Euro)</label><br>
-    <input type="checkbox" id="parkplatz" name="parkplatz">
+    <input type="checkbox" id="parkplatz" name="parkplatz" value="25">
     <label for="parkplatz"> Parkplatz (+25 Euro)</label><br>
-    <input type="checkbox" id="haustiere" name="haustiere">
+    <input type="checkbox" id="haustiere" name="haustiere" value="20">
     <label for="haustiere"> Mitnahme von Haustieren (+20 Euro)</label><br>
-    <input type="submit" value="Reservieren">
+    <input type="submit" name="submit" value="Reservieren">
     </form>
+
+    <script>
+        document.getElementById('departure').min = new Date().toISOString().split("T")[0];
+        document.getElementById('arrival').addEventListener('change', function() {
+        document.getElementById('departure').min = document.getElementById('arrival').value;
+        });
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

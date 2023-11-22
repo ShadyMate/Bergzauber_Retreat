@@ -7,10 +7,20 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="../includes/registrierung.php" style="font-size: 25px;">Registrierung</a>
+        <?php
+       if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin" || ($_SESSION["registriert"] == "user") && $_SESSION["pword"] == "1234") {
+              echo '<a class="nav-link" href="../includes/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
+       } else {
+        echo '<a class="nav-link" href="../includes/registrierung.php" style="font-size: 25px;">Registrierung</a>';
+       }
+       ?>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../includes/login.php" style="padding-left: 20px; font-size: 25px;">Login</a>
+          <?php
+        if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin" || ($_SESSION["registriert"] == "user") && $_SESSION["pword"] == "1234") {
+          echo '<a class="nav-link" href="../includes/login.php" style="padding-left: 20px; font-size: 25px;">Login</a>';
+        }
+          ?>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../includes/faq.php" style="padding-left: 20px; font-size: 25px;">Hilfe</a>
@@ -19,11 +29,6 @@
           <a class="nav-link" href="../includes/impressum.php" style="padding-left: 20px; font-size: 25px;">Impressum</a>
         </li>
         <li class="nav-item">
-          <?php
-       if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
-              echo '<a class="nav-link" href="Register/Login/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
-       }
-       ?>
       </li>
       </ul>
     </div>
