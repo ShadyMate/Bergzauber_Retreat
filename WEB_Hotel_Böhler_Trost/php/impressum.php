@@ -11,15 +11,17 @@ session_start();
   <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
   <style>
       nav{
-          margin-bottom: 2em;
+          margin-bottom: 1em;
       }
       #main-body{
           width: 70%;
+          margin: 1em;
       }
       #sidebar{
           width: 30%;
           display: flex;
           flex-direction: column;
+          margin: 1em;
       }
       .split{
           display: flex;
