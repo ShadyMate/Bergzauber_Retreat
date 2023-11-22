@@ -73,7 +73,7 @@ session_start();
     <div>
         <a href="../../homepage.php">Homepage</a> ||
         <a href="../../impressum.php">Impressum</a> ||
-        <a href="../../hilfe.php">Hilfe</a>
+        <a href="../../faq.php">Hilfe</a>
     </div>
 </footer>
 

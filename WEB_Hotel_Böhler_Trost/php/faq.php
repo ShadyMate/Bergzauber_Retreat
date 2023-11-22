@@ -16,7 +16,7 @@ session_start();
     <h1>Hilfe-Seite</h1>
 </header>
 
-<article>
+<form>
     <h3>FAQ</h3>
     <section>
         <p>Frage1: Antwort1</p>
@@ -27,17 +27,15 @@ session_start();
     <section>
         <p>Bei weiteren Fragen wenden sie sich an:<a href="mailto:if23b274@technikum-wien.at">if23b274@technikum-wien.at</a> </p>
     </section>
-</article>
-
-<footer>
-    <div>
-        <a href="homepage.php">Homepage</a> ||
-        <a href="Register/Login/login.php">Login</a> ||
-        <a href="Register/Login/registrierung.php">Registrierung</a> ||
-        <a href="impressum.php">Impressum</a>
-    </div>
-  </footer>
-
+    <footer>
+        <div>
+            <a href="homepage.php">Homepage</a> ||
+            <a href="Register/Login/login.php">Login</a> ||
+            <a href="Register/Login/registrierung.php">Registrierung</a> ||
+            <a href="impressum.php">Impressum</a>
+        </div>
+    </footer>
+</form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
