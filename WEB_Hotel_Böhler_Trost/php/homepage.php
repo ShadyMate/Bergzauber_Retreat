@@ -18,7 +18,6 @@ session_start();
     <h1 class="hotelname">Bergzauber Retreat</h1>
 </header>
 <body>
-        
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="homepage.php"><img src="../../WEB_Hotel_Böhler_Trost/res/img/Logoneu.png" alt="Logo" width="50" height="50">Home</a>
