@@ -47,11 +47,11 @@ session_start();
                     <?php
                     if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
                         echo '<a class="nav-link" href="Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
-                    } else {
-                        echo '<script type="text/javascript">';
-                        echo 'alert("Sie müssen sich erst einloggen!");';
-                        echo '</script>';
-                    }
+                    } //else {
+                        //echo '<script type="text/javascript">';
+                        //echo 'alert("Sie müssen sich erst einloggen!");';
+                        //echo '</script>';
+                   // }
                     ?>
                 </li>
             </ul>
@@ -62,8 +62,6 @@ session_start();
     <form method="post" class="text-center">
         <?php
         if(isset($_POST['submit'])) {
-            //$user = $_POST['username'];
-            //$password = $_POST['pword'];
             $_SESSION["username"] = $_POST['username'];
             $_SESSION["pword"] = $_POST['pword'];
             if($_SESSION["username"] =="admin" && $_SESSION["pword"] == "admin") { //alert für richtige eingabe und leitet auf homepage weiter
