@@ -1,15 +1,14 @@
 <?php
 session_start();
-?>
 
-<!DOCTYPE html>
+echo '<!DOCTYPE html>
 <html lang="de">
 <head>
+    <title>Login</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1.0">
-    <title>register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../../css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
 </head>
 <body>
 <header>
@@ -41,8 +40,7 @@ session_start();
         <input type="submit" name="submit" value="Absenden"><br><br>
         <input type="reset">
     </form>
-</section>
-<?php
+</section>';
         if(isset($_POST['submit'])) {
         $_SESSION["firstname"] = $_POST['fname'];
         $_SESSION["lastname"] = $_POST['lname'];
@@ -50,25 +48,29 @@ session_start();
         $_SESSION["username"] = $_POST['username'];
         $_SESSION["pword"] = $_POST['pword'];
         $_SESSION["pwordconfirm"] = $_POST['pwordconfirm'];
-        //echo $_SESSION["username"];
-        //echo $_SESSION["pword"];
+        $_SESSION["registriert"] = $_POST['username'];
         if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //passwort muss gleich sein
             echo '<script type="text/javascript">';
             echo 'alert("Passwort stimmt nicht überein!");';
             echo '</script>';
-        } else if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") { //wenn daten richtig eingegeben werden
+        } else if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") { //wenn sich admin registriert
             echo '<script type="text/javascript">';
             echo 'alert("Sie haben sich erfolgreich registriert!");';
             echo 'window.location.href = "../../homepage.php";';
             echo '</script>';
-        } else { //wenn nicht "admin" eingegebn wird
+        } else if($_SESSION["registriert"] == "user" && $_SESSION["pword"] == "1234") { //wenn sich jemand registriert
+            echo '<script type="text/javascript">';
+            echo 'alert("Sie haben sich erfolgreich registriert!");';
+            echo 'window.location.href = "../../homepage.php";';
+            echo '</script>';
+        }
+        else { //wenn nicht "admin" eingegebn wird
             echo '<script type="text/javascript">';
             echo 'alert("Etwas ist schiefgelaufen! Versuche Sie es erneut.");';
             echo '</script>';
         }
         } 
-        ?>
-<br>
+echo '<br>
 <footer>
     <div>
         <a href="../../homepage.php">Homepage</a> ||
@@ -80,4 +82,5 @@ session_start();
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-</html>
+</html>';
+?>

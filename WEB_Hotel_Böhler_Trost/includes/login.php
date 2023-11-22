@@ -9,7 +9,7 @@ echo '<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
     <style>
         h1{
             font-size: 6em;
@@ -31,18 +31,23 @@ echo '<!DOCTYPE html>
 </nav>
 <div class="container">
     <form method="post" class="text-center">';
-<form class="text-center">
-    <form method="post" class="text-center">
-        <?php
+echo '<form class="text-center">
+    <form method="post" class="text-center">';
         if(isset($_POST['submit'])) {
             $_SESSION["username"] = $_POST['username'];
             $_SESSION["pword"] = $_POST['pword'];
-            if($_SESSION["username"] =="admin" && $_SESSION["pword"] == "admin") { //alert für richtige eingabe und leitet auf homepage weiter
+            if($_SESSION["username"] =="admin" && $_SESSION["pword"] == "admin") { //alert für richtige eingabe und leitet auf homepage weiter --> als admin eingeloggt
             echo '<script type="text/javascript">';
             echo 'alert("Herzlich Willkommen!");';
             echo 'window.location.href = "../../homepage.php";';
             echo '</script>';
-        } else { //alert falls der user nicht die richtigen daten eingibt
+        } else if($_SESSION["registriert"] =="user" && $_SESSION["pword"] == "1234") {
+            echo '<script type="text/javascript">';
+            echo 'alert("Herzlich Willkommen!");';
+            echo 'window.location.href = "../../homepage.php";';
+            echo '</script>';
+        }
+        else { //alert falls der user nicht die richtigen daten eingibt
             echo '<script type="text/javascript">';
             echo 'alert("Etwas ist schief gelaufen!");'; 
             echo '</script>';

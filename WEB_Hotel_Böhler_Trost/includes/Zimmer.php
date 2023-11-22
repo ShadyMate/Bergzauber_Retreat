@@ -10,7 +10,7 @@ echo '<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
@@ -24,24 +24,24 @@ echo '<!DOCTYPE html>
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/res/img/zimmer5.jpg" class="d-block w-100" alt="...">
+      <img src="../res/img/zimmer5.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Um dieses Zimmer zu Buchen klicken Sie <a href="Zimmerbuchen.php?kosten=75">hier</a></p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/res/img/zimmer2.jpg" class="d-block w-100" alt="...">
+      <img src="../res/img/zimmer2.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
-        <p>Um dieses Zimmer zu Buchen klicken Sie <a href="Zimmerbuchen.php">hier</a></p>
+        <p>Um dieses Zimmer zu Buchen klicken Sie <a href="Zimmerbuchen.php?kosten=60">hier</a></p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/res/img/zimmer3.jpg" class="d-block w-100" alt="...">
+      <img src="../res/img/zimmer3.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
-        <p>Um dieses Zimmer zu Buchen klicken Sie <a href="Zimmerbuchen.php">hier</a></p>
+        <p>Um dieses Zimmer zu Buchen klicken Sie <a href="Zimmerbuchen.php?kosten=100">hier</a></p>
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@ echo '<div class="row row-cols-1 row-cols-md-3 g-4" style="width: 95%; margin: 0
     <div class="card-body">
       <h5 class="card-title">Zimmer Buchen.</h5>
       <p class="card-text">Hier finden Sie alle Angebote, sowie Infos zur Buchung</p>
-      <a href="includes/Zimmer.php" class="btn btn-primary">Click me</a>
+      <a href="../includes/Zimmer.php" class="btn btn-primary">Click me</a>
     </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+$calling_file = basename($_SERVER['PHP_SELF']);
 if (!isset($_SESSION["username"])) {
   $_SESSION["username"] = "";
 }
@@ -24,8 +25,8 @@ if (!isset($_SESSION["pword"])) {
     <h1 class="hotelname">Bergzauber Retreat</h1>
 </header>
 <body>
-  <?php include 'includes/nav.php'; ?>
-  <?php include 'includes/cards.php'; ?>
+  <?php include '../includes/nav.php'; ?>
+  <?php include '../includes/cards.php'; ?>
     
     
 
