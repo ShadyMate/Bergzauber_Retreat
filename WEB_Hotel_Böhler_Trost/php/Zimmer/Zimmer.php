@@ -15,7 +15,6 @@ session_start();
 </head>
 <body>
     <p>Hier sehen Sie die Auswahl an Zimmern in unserem Hotel.</p>
-    <a href="Zimmerbuchen.php">Klicken Sie hier, um dieses Zimmer zu buchen.</a>
     <!-- carousel einbauen mit verschiedenen zimmer -->
 
 <div class="container">
@@ -27,17 +26,17 @@ session_start();
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/res/img/zimmer1.jpg" class="d-block w-100" alt="...">
+      <img src="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/res/img/zimmer5.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+        <p>Um dieses Zimmer zu Buchen klicken Sie <a href="Zimmerbuchen.php">hier</a></p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/res/img/zimmer2.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
+        <p>Um dieses Zimmer zu Buchen klicken Sie <a href="Zimmerbuchen.php">hier</a></p>
       </div>
     </div>
     <div class="carousel-item">
