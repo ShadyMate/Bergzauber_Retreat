@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+?>
 echo '<!DOCTYPE html>
 <html lang="de">
 <head>
@@ -40,7 +40,8 @@ echo '<!DOCTYPE html>
         <input type="submit" name="submit" value="Absenden"><br><br>
         <input type="reset">
     </form>
-</section>';
+</section>
+    <?php
         if(isset($_POST['submit'])) {
         $_SESSION["firstname"] = $_POST['fname'];
         $_SESSION["lastname"] = $_POST['lname'];
@@ -70,7 +71,8 @@ echo '<!DOCTYPE html>
             echo '</script>';
         }
         } 
-echo '<br>
+        ?>
+    <br>
 <footer>
     <div>
         <a href="../../homepage.php">Homepage</a> ||

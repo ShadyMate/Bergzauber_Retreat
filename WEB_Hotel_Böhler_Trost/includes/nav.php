@@ -1,5 +1,4 @@
-<?php
-echo '<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="../php/index.php"><img src="../res/img/Logo.png" alt="Logo" width="50" height="50">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,13 +18,14 @@ echo '<nav class="navbar navbar-expand-lg bg-body-tertiary">
         <li class="nav-item">
           <a class="nav-link" href="../includes/impressum.php" style="padding-left: 20px; font-size: 25px;">Impressum</a>
         </li>
-        <li class="nav-item">';
+        <li class="nav-item">
+          <?php
        if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
               echo '<a class="nav-link" href="Register/Login/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
        }
-      echo '</li>
+       ?>
+      </li>
       </ul>
     </div>
   </div>
-</nav>';
-?>
+</nav>

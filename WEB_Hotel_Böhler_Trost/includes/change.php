@@ -1,7 +1,31 @@
 <?php
 session_start();
 
-echo '<!DOCTYPE html>
+unset($_SESSION["firstname"]);
+unset($_SESSION["lastname"]);
+unset($_SESSION["email"]);
+unset($_SESSION["username"]);
+unset($_SESSION["registriert"]);
+if(isset($_POST['change'])) {
+$_SESSION["firstname"] = $_POST['fname'];
+$_SESSION["lastname"] = $_POST['lname'];
+$_SESSION["email"] = $_POST['email'];
+$_SESSION["username"] = $_POST['username'];
+if($_SESSION["pword"] != $_POST["pword"]) {
+    echo '<script type="text/javascript">';
+    echo 'alert("Falsches Passwort!");'; 
+    echo '</script>';
+}
+else if($_SESSION["pword"] == $_POST["pword"]) {
+    $_SESSION["pword"] = $_POST["newpword"];
+    echo '<script type="text/javascript">';
+    echo 'alert("Daten erfolgreich geändert!");'; 
+    echo 'window.location.href = "http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php";';
+    echo '</script>';
+}
+}
+?>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -60,32 +84,9 @@ echo '<!DOCTYPE html>
     <input type="password" id="newpword" name="newpword" required>
     <br><br>
     <input type="submit" id="change" name="change" value="Bestätigen">';
-        unset($_SESSION["firstname"]);
-        unset($_SESSION["lastname"]);
-        unset($_SESSION["email"]);
-        unset($_SESSION["username"]);
-        if(isset($_POST['change'])) {
-        $_SESSION["firstname"] = $_POST['fname'];
-        $_SESSION["lastname"] = $_POST['lname'];
-        $_SESSION["email"] = $_POST['email'];
-        $_SESSION["username"] = $_POST['username'];
-        if($_SESSION["pword"] != $_POST["pword"]) {
-            echo '<script type="text/javascript">';
-            echo 'alert("Falsches Passwort!");'; 
-            echo '</script>';
-        }
-        else if($_SESSION["pword"] == $_POST["pword"]) {
-            $_SESSION["pword"] = $_POST["newpword"];
-            echo '<script type="text/javascript">';
-            echo 'alert("Daten erfolgreich geändert!");'; 
-            echo 'window.location.href = "http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php";';
-            echo '</script>';
-        }
-    }
-    echo '</form>
+    </form>
     <br>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-</html>';
-?>
+</html>

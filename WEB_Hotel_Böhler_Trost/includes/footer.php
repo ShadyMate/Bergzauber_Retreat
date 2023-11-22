@@ -1,10 +1,9 @@
-<?php
-    echo '<footer>
+
+<footer>
     <div>
-        <a href="../index.php">Homepage</a> ||
-        <a href="Register/Login/login.php">Login</a> ||
-        <a href="Register/Login/registrierung.php">Registrierung</a> ||
-        <a href="impressum.php">Impressum</a>
+        <a href="../php/index.php">Homepage</a> ||
+        <a href="../includes/login.php">Login</a> ||
+        <a href="../includes/registrierung.php">Registrierung</a> ||
+        <a href="../includes/impressum.php">Impressum</a>
     </div>
-</footer>';
-?>
+</footer>

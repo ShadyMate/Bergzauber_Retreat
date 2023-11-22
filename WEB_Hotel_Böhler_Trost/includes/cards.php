@@ -1,5 +1,4 @@
-<?php
-echo '<div class="row row-cols-1 row-cols-md-3 g-4" style="width: 95%; margin: 0 auto">
+<div class="row row-cols-1 row-cols-md-3 g-4" style="width: 95%; margin: 0 auto">
 <div class="col" style="padding-top: 20px;">
   <div class="card h-100">
     <img src="../res/img/hotelzimmer.jpg" class="card-img-top" alt="Hotelzimmer">
@@ -28,5 +27,4 @@ echo '<div class="row row-cols-1 row-cols-md-3 g-4" style="width: 95%; margin: 0
     </div>
   </div>
 </div>
-</div>'
-?>
+</div>

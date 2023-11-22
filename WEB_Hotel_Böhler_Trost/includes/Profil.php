@@ -1,7 +1,8 @@
 <?php
 session_start();
+?>
 
-echo '<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +16,8 @@ echo '<!DOCTYPE html>
 <header>
     <h1 class="hotelname">Meine Profildaten</h1>
 </header>
-<body>'
+<body>
+    <?php
  include "nav.php";
     echo '<form method="post" class="formclass">
     <p>Vorname: <?php echo $_SESSION["firstname"]; ?></p>
@@ -28,12 +30,13 @@ echo '<!DOCTYPE html>
     }
     $password = $_SESSION["pword"];
     echo "Passwort: " . partialPassword($password);
-    echo '<br> <br>
+    ?>
+    <br>
+    <br>
     <a href="change.php">Hier klicken um Ihre Daten zu ändern.</a>
     </form>
     <br>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-</html>'
-?>
+</html>
