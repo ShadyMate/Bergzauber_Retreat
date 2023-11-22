@@ -22,7 +22,7 @@ if (!isset($_SESSION["pword"])) {
     <h1 class="hotelname">Bergzauber Retreat</h1>
 </header>
 <body>
-  
+
   <?php include '../includes/nav.php'; ?>
   <?php include '../includes/cards.php'; ?>
     

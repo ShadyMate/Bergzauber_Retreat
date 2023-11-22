@@ -15,12 +15,12 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
 } else if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") { //wenn sich admin registriert
     echo '<script type="text/javascript">';
     echo 'alert("Sie haben sich erfolgreich registriert!");';
-    echo 'window.location.href = "../php/index.php";';
+    echo 'window.location.href = "login.php";';
     echo '</script>';
 } else if($_SESSION["registriert"] == "user" && $_SESSION["pword"] == "1234") { //wenn sich jemand registriert
     echo '<script type="text/javascript">';
     echo 'alert("Sie haben sich erfolgreich registriert!");';
-    echo 'window.location.href = "../php/index.php";';
+    echo 'window.location.href = "login.php";';
     echo '</script>';
 }
 else { //wenn nicht "admin" eingegebn wird

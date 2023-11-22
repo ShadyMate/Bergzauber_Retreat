@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $_FILES["fileToUpload"] ??'';
 ?>
 
 <!DOCTYPE html>
@@ -12,49 +13,54 @@
     <h1>News</h1>
 <?php include '../includes/nav.php'; ?>
 <?php
-// a. Beitragsanzeige
-$beitraege = array(
-    array("titel" => "Beitrag 1", "inhalt" => "Inhalt 1", "bild" => "bild1.jpg"),
-    array("titel" => "Beitrag 2", "inhalt" => "Inhalt 2", "bild" => "bild2.jpg"),
-    // Fügen Sie hier weitere Beiträge hinzu...
-);
+$target_dir = "../uploads/news/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-// Sortieren Sie die Beiträge nach Datum, neueste zuerst (angenommen, es gibt ein 'datum' Feld)
-//usort($beitraege, function($a, $b) {
-   // return $b['datum'] <=> $a['datum'];
-//});
-
-foreach ($beitraege as $beitrag) {
-    echo "<div class='beitrag'>";
-    echo "<h2>{$beitrag['titel']}</h2>";
-    echo "<img src='thumbnails/{$beitrag['bild']}' alt='{$beitrag['titel']}'>";
-    echo "<p>{$beitrag['inhalt']}</p>";
-    echo "</div>";
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+  if($check !== false) {
+    echo "File is an image - " . $check["mime"] . ".";
+    $uploadOk = 1;
+  } else {
+    echo "File is not an image.";
+    $uploadOk = 0;
+  }
 }
 
-// b. File-Upload
-if (isset($_FILES['fileToUpload'])) {
-    $target_dir = "../uploads/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if file already exists
+if (file_exists($target_file)) {
+  echo "Sorry, file already exists.";
+  $uploadOk = 0;
+}
 
-    // Überprüfen Sie, ob die Datei ein Bild ist
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    if($check !== false) {
-        // Datei ist ein Bild, versuchen Sie, es hochzuladen
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            // Erstellen Sie ein Thumbnail und speichern Sie es in einem separaten Verzeichnis
-            createThumbnail($target_file, "thumbnails/" . basename($target_file), 200, 200); //neuen ordner für thumbnails erstellen
-            echo "Die Datei ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " wurde hochgeladen.";
-        } else {
-            echo "Es gab einen Fehler beim Hochladen Ihrer Datei.";
-        }
-    } else {
-        echo "Datei ist kein Bild.";
-    }
+// Check file size
+if ($_FILES["fileToUpload"]["size"] > 5000000) {
+  echo "Sorry, your file is too large.";
+  $uploadOk = 0;
+}
+
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  $uploadOk = 0;
+}
+
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+  echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+  } else {
+    echo "Sorry, there was an error uploading your file.";
+  }
 }
 ?>
-
 
 <form enctype="multipart/form-data" method="post">
     <input type="file" name="fileToUpload" id="fileToUpload">

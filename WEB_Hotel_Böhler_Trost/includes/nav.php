@@ -1,3 +1,16 @@
+<?php
+$calling_file = basename($_SERVER['PHP_SELF']);
+if (!isset($_SESSION["username"])) {
+  $_SESSION["username"] = "";
+}
+if (!isset($_SESSION["registriert"])) {
+  $_SESSION["registriert"] = "";
+}
+if (!isset($_SESSION["pword"])) {
+  $_SESSION["pword"] = "";
+}
+?>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="../php/index.php"><img src="../res/img/Logo.png" alt="Logo" width="50" height="50">Home</a>
@@ -23,7 +36,7 @@
           ?>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../includes/faq.php" style="padding-left: 20px; font-size: 25px;">Hilfe</a>
+          <a class="nav-link" href="../includes/impressum.php" style="padding-left: 20px; font-size: 25px;">Hilfe</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../includes/impressum.php" style="padding-left: 20px; font-size: 25px;">Impressum</a>
