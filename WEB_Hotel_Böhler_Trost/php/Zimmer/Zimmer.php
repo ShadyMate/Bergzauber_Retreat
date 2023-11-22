@@ -16,16 +16,5 @@ session_start();
 <body>
     <p>Hier sehen Sie die Auswahl an Zimmern in unserem Hotel.</p>
     <a href="Zimmerbuchen.php">Klicken Sie hier, um dieses Zimmer zu buchen.</a>
-    <?php
-        if(isset($_SESSION)) {
-            $user = $_POST['username'];
-            $password = $_POST['pword'];
-        if($user =="admin" && $password == "admin") {
-            echo "Erfolgreich eingeloggt! <br>";
-        } else {
-            echo "Benutzername oder Passwort ist falsch! <br>";
-        }
-        }
-    ?>
 </body>
 </html>

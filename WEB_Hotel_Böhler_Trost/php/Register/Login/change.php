@@ -44,21 +44,47 @@ session_start();
     </div>
   </div>
 </nav>
+
     <form method="post" class="formclass">
-    <p>Vorname: <?php echo $_SESSION["firstname"]; ?></p>
-    <p>Nachname: <?php echo $_SESSION["lastname"]; ?></p>
-    <p>Email: <?php echo $_SESSION["email"]; ?></p>
-    <p>Username: <?php echo $_SESSION["username"]; ?></p>
+    <label for="fname">Vorname:</label><br> 
+    <input type="text" id="fname" name="fname" required><br>
+    <label for="lname">Nachname:</label><br>
+    <input type="text" id="lname" name="lname" required><br>
+    <label for="email">E-Mail:</label><br>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" required><br>
+    <label for="pword">Altes Passwort:</label><br>
+    <input type="password" id="pword" name="pword" required><br>
+    <label for="pwordconfirm">Neues Passwort </label><br>
+    <input type="password" id="newpword" name="newpword" required>
+    <br><br>
+    <input type="submit" id="change" name="change" value="Bestätigen">
     <?php
-      function partialPassword($password, $show = 2, $char = '*') { //die fkt zeigt das passwort nur zum Teil an
-        $length = strlen($password);
-        return substr($password, 0, $show) . str_repeat($char, $length - $show);
+        unset($_SESSION["firstname"]);
+        unset($_SESSION["lastname"]);
+        unset($_SESSION["email"]);
+        unset($_SESSION["username"]);
+        if(isset($_POST['change'])) {
+        $_SESSION["firstname"] = $_POST['fname'];
+        $_SESSION["lastname"] = $_POST['lname'];
+        $_SESSION["email"] = $_POST['email'];
+        $_SESSION["username"] = $_POST['username'];
+        if($_SESSION["pword"] != $_POST["pword"]) {
+            echo '<script type="text/javascript">';
+            echo 'alert("Falsches Passwort!");'; 
+            echo '</script>';
+        }
+        else if($_SESSION["pword"] == $_POST["pword"]) {
+            $_SESSION["pword"] = $_POST["newpword"];
+            echo '<script type="text/javascript">';
+            echo 'alert("Daten erfolgreich geändert!");'; 
+            echo 'window.location.href = "Profil.php";';
+            echo '</script>';
+        }
     }
-    $password = $_SESSION["pword"];
-    echo "Passwort: " . partialPassword($password);
     ?>
-    <br> <br>
-    <a href="change.php">Hier klicken um Ihre Daten zu ändern.</a>
     </form>
     <br>
 
