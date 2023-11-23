@@ -40,7 +40,30 @@ session_start();
 include "nav.php";
 ?>
 <div class="split">
-    <form class="text-center" id="main-body">
+    
+
+    
+<style>
+.box {
+    flex: 1;
+    padding: 10px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+
+@media (min-width: 600px) {
+    .container {
+        flex-direction: row;
+    }
+}
+</style>
+<div class="container">
+    <div class="box">
+    <form>
     <h3 class="secondary-title">Bergzauber Retreat GMBH</h3>
     <section>
         <p>1220 Wien <br>
@@ -72,17 +95,16 @@ include "nav.php";
     <section>
         <p>Bei weiteren Fragen wenden sie sich an unser <a href="faq.php">FAQ</a></p>
     </section>
-
+    </div>
+    <div class="box">
     </form>
-    <form class="text-center" id="sidebar">
-        <aside>
-            <h3 class="secondary-title">Administration</h3>
+    <form>
+            <h3>Administration</h3>
             <img class="picture" src="../res/img/Thomas.jpg" alt="Thomas Trost" height=auto width=auto>
             <p>Thomas Trost<br>Lead Webdevelopment</p>
             <img class="picture" src="../res/img/Luis.jpeg" alt="Luis Böhler" height=auto width=auto>
             <p>Luis Böhler <br>Lead Webdesign</p>
-        </aside>
-    </form>
+        </form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

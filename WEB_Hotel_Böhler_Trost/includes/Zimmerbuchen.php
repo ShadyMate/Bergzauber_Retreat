@@ -7,7 +7,9 @@ session_start();
     $_SESSION["gesamtkosten"] = 0;
     $_SESSION["anreise"] = $_POST['arrival'] ?? '';
     $_SESSION["abreise"] = $_POST['departure'] ?? '';
-    $_SESSION["reservierung"] ??'';
+    if (!isset($_SESSION["reservierung"])) {
+        $_SESSION["reservierung"] = "";
+      }
     
 
     if(isset($_POST['submit'])) {

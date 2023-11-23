@@ -125,3 +125,14 @@ footer {
 article{
     background-color: white;
 }
+
+.containermobile {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 600px) {
+    .container {
+        flex-direction: row;
+    }
+}

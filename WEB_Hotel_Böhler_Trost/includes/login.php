@@ -12,13 +12,13 @@ if (!isset($_SESSION["pword"])) {
 if(isset($_POST['submit'])) {
     $_SESSION["username"] = $_POST['username'];
     $_SESSION["pword"] = $_POST['pword'];
-    if($_SESSION["username"] =="admin" && $_SESSION["pword"] == "admin") { //alert für richtige eingabe und leitet auf homepage weiter → als admin eingeloggt
+    if($_SESSION["username"] =="admin" && $_SESSION["pword"] == "admin" && $_SESSION["success"] == "trueadmin") { //alert für richtige eingabe und leitet auf homepage weiter → als admin eingeloggt
     echo '<script type="text/javascript">';
     echo 'alert("Herzlich Willkommen!");';
     echo 'window.location.href = "../php/index.php";';
     echo '</script>';
     $_SESSION["loggedin"] = "true";
-} else if($_SESSION["registriert"] =="user" && $_SESSION["pword"] == "1234") { //alert als user angemeldet
+} else if($_SESSION["registriert"] =="user" && $_SESSION["pword"] == "1234" && $_SESSION["success"] == "trueuser") { //alert als user angemeldet
     echo '<script type="text/javascript">';
     echo 'alert("Herzlich Willkommen!");';
     echo 'window.location.href = "../php/index.php";';

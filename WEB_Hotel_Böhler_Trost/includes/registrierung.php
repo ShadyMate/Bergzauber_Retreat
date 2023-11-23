@@ -21,7 +21,7 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
     echo 'alert("Sie haben sich erfolgreich registriert!");';
     echo 'window.location.href = "login.php";';
     echo '</script>';
-    $_SESSION["success"] = "true";
+    $_SESSION["success"] = "trueadmin";
 } else if ($_SESSION["pword"] == "1234" && $_SESSION["pwordconfirm"] != "1234") { //passwort muss gleich sein
     echo '<script type="text/javascript">';
     echo 'alert("Passwort stimmt nicht überein!");';
@@ -32,7 +32,7 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
     echo 'alert("Sie haben sich erfolgreich registriert!");';
     echo 'window.location.href = "login.php";';
     echo '</script>';
-    $_SESSION["success"] = "true";
+    $_SESSION["success"] = "trueuser";
 } else { //wenn nicht "admin" eingegebn wird
     echo '<script type="text/javascript">';
     echo 'alert("Etwas ist schiefgelaufen! Versuche Sie es erneut.");';
