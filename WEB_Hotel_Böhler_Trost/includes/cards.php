@@ -1,5 +1,5 @@
 <div class="card-group">
-    <div class="card">
+    <div class="card" style="max-height: 100vh">
         <img class="card-img-top" src="../res/img/hotelzimmer.jpg" alt="Hotelzimmer">
         <div class="card-body text-center">
             <h5 class="card-title">Zimmerangebot</h5>
@@ -13,7 +13,7 @@
             ?>
         </div>
     </div>
-    <div class="card">
+    <div class="card" style="max-height: 100vh">
         <img class="card-img-top" src="../res/img/radfahren.jpg" alt="Radweg">
         <div class="card-body text-center">
             <h5 class="card-title">Aktivitäten</h5>
@@ -21,7 +21,7 @@
                 Hier finden sie einige beliebte Aktivitäten</p>
         </div>
     </div>
-    <div class="card">
+    <div class="card" style="max-height: 100vh">
         <img class="card-img-top" src="../res/img/Spaimagerezied.jpeg" alt="Spa" height="59%">
         <div class="card-body text-center">
             <h5 class="card-title">Unser Spa Angebot</h5>
