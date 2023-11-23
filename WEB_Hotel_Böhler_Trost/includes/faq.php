@@ -5,20 +5,19 @@ session_start();
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Login</title>
+    <title>FAQ</title>
   <?php include "../includes/header.php"; ?>
 </head>
-
 <body>
 <header>
-    <h1>Hilfe-Seite</h1>
+    <h1 class="title">FAQ</h1>
 </header>
-                    <?php
-                    include "nav.php";
-                    if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
-                        echo '<a class="nav-link" href="Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
-                    }
-                    ?>
+<?php
+include "nav.php";
+if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
+    echo '<a class="nav-link" href="Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
+}
+?>
 <div class="container">
     <form>
     <h3>FAQ</h3>

@@ -9,7 +9,7 @@ session_start();
     <?php include "../includes/header.php"; ?>
 </head>
 <header>
-    <h1 class="hotelname">Meine Profildaten</h1>
+    <h1 class="title">Meine Profildaten</h1>
 </header>
 <body>
     <?php

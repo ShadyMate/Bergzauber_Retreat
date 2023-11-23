@@ -19,7 +19,7 @@ if (!isset($_SESSION["pword"])) {
     <?php include "../includes/header.php"; ?>
 </head>
 <header>
-    <h1 class="hotelname">Bergzauber Retreat</h1>
+    <h1 class="maintitle">Bergzauber Retreat</h1>
 </header>
 <body>
 

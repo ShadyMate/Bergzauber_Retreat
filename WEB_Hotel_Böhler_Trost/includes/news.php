@@ -10,7 +10,7 @@
     <?php include "../includes/header.php"?>
 </head>
 <body>
-    <h1>News</h1>
+    <h1 class="title">News</h1>
 <?php include '../includes/nav.php'; ?>
 <?php
 $target_dir = "../uploads/news/";

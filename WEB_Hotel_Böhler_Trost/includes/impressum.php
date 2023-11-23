@@ -27,10 +27,9 @@ session_start();
       }
   </style>
 </head>
-
 <body>
 <header>
-  <h1>Impressum</h1>
+  <h1 class="title">Impressum</h1>
 </header>
 <?php
 include "nav.php";
@@ -73,9 +72,9 @@ include "nav.php";
     <form class="text-center" id="sidebar">
         <aside>
             <h3>Administration</h3>
-            <img src="../res/img/Thomas.jpg" alt="Thomas Trost" height="35%" width="30%">
+            <img src="../res/img/Thomas.jpg" alt="Thomas Trost" height="35%" width="90%">
             <p>Thomas Trost<br>Lead Webdevelopment</p>
-            <img src="../res/img/Luis.jpeg" alt="Luis Böhler" width="30%" height="30%">
+            <img src="../res/img/Luis.jpeg" alt="Luis Böhler" height="30%" width="90%">
             <p>Luis Böhler <br>Lead Webdesign</p>
         </aside>
     </form>

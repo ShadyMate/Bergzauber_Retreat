@@ -36,7 +36,7 @@ else { //alert falls der user nicht die richtigen daten eingibt
 </head>
 <body>
 <header>
-    <h1>Login</h1>
+    <h1 class="title">Login</h1>
 </header>
 <?php
 include "nav.php";
