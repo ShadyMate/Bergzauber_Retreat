@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_FILES["fileToUpload"] ??'';
+    $_FILES['fileToUpload'] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,10 @@
     <h1 class="title">News</h1>
 <?php include '../includes/nav.php'; ?>
 <?php
+$target_dir = "../uploads/news/";
+if(isset($_POST["submit"])) {
+  $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+  // rest of your code...
 $target_dir = "../uploads/news/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -59,6 +63,7 @@ if ($uploadOk == 0) {
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
+}
 }
 ?>
 

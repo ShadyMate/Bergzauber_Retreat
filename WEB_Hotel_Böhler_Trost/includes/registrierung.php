@@ -29,9 +29,9 @@ else { //wenn nicht "admin" eingegebn wird
     echo '</script>';
 }
 } 
-$cookie_name = "user";
-$cookie_value = $_POST["username"];
-setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // cookie hält für einen tag
+//$cookie_name = "user";
+//$cookie_value = $_POST["username"];
+//setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // cookie hält für einen tag
 ?>
 <!DOCTYPE html>
 <html lang="de">
