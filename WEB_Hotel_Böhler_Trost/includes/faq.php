@@ -14,9 +14,6 @@ session_start();
 </header>
 <?php
 include "nav.php";
-if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
-    echo '<a class="nav-link" href="Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
-}
 ?>
 <div class="container">
     <form>
