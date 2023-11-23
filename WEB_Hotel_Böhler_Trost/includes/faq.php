@@ -16,12 +16,46 @@ session_start();
 include "nav.php";
 ?>
 <div class="container">
-    <form>
-    <h3>FAQ</h3>
+    <form style="width: 1000px">
     <section>
-        <p>Frage1: Antwort1</p>
-        <p>Frage2: Antwort2</p>
-        <p>Frage3: Antwort3</p>
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        Wo ist das Hotel?
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+      <div class="accordion-body">
+        <strong>In den Alpen.</strong> 
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+        Wie viele Parkplätze gibt es?
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+      <div class="accordion-body">
+        <strong>Einen.</strong> 
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+        Kann ich auch meinen Goldfisch mitnehmen?
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+      <div class="accordion-body">
+        <strong>Ja können Sie.</strong> Wir haben selbstverständlich auch Fischfutter.
+      </div>
+    </div>
+  </div>
+</div>
     </section>
     <br>
     <section>
