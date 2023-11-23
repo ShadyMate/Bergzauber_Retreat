@@ -25,6 +25,9 @@ session_start();
           display: flex;
           flex-direction: row;
       }
+      body{
+          height: 150vh;
+      }
   </style>
 </head>
 <body>
@@ -72,9 +75,9 @@ include "nav.php";
     <form class="text-center" id="sidebar">
         <aside>
             <h3>Administration</h3>
-            <img src="../res/img/Thomas.jpg" alt="Thomas Trost" height="35%" width="90%">
+            <img class="picture" src="../res/img/Thomas.jpg" alt="Thomas Trost" height=auto width=auto>
             <p>Thomas Trost<br>Lead Webdevelopment</p>
-            <img src="../res/img/Luis.jpeg" alt="Luis Böhler" height="30%" width="90%">
+            <img class="picture" src="../res/img/Luis.jpeg" alt="Luis Böhler" height=auto width=auto>
             <p>Luis Böhler <br>Lead Webdesign</p>
         </aside>
     </form>

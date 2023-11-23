@@ -17,6 +17,11 @@ if (!isset($_SESSION["pword"])) {
 <head>
     <title>Bergzauber Retreat</title>
     <?php include "../includes/header.php"; ?>
+    <style>
+        body {
+            height: 120vh;
+        }
+    </style>
 </head>
 <header>
     <h1 class="maintitle">Bergzauber Retreat</h1>
