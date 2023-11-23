@@ -19,7 +19,8 @@ session_start();
                         echo '<a class="nav-link" href="Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
                     }
                     ?>
-<form class="text-center">
+<div class="container">
+    <form>
     <h3>FAQ</h3>
     <section>
         <p>Frage1: Antwort1</p>
@@ -30,7 +31,8 @@ session_start();
     <section>
         <p>Bei weiteren Fragen wenden sie sich an: <a href="mailto:if23b274@technikum-wien.at">if23b274@technikum-wien.at</a> </p>
     </section>
-</form>
+    </form>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

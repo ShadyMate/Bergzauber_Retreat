@@ -10,11 +10,15 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-
 form{
     background-color: white;
     border-style: groove;
     border-color: black;
+    border-radius: 25px;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
 }
 body {
     margin: 0;
@@ -25,9 +29,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     backdrop-filter: blur(3px);
-    display: flex;
-    flex-direction: column;
-    position: relative;
     background-attachment: fixed;
 }
 .hotelname{
@@ -102,7 +103,7 @@ footer {
 }
 
 .standard-container {
-  max-width: 1080px;
+  max-width: 10vw;
   margin: 0 auto;
   text-align: center;
   padding: 20px;

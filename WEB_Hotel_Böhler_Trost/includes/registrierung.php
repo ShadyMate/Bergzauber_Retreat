@@ -40,11 +40,7 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // cookie hält f
   <?php include "../includes/header.php"; ?>
 </head>
 <body>
-<header>
-    <h2>Registrieren</h2>
-    <h4>Bereits registriert? <br> Hier gehts zum <a href="login.php">Login</a>!</h4>
-</header>
-<section>
+<div class="container">
     <form method="post">
         <label for="anrede">Anrede:</label><br>
         <select id="anrede" name="anrede">
@@ -69,13 +65,7 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // cookie hält f
         <input type="submit" name="submit" value="Absenden"><br><br>
         <input type="reset">
     </form>
-</section>
-    <br>
-<?php
-    include "footer.php";
-?>
-
-
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
