@@ -11,18 +11,7 @@ session_start();
       nav{
           margin-bottom: 1em;
       }
-      #main-body{
-          width: 70%;
-          margin: 0.5em;
-      }
-      #sidebar{
-          width: 30%;
-          display: flex;
-          flex-direction: column;
-          overflow-wrap: break-word;
-          max-height: 138vh;
-          margin: 0.5em;
-      }
+
       .split{
           display: flex;
           flex-direction: row;
@@ -66,20 +55,20 @@ include "nav.php";
     <form>
     <h3 class="secondary-title">Bergzauber Retreat GMBH</h3>
     <section>
-        <p>1220 Wien <br>
-        Straße 123, Österreich </p>
+        <p>6764 Lech, Österreich <br>
+        Haus Nummer 152, Oberlech 152</p>
     </section>
     <h3 class="secondary-title">Kontakt:</h3>
     <section>
-        <p>Tel: +43 699 XXX XXXX</p>
-        <p>Mail: </p>
+        <p>Tel: +43 699 123 456 78</p>
+        <p>Mail: <a href="mailto:if23b274@technikum-wien.at">if23b274@technikum-wien.at</a></p>
     </section>
   <h3 class="secondary-title">Rechtliches</h3>
     <section>
         <p>UID-Nr: ATU87654321</p>
-        <p>Mitglied der WKÖ, WKW</p>
-        <p>Berufsrecht <!-- Placeholder--></p>
-        <p>Bezirkshauptmannschaft Brigittenau</p>
+        <p>Mitglied der WKÖ, WKV</p>
+        <p>Berufsrecht Hotelier</p>
+        <p>Bezirkshauptmannschaft Lech</p>
         <p>Meisterbetrieb, Meisterprüfung abgelegt in Österreich</p>
     </section>
     <h3 class="secondary-title">Beschwerden</h3>
