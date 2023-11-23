@@ -35,8 +35,13 @@ session_start();
     <meta charset="UTF-8">
     <title>Buchung</title>
     <?php include "../includes/header.php"; ?>
-
 </head>
+<header>
+    <h1 class="title">Zimmer buchen</h1>
+</header>
+<?php
+include "nav.php";
+?>
 <body>
     <?php
      if(isset($_GET['kosten'])) {

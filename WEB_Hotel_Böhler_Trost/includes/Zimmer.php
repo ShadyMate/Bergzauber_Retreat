@@ -10,7 +10,12 @@ session_start();
     <?php include "../includes/header.php"; ?>
 </head>
 <body>
-
+<header>
+    <h1 class="title">Verfügbare Zimmer</h1>
+</header>
+<?php
+include "nav.php";
+?>
 <div class="container">
 <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
