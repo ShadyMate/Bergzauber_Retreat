@@ -9,6 +9,9 @@ if (!isset($_SESSION["registriert"])) {
 if (!isset($_SESSION["pword"])) {
   $_SESSION["pword"] = "";
 }
+if (!isset($_SESSION["loggedin"])) {
+  $_SESSION["loggedin"] = "";
+}
 ?>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -30,8 +33,8 @@ if (!isset($_SESSION["pword"])) {
         </li>
         <li class="nav-item">
           <?php
-        if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin" || ($_SESSION["registriert"] == "user") && $_SESSION["pword"] == "1234") {
-          echo '<a class="nav-link" href="../includes/login.php" style="padding-left: 20px; font-size: 25px;">Login</a>';
+        if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin" && $_SESSION["loggedin"] == "true" || ($_SESSION["registriert"] == "user") && $_SESSION["pword"] == "1234" && $_SESSION["loggedin"] == "true") {
+          echo '<a class="nav-link" href="../includes/logout.php" style="padding-left: 20px; font-size: 25px;">Logout</a>';
         }
           ?>
         </li>

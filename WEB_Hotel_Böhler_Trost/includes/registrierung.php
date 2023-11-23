@@ -12,18 +12,23 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
     echo '<script type="text/javascript">';
     echo 'alert("Passwort stimmt nicht überein!");';
     echo '</script>';
+    $_SESSION["pword"] = "falsch";
 } else if($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") { //wenn sich admin registriert
     echo '<script type="text/javascript">';
     echo 'alert("Sie haben sich erfolgreich registriert!");';
     echo 'window.location.href = "login.php";';
     echo '</script>';
-} else if($_SESSION["registriert"] == "user" && $_SESSION["pword"] == "1234") { //wenn sich jemand registriert
+} else if ($_SESSION["pword"] == "1234" && $_SESSION["pwordconfirm"] != "1234") { //passwort muss gleich sein
+    echo '<script type="text/javascript">';
+    echo 'alert("Passwort stimmt nicht überein!");';
+    echo '</script>';
+    $_SESSION["pword"] = "falsch";
+} else if($_SESSION["registriert"] == "user" && $_SESSION["pword"] == "1234") { //wenn sich user registriert
     echo '<script type="text/javascript">';
     echo 'alert("Sie haben sich erfolgreich registriert!");';
     echo 'window.location.href = "login.php";';
     echo '</script>';
-}
-else { //wenn nicht "admin" eingegebn wird
+} else { //wenn nicht "admin" eingegebn wird
     echo '<script type="text/javascript">';
     echo 'alert("Etwas ist schiefgelaufen! Versuche Sie es erneut.");';
     echo '</script>';

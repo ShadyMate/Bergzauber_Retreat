@@ -7,7 +7,7 @@ session_start();
     $_SESSION["gesamtkosten"] = 0;
     $_SESSION["anreise"] = $_POST['arrival'] ?? '';
     $_SESSION["abreise"] = $_POST['departure'] ?? '';
-    $_SESSION["reservierung"] = 0;
+    $_SESSION["reservierung"] ??'';
     
 
     if(isset($_POST['submit'])) {
@@ -19,13 +19,13 @@ session_start();
         echo 'window.location.href = "../php/index.php";';
         echo '</script>';
         if ($frühstück != 0) {
-            $_SESSION["frühstück"] = "Ihnen wird ein köstliches Frühstück gebracht." ??'';
+            $_SESSION["frühstück"] = "Ihnen wird ein köstliches Frühstück gebracht.";
         }
         if ($parkplatz != 0) {
-            $_SESSION["parkplatz"] = "Ihnen wird ein Parkplatz reserviert." ??'';
+            $_SESSION["parkplatz"] = "Ihnen wird ein Parkplatz reserviert.";
         }
         if ($haustiere != 0) {
-            $_SESSION["haustier"] = "Für Ihre Haustiere wird gesorgt." ??'';
+            $_SESSION["haustier"] = "Für Ihre Haustiere wird gesorgt.";
         }
     }
 ?>

@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION["registiert"])) {
+    $_SESSION["registriert"] = "";
+  }
 ?>
 
 <!DOCTYPE html>
@@ -38,13 +41,13 @@ session_start();
     <?php
         if($_SESSION["reservierung"] == 1) {
         echo '<form>
-        <p>Sie haben eine Buchung von ';
+        <label>Sie haben eine Buchung von ';
         echo $_SESSION["anreise"];
         echo ' bis ';
         echo $_SESSION["abreise"];
         echo ' im Wert von ';
         echo $_SESSION["gesamtkosten"];
-        echo '€.</p>
+        echo '€.</label><br>
         <label for="arrival">Anreisedatum: ';
         echo $_SESSION["anreise"];
         echo '</label><br>
@@ -70,6 +73,11 @@ session_start();
         }
         echo '</form>';
         }
+        $_SESSION["reservierung"] = 0;
+        $_SESSION["frühstück"] = '';
+        $_SESSION["parkplatz"] = '';
+        $_SESSION["haustier"] = '';
+
         ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
