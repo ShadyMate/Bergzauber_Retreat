@@ -39,7 +39,12 @@ else { //wenn nicht "admin" eingegebn wird
     <title>Registrierung</title>
   <?php include "../includes/header.php"; ?>
 </head>
+<header>
+    <h1 class="title">Registrierung</h1>
+</header>
 <body>
+<?php include "nav.php";
+?>
 <div class="container">
     <form method="post">
         <label for="anrede">Anrede:</label><br>

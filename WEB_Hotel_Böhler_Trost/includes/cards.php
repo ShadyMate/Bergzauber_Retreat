@@ -5,7 +5,7 @@
     <div class="card-body">
       <h5 class="card-title">Zimmer Buchen.</h5>
       <p class="card-text">Hier finden Sie alle Angebote, sowie Infos zur Buchung</p>
-      <a href="../includes/Zimmer.php" class="btn btn-primary">Click me</a>
+      <a href="../includes/Zimmer.php" class="btn btn-primary">Zimmer buchen</a>
     </div>
   </div>
 </div>

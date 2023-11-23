@@ -35,35 +35,10 @@ else if($_SESSION["pword"] == $_POST["pword"]) {
     <h1 class="title">Meine Profildaten</h1>
 </header>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="../php/index.php"><img src="../res/img/Logo.png" alt="Logo" width="50" height="50">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="registrierung.php">Registrierung</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="login.php">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="faq.php">Hilfe</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="impressum.php">Impressum</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="Profil.php">Profil</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    <form method="post" class="formclass">
+<?php include "nav.php";
+?>
+<div class="container">
+    <form method="post" class="text-center">
     <label for="fname">Vorname:</label><br> 
     <input type="text" id="fname" name="fname" required><br>
     <label for="lname">Nachname:</label><br>
@@ -78,10 +53,10 @@ else if($_SESSION["pword"] == $_POST["pword"]) {
     <label for="newpword">Neues Passwort </label><br>
     <input type="password" id="newpword" name="newpword" required>
     <br><br>
-    <input type="submit" id="change" name="change" value="Bestätigen">';
+    <input type="submit" id="change" name="change" value="Bestätigen">
     </form>
     <br>
-
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

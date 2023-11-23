@@ -13,15 +13,22 @@ h1 {
     max-height: 100%;
     max-width: 100%;
 }
+.btn, .btn-primary{
+    align-content: center;
+    max-height: 6vh;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 5vh;
+}
 form{
     background-color: white;
     border-style: groove;
     border-color: black;
     border-radius: 25px;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    padding-top: 3vh;
-    padding-bottom: 3vh;
+    padding: 3vh 10vw;
 }
 body {
     margin: 0;
