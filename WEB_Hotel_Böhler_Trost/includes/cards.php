@@ -4,7 +4,13 @@
         <div class="card-body text-center">
             <h5 class="card-title">Zimmerangebot</h5>
             <p class="card-text">Hier finden Sie alle Angebote, sowie Infos zur Buchung</p>
-            <a href="../includes/Zimmer.php" class="btn btn-primary">Zimmer buchen</a>
+            <?php
+                if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin" || ($_SESSION["registriert"] == "user") && $_SESSION["pword"] == "1234") {
+                    echo '<a href="../includes/Zimmer.php" class="btn btn-primary">Zimmer buchen</a>';
+                } else {
+                    echo '<a href="../includes/registrieren.php" class="btn btn-primary">Sie müssen sich erst registrieren!</a>';
+                }
+            ?>
         </div>
     </div>
     <div class="card">
@@ -16,7 +22,7 @@
         </div>
     </div>
     <div class="card">
-        <img class="card-img-top" src="../res/img/SpaImage.jpeg" alt="Spa">
+        <img class="card-img-top" src="../res/img/Spaimagerezied.jpeg" alt="Spa" height="59%">
         <div class="card-body text-center">
             <h5 class="card-title">Unser Spa Angebot</h5>
             <p class="card-text">Wir haben eine große Auswahl an Spa Angeboten für sie.</p>
