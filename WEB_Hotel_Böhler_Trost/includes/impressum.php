@@ -13,13 +13,15 @@ session_start();
       }
       #main-body{
           width: 70%;
-          margin: 1em;
+          margin: 0.5em;
       }
       #sidebar{
           width: 30%;
           display: flex;
           flex-direction: column;
-          margin: 1em;
+          overflow-wrap: break-word;
+          max-height: 138vh;
+          margin: 0.5em;
       }
       .split{
           display: flex;
@@ -39,17 +41,17 @@ include "nav.php";
 ?>
 <div class="split">
     <form class="text-center" id="main-body">
-    <h3>Bergzauber Retreat GMBH</h3>
+    <h3 class="secondary-title">Bergzauber Retreat GMBH</h3>
     <section>
         <p>1220 Wien <br>
         Straße 123, Österreich </p>
     </section>
-    <h3>Kontakt:</h3>
+    <h3 class="secondary-title">Kontakt:</h3>
     <section>
         <p>Tel: +43 699 XXX XXXX</p>
         <p>Mail: </p>
     </section>
-  <h3>Rechtliches</h3>
+  <h3 class="secondary-title">Rechtliches</h3>
     <section>
         <p>UID-Nr: ATU87654321</p>
         <p>Mitglied der WKÖ, WKW</p>
@@ -57,7 +59,7 @@ include "nav.php";
         <p>Bezirkshauptmannschaft Brigittenau</p>
         <p>Meisterbetrieb, Meisterprüfung abgelegt in Österreich</p>
     </section>
-    <h3>Beschwerden</h3>
+    <h3 class="secondary-title">Beschwerden</h3>
     <section>
         <p>Verbraucher haben die Möglichkeit,<br>
         Beschwerden an die Online Streitbeilegungsplattform der EU zu richten:<br>
@@ -74,7 +76,7 @@ include "nav.php";
     </form>
     <form class="text-center" id="sidebar">
         <aside>
-            <h3>Administration</h3>
+            <h3 class="secondary-title">Administration</h3>
             <img class="picture" src="../res/img/Thomas.jpg" alt="Thomas Trost" height=auto width=auto>
             <p>Thomas Trost<br>Lead Webdevelopment</p>
             <img class="picture" src="../res/img/Luis.jpeg" alt="Luis Böhler" height=auto width=auto>

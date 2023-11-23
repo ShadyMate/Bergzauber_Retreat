@@ -1,7 +1,6 @@
 <?php
     session_start();
-    $_FILES['fileToUpload'] ?? null;
-    if (!isset($_SESSION["success"])) {
+if (!isset($_SESSION["success"])) {
       $_SESSION["success"] = "";
     }
 ?>
@@ -68,8 +67,8 @@ if ($uploadOk == 0) {
 }
 }
     if ($_SESSION["success"] == "true") {
-    echo '<form enctype="multipart/form-data" method="post">
-    <input type="file" name="fileToUpload" id="fileToUpload">
+    echo '<form enctype="multipart/form-data" method="post" class="text-center">
+    <input type="file" name="fileToUpload"><br>
     <input type="submit" value="Upload Image" name="submit">
     </form>';
   }
@@ -102,8 +101,6 @@ if ($uploadOk == 0) {
                   </div>
             </article>
         </main>
-
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
