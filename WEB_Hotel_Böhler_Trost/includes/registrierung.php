@@ -39,7 +39,12 @@ setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // cookie hält f
     <title>Registrierung</title>
   <?php include "../includes/header.php"; ?>
 </head>
+<header>
+    <h1 class="title">Registrierung</h1>
+</header>
 <body>
+<?php include "nav.php";
+?>
 <div class="container">
     <form method="post">
         <label for="anrede">Anrede:</label><br>
