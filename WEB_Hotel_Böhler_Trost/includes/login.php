@@ -8,14 +8,15 @@ if(isset($_POST['submit'])) {
     echo '<script type="text/javascript">';
     echo 'alert("Herzlich Willkommen!");';
     echo 'window.location.href = "../php/index.php";';
-        echo '</script>';
-} else if($_SESSION["registriert"] =="user" && $_SESSION["pword"] == "1234") {
+    echo '</script>';
+    $_SESSION["loggedin"] = "true";
+} else if($_SESSION["registriert"] =="user" && $_SESSION["pword"] == "1234") { //alert als user angemeldet
     echo '<script type="text/javascript">';
     echo 'alert("Herzlich Willkommen!");';
     echo 'window.location.href = "../php/index.php";';
     echo '</script>';
-}
-else { //alert falls der user nicht die richtigen daten eingibt
+    $_SESSION["loggedin"] = "true";
+} else { //alert falls der user nicht die richtigen daten eingibt
     echo '<script type="text/javascript">';
     echo 'alert("Etwas ist schief gelaufen!");'; 
     echo '</script>';
@@ -55,8 +56,7 @@ if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
         <input type="password" id="pword" name="pword" placeholder="Passwort" autocomplete="on"><br><br>
         <input type="checkbox" id="myCheckbox">
         <label for="myCheckbox">Remember me</label><br>
-        <input type="submit" name = "submit" value="submit">
-        <p class="text-center">Noch nicht registriert? <br> Hier geht es zur <a href="registrierung.php">Registrierung</a>!</p>
+        <input type="submit" name = "submit" value="Login">
     </form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </form>

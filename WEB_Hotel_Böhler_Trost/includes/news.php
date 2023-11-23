@@ -67,6 +67,26 @@ if ($uploadOk == 0) {
 }
 ?>
 
+<div id="carouselExampleFade" class="carousel slide carousel-fade">
+<div class="carousel-inner">
+    <!-- Beginn der Schleife -->
+    {% for bild in news %}
+    <div class="carousel-item {% if loop.first %}active{% endif %}">
+      <img src="{{ bild }}" class="d-block w-100" alt="...">
+    </div>
+    {% endfor %}
+    <!-- Ende der Schleife -->
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
 <form enctype="multipart/form-data" method="post">
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload Image" name="submit">
