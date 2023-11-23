@@ -37,7 +37,7 @@ else if($_SESSION["pword"] == $_POST["pword"]) {
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="../../homepage.php"><img src="../../../res/img/Logoneu.png" alt="Logo" width="50" height="50">Home</a>
+    <a class="navbar-brand" href="../php/index.php"><img src="../res/img/Logo.png" alt="Logo" width="50" height="50">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -50,10 +50,10 @@ else if($_SESSION["pword"] == $_POST["pword"]) {
           <a class="nav-link" href="login.php">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../hilfe.php">Hilfe</a>
+          <a class="nav-link" href="faq.php">Hilfe</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../impressum.php">Impressum</a>
+          <a class="nav-link" href="impressum.php">Impressum</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="Profil.php">Profil</a>
@@ -75,7 +75,7 @@ else if($_SESSION["pword"] == $_POST["pword"]) {
     <input type="text" id="username" name="username" required><br>
     <label for="pword">Altes Passwort:</label><br>
     <input type="password" id="pword" name="pword" required><br>
-    <label for="pwordconfirm">Neues Passwort </label><br>
+    <label for="newpword">Neues Passwort </label><br>
     <input type="password" id="newpword" name="newpword" required>
     <br><br>
     <input type="submit" id="change" name="change" value="Bestätigen">';

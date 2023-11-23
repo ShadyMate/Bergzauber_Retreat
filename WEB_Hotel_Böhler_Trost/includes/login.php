@@ -4,11 +4,11 @@ session_start();
 if(isset($_POST['submit'])) {
     $_SESSION["username"] = $_POST['username'];
     $_SESSION["pword"] = $_POST['pword'];
-    if($_SESSION["username"] =="admin" && $_SESSION["pword"] == "admin") { //alert für richtige eingabe und leitet auf homepage weiter --> als admin eingeloggt
+    if($_SESSION["username"] =="admin" && $_SESSION["pword"] == "admin") { //alert für richtige eingabe und leitet auf homepage weiter → als admin eingeloggt
     echo '<script type="text/javascript">';
     echo 'alert("Herzlich Willkommen!");';
-    echo 'window.location.href = "../php/index.php";';;
-    echo '</script>';
+    echo 'window.location.href = "../php/index.php";';
+        echo '</script>';
 } else if($_SESSION["registriert"] =="user" && $_SESSION["pword"] == "1234") {
     echo '<script type="text/javascript">';
     echo 'alert("Herzlich Willkommen!");';
@@ -38,17 +38,12 @@ else { //alert falls der user nicht die richtigen daten eingibt
 <header>
     <h1>Login</h1>
 </header>
-        <?php
-        include "nav.php";
-                    if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
-                        echo '<a class="nav-link" href="Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
-                    }
-                    ?>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<?php
+include "nav.php";
+if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
+    echo '<a class="nav-link" href="Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
+}
+?>
 <div class="container">
     <form method="post" class="text-center">
     <form class="text-center">

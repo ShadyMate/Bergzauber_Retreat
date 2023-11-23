@@ -32,14 +32,9 @@ session_start();
 <header>
   <h1>Impressum</h1>
 </header>
-      <?php
-    include "nav.php";
-    ?>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<?php
+include "nav.php";
+?>
 <div class="split">
     <form class="text-center" id="main-body">
     <h3>Bergzauber Retreat GMBH</h3>
