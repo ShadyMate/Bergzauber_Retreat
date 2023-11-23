@@ -8,7 +8,7 @@
                 if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin" || ($_SESSION["registriert"] == "user") && $_SESSION["pword"] == "1234") {
                     echo '<a href="../includes/Zimmer.php" class="btn btn-primary">Zimmer buchen</a>';
                 } else {
-                    echo '<a href="../includes/registrieren.php" class="btn btn-primary">Sie müssen sich erst registrieren!</a>';
+                    echo '<a href="../includes/registrierung.php" class="btn btn-primary">Sie müssen sich erst registrieren!</a>';
                 }
             ?>
         </div>
