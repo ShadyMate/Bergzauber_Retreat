@@ -5,7 +5,6 @@ unset($_SESSION["firstname"]);
 unset($_SESSION["lastname"]);
 unset($_SESSION["email"]);
 unset($_SESSION["username"]);
-unset($_SESSION["registriert"]);
 if(isset($_POST['change'])) {
 $_SESSION["firstname"] = $_POST['fname'];
 $_SESSION["lastname"] = $_POST['lname'];

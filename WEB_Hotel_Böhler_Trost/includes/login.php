@@ -1,8 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION["username"])) {
-  $_SESSION["username"] = "";
-}
+
 if (!isset($_SESSION["registriert"])) {
   $_SESSION["registriert"] = "";
 }
@@ -17,13 +15,11 @@ if(isset($_POST['submit'])) {
     echo 'alert("Herzlich Willkommen!");';
     echo 'window.location.href = "../php/index.php";';
     echo '</script>';
-    $_SESSION["loggedin"] = "true";
 } else if($_SESSION["registriert"] =="user" && $_SESSION["pword"] == "1234" && $_SESSION["success"] == "trueuser") { //alert als user angemeldet
     echo '<script type="text/javascript">';
     echo 'alert("Herzlich Willkommen!");';
     echo 'window.location.href = "../php/index.php";';
     echo '</script>';
-    $_SESSION["loggedin"] = "true";
 } else { //alert falls der user nicht die richtigen daten eingibt
     echo '<script type="text/javascript">';
     echo 'alert("Etwas ist schief gelaufen!");'; 

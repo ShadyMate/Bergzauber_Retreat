@@ -6,14 +6,11 @@ $calling_file = basename($_SERVER['PHP_SELF']);
 if (!isset($_SESSION["username"])) {
   $_SESSION["username"] = "";
 }
-if (!isset($_SESSION["registriert"])) {
-  $_SESSION["registriert"] = "";
-}
-if (!isset($_SESSION["pword"])) {
-  $_SESSION["pword"] = "";
-}
 if (!isset($_SESSION["loggedin"])) {
   $_SESSION["loggedin"] = "";
+}
+if (!isset($_SESSION["registriert"])) {
+  $_SESSION["registriert"] = "";
 }
 ?>
 

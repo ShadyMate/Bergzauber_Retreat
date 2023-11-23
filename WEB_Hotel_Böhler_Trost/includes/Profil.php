@@ -1,29 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION["registiert"])) {
-    $_SESSION["registriert"] = "";
-  }
-  if (!isset($_SESSION["regestrierung"])) {
-    $_SESSION["regestrierung"] = "";
-  }
   if (!isset($_SESSION["reservierung"])) {
     $_SESSION["reservierung"] = "";
   }
-  if (!isset($_SESSION["firstname"])) {
-    $_SESSION["firstname"] = "";
-  }
-  if (!isset($_SESSION["lastname"])) {
-    $_SESSION["lastname"] = "";
-  }
-  if (!isset($_SESSION["email"])) {
-    $_SESSION["email"] = "";
-  }
-  if (!isset($_SESSION["username"])) {
-    $_SESSION["username"] = "";
-  }
-  if (!isset($_SESSION["pword"])) {
-    $_SESSION["pword"] = "";
-  }
+  
   if(isset($_POST['logout'])) {
     session_destroy();
     header('Location: ../php/index.php');
