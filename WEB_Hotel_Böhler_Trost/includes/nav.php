@@ -1,4 +1,7 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 $calling_file = basename($_SERVER['PHP_SELF']);
 if (!isset($_SESSION["username"])) {
   $_SESSION["username"] = "";
@@ -30,13 +33,6 @@ if (!isset($_SESSION["loggedin"])) {
         echo '<a class="nav-link" href="../includes/registrierung.php" style="font-size: 25px;">Registrierung</a>';
        }
        ?>
-        </li>
-        <li class="nav-item">
-          <?php
-        if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin" && $_SESSION["loggedin"] == "true" || ($_SESSION["registriert"] == "user") && $_SESSION["pword"] == "1234" && $_SESSION["loggedin"] == "true") {
-          echo '<a class="nav-link" href="../includes/logout.php" style="padding-left: 20px; font-size: 25px;">Logout</a>';
-        }
-          ?>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../includes/faq.php" style="padding-left: 20px; font-size: 25px;">FAQ</a>

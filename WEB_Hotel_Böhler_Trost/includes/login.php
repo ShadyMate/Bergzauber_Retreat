@@ -1,6 +1,14 @@
 <?php
 session_start();
-
+if (!isset($_SESSION["username"])) {
+  $_SESSION["username"] = "";
+}
+if (!isset($_SESSION["registriert"])) {
+  $_SESSION["registriert"] = "";
+}
+if (!isset($_SESSION["pword"])) {
+  $_SESSION["pword"] = "";
+}
 if(isset($_POST['submit'])) {
     $_SESSION["username"] = $_POST['username'];
     $_SESSION["pword"] = $_POST['pword'];
@@ -41,9 +49,6 @@ if(isset($_POST['submit'])) {
 </header>
 <?php
 include "nav.php";
-if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin") {
-    echo '<a class="nav-link" href="Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
-}
 ?>
 <div class="container">
     <form method="post" class="text-center">

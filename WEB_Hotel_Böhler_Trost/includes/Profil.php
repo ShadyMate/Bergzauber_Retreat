@@ -3,6 +3,17 @@ session_start();
 if (!isset($_SESSION["registiert"])) {
     $_SESSION["registriert"] = "";
   }
+  if (!isset($_SESSION["regestrierung"])) {
+    $_SESSION["regestrierung"] = "";
+  }
+  if (!isset($_SESSION["reservierung"])) {
+    $_SESSION["reservierung"] = "";
+  }
+  if(isset($_POST['logout'])) {
+    session_destroy();
+    header('Location: ../php/index.php');
+    exit;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +46,10 @@ if (!isset($_SESSION["registiert"])) {
     <br>
     <br>
     <a href="change.php">Hier klicken um Ihre Daten zu ändern.</a>
+    <br>
+    <form action="logout.php" method="post">
+        <input type="submit" name="logout" value="Logout">
+    </form>
     </form>
     </div>
     <br>
