@@ -48,6 +48,11 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
 <head>
     <title>Registrierung</title>
   <?php include "../includes/header.php"; ?>
+    <style>
+        body{
+            height: 130vh;
+        }
+    </style>
 </head>
 <header>
     <h1 class="title">Registrierung</h1>
@@ -77,7 +82,7 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
         <label for="pwordconfirm">Passwort Bestätigen:</label><br>
         <input type="password" id="pwordconfirm" name="pwordconfirm" required>
         <br><br>
-        <input type="submit" name="submit" value="Absenden"><br><br>
+        <input type="submit" name="submit" value="Absenden">
         <input type="reset">
     </form>
 </div>

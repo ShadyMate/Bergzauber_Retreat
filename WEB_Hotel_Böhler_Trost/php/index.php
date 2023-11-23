@@ -19,7 +19,7 @@ if (!isset($_SESSION["pword"])) {
     <?php include "../includes/header.php"; ?>
     <style>
         body {
-            height: 120vh;
+            height: 100%;
         }
     </style>
 </head>
