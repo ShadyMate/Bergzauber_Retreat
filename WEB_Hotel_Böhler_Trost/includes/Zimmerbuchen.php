@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-    $frühstück = isset($_POST['frühstück']) ? $_POST['frühstück'] : 0;
-    $parkplatz = isset($_POST['parkplatz']) ? $_POST['parkplatz'] : 0;
-    $haustiere = isset($_POST['haustiere']) ? $_POST['haustiere'] : 0;
+    $fruehstueck = $_POST['frühstück'] ?? 0;
+    $parkplatz = $_POST['parkplatz'] ?? 0;
+    $haustiere = $_POST['haustiere'] ?? 0;
     $_SESSION["gesamtkosten"] = 0;
     $_SESSION["anreise"] = $_POST['arrival'] ?? '';
     $_SESSION["abreise"] = $_POST['departure'] ?? '';
@@ -13,14 +13,14 @@ session_start();
     
 
     if(isset($_POST['submit'])) {
-        $_SESSION["gesamtkosten"] = $_SESSION["kosten"] + $frühstück + $parkplatz + $haustiere;
+        $_SESSION["gesamtkosten"] = $_SESSION["kosten"] + $fruehstueck + $parkplatz + $haustiere;
         //echo $gesamtkosten;
         $_SESSION["reservierung"] = 1;
         echo '<script type="text/javascript">';
-        echo 'alert("Die Buchung war erolgreich!");'; 
+        echo 'alert("Die Buchung war erfolgreich!");';
         echo 'window.location.href = "../php/index.php";';
         echo '</script>';
-        if ($frühstück != 0) {
+        if ($fruehstueck != 0) {
             $_SESSION["frühstück"] = "Ihnen wird ein köstliches Frühstück gebracht.";
         }
         if ($parkplatz != 0) {
@@ -37,8 +37,13 @@ session_start();
     <meta charset="UTF-8">
     <title>Buchung</title>
     <?php include "../includes/header.php"; ?>
-
 </head>
+<header>
+    <h1 class="title">Zimmer buchen</h1>
+</header>
+<?php
+include "nav.php";
+?>
 <body>
     <?php
      if(isset($_GET['kosten'])) {
