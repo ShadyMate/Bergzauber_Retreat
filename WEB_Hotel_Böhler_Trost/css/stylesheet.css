@@ -17,12 +17,6 @@ h1 {
     align-content: center;
     max-height: 6vh;
 }
-.card-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-height: 5vh;
-}
 form{
     background-color: white;
     border-style: groove;
