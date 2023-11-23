@@ -36,7 +36,7 @@ if (!isset($_SESSION["pword"])) {
           ?>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../includes/impressum.php" style="padding-left: 20px; font-size: 25px;">Hilfe</a>
+          <a class="nav-link" href="../includes/faq.php" style="padding-left: 20px; font-size: 25px;">Hilfe</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../includes/impressum.php" style="padding-left: 20px; font-size: 25px;">Impressum</a>

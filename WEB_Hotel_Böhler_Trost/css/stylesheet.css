@@ -17,19 +17,14 @@ form{
     border-color: black;
 }
 body {
-    background-image: url("../res/img/Hotel.jpg");
-    background-repeat: no-repeat;
-    backdrop-filter: blur(4px);
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
     margin: 0;
     padding: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
+    height: 100vh;
+    background-image: url('../res/img/Hotel.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(3px);
 }
 .hotelname{
      font-size: 7em;
@@ -105,6 +100,9 @@ footer {
 .standard-container {
   max-width: 1080px;
   margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  color: white;
 }
 
 .formclass {

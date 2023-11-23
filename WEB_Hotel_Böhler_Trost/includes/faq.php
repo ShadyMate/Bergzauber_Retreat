@@ -33,9 +33,6 @@ session_start();
     <section>
         <p>Bei weiteren Fragen wenden sie sich an:<a href="mailto:if23b274@technikum-wien.at">if23b274@technikum-wien.at</a> </p>
     </section>
-    <?php
-    include "footer.php";
-    ?>
     </form>
     </section>
 </form>
