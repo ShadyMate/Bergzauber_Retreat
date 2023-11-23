@@ -3,6 +3,19 @@
 if (!isset($_SESSION["success"])) {
       $_SESSION["success"] = "";
     }
+if (!isset($_SESSION["success"])) {
+      $_SESSION["success"] = "";
+    }
+if (!isset($dst)) {
+      $dst = null;
+    }
+    if (!isset($new_folder_path)) {
+      $new_folder_path = "";
+    }
+    if (!isset($file)) {
+      $file = "";
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,33 +84,6 @@ if ($uploadOk == 0) {
   }
 }
 }
-// Pfad zum Ordner mit den Bildern
-$folder_path = "../uploads/news/";
-
-// Durchlaufen Sie alle Bilder im Ordner
-foreach (glob("$folder_path{*.jpg,*.png,*.jpeg}", GLOB_BRACE) as $file) {
-    // Lese das Originalbild
-    list($originalWidth, $originalHeight) = getimagesize($file);
-    $src = imagecreatefromjpeg($file);
-
-    // Erstelle das neue Bild
-    $newWidth = 500;
-    $newHeight = 500;
-    $dst = imagecreatetruecolor($newWidth, $newHeight);
-
-    // Skaliere das Bild
-    imagecopyresampled($dst, $src, 0, 0, 0, 0, $newWidth, $newHeight, $originalWidth, $originalHeight);
-
-    // Speichere das skalierte Bild
-    imagejpeg($dst, $file, 100);
-
-    // Lösche die Bilder aus dem Speicher
-    imagedestroy($src);
-    imagedestroy($dst);
-}
-  $new_folder_path = "../uploads/thumbnails/";
-  imagejpeg($dst, $new_folder_path . basename($file), 100);
-
     if ($_SESSION["success"] == "trueadmin") {
     echo '<form enctype="multipart/form-data" method="post" class="text-center">
     <input type="file" name="fileToUpload">
@@ -110,7 +96,7 @@ foreach (glob("$folder_path{*.jpg,*.png,*.jpeg}", GLOB_BRACE) as $file) {
       <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
           <?php
-          $dir = "../uploads/thumbnails/";
+          $dir = "../uploads/news/";
           $files = scandir($dir);
           $active = 'active';
           foreach($files as $file) {
