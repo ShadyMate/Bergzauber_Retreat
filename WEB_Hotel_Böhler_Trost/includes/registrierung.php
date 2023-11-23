@@ -64,18 +64,18 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
             <option value=" ">Leer/Divers</option>
         </select><br>
         <label for="fname">Vorname:</label><br> 
-        <input type="text" id="fname" name="fname"><br>
+        <input type="text" id="fname" name="fname" required><br>
         <label for="lname">Nachname:</label><br>
-        <input type="text" id="lname" name="lname"><br>
+        <input type="text" id="lname" name="lname" required><br>
         <label for="email">E-Mail:</label><br>
-        <input type="email" id="email" name="email">
+        <input type="email" id="email" name="email" required>
         <br><br>
         <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
+        <input type="text" id="username" name="username" required><br>
         <label for="pword">Passwort:</label><br>
-        <input type="password" id="pword" name="pword"><br>
+        <input type="password" id="pword" name="pword" required><br>
         <label for="pwordconfirm">Passwort Bestätigen:</label><br>
-        <input type="password" id="pwordconfirm" name="pwordconfirm">
+        <input type="password" id="pwordconfirm" name="pwordconfirm" required>
         <br><br>
         <input type="submit" name="submit" value="Absenden"><br><br>
         <input type="reset">

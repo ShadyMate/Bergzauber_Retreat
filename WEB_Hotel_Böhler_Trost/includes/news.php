@@ -27,80 +27,107 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
   if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
+    echo "File ist ein Bild. - " . $check["mime"] . ". ";
     $uploadOk = 1;
   } else {
-    echo "File is not an image.";
+    echo "File ist kein Bild. ";
     $uploadOk = 0;
   }
 }
 
 // Check if file already exists
 if (file_exists($target_file)) {
-  echo "Sorry, file already exists.";
+  echo "Dieses Bild existiert bereits! ";
   $uploadOk = 0;
 }
 
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 5000000) {
-  echo "Sorry, your file is too large.";
+  echo "Das Bild ist zu groß. ";
   $uploadOk = 0;
 }
 
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
-  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  echo "Es ist ein Fehler aufgetreten. Nur JPG, JPEG, PNG & GIF dateien sind erlaubt. ";
   $uploadOk = 0;
 }
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-  echo "Sorry, your file was not uploaded.";
+  echo "Dieses Bild existiert bereits! ";
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    echo "Das Bild ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " wurde erfolgreich hochgeladen! ";
   } else {
-    echo "Sorry, there was an error uploading your file.";
+    echo "Ein Fehler ist aufgetreten.";
   }
 }
 }
-    if ($_SESSION["success"] == "true") {
+// Pfad zum Ordner mit den Bildern
+$folder_path = "../uploads/news/";
+
+// Durchlaufen Sie alle Bilder im Ordner
+foreach (glob("$folder_path{*.jpg,*.png,*.jpeg}", GLOB_BRACE) as $file) {
+    // Lese das Originalbild
+    list($originalWidth, $originalHeight) = getimagesize($file);
+    $src = imagecreatefromjpeg($file);
+
+    // Erstelle das neue Bild
+    $newWidth = 500;
+    $newHeight = 500;
+    $dst = imagecreatetruecolor($newWidth, $newHeight);
+
+    // Skaliere das Bild
+    imagecopyresampled($dst, $src, 0, 0, 0, 0, $newWidth, $newHeight, $originalWidth, $originalHeight);
+
+    // Speichere das skalierte Bild
+    imagejpeg($dst, $file, 100);
+
+    // Lösche die Bilder aus dem Speicher
+    imagedestroy($src);
+    imagedestroy($dst);
+}
+  $new_folder_path = "../uploads/thumbnails/";
+  imagejpeg($dst, $new_folder_path . basename($file), 100);
+
+    if ($_SESSION["success"] == "trueadmin") {
     echo '<form enctype="multipart/form-data" method="post" class="text-center">
-    <input type="file" name="fileToUpload"><br>
+    <input type="file" name="fileToUpload">
     <input type="submit" value="Upload Image" name="submit">
     </form>';
   }
     ?>
 <main class="main container">
-            <form>
-                <div id="carouselExample" class="carousel slide">
-                    <div class="carousel-inner">
-                        <?php
-                        $dir = '../uploads/news/';
-                        $files = scandir($dir);
-                        $active = 'active';
-                        foreach($files as $file) {
-                            if ($file === '.' || $file === '..') continue;
-                            echo "<div class='carousel-item $active'>";
-                            echo "<img src='$dir$file' class='d-block w-100' alt='Image'>";
-                            echo "</div>";
-                            $active = '';
-                        }
-                        ?>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-            </form>
-        </main>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <form>
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <?php
+          $dir = "../uploads/thumbnails/";
+          $files = scandir($dir);
+          $active = 'active';
+          foreach($files as $file) {
+          if ($file === '.' || $file === '..') continue;
+            echo "<div class='carousel-item $active'>";
+            echo "<img src='$dir$file' class='d-block w-100' alt='Image'>";
+            echo "</div>";
+            $active = '';
+            }
+          ?>
+        </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </form>
+  </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

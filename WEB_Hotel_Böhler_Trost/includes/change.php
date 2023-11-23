@@ -20,7 +20,7 @@ else if($_SESSION["pword"] == $_POST["pword"]) {
     $_SESSION["pword"] = $_POST["newpword"];
     echo '<script type="text/javascript">';
     echo 'alert("Daten erfolgreich geändert!");'; 
-    echo 'window.location.href = "http://localhost/webtechnologie/Semesterprojekt/Web_Hotel_Project/WEB_Hotel_Böhler_Trost/php/homepage.php"';
+    echo 'window.location.href = "../php/index.php";';
     echo '</script>';
 }
 }
