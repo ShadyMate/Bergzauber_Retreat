@@ -46,7 +46,7 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
 <?php
     if(isset($_POST["submit"])){
       require("mysql.php");
-      $stmt = $mysql->prepare("SELECT * FROM bif1webtechdb WHERE username = :user"); //Username überprüfen
+      $stmt = $mysql->prepare("SELECT * FROM userdaten WHERE username = :user"); //Username überprüfen
       $stmt->bindParam(":user", $_POST["username"]);
       $stmt->execute();
       $count = $stmt->rowCount();
