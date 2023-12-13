@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();
 if(isset($_POST['submit'])) {
 $_SESSION["firstname"] = $_POST['fname'];
 $_SESSION["lastname"] = $_POST['lname'];
@@ -42,7 +42,32 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
 //$cookie_name = "user";
 //$cookie_value = $_POST["username"];
 //setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // cookie hält für einen tag
-?>
+*/?>
+<?php
+    if(isset($_POST["submit"])){
+      require("mysql.php");
+      $stmt = $mysql->prepare("SELECT * FROM bif1webtechdb WHERE username = :user"); //Username überprüfen
+      $stmt->bindParam(":user", $_POST["username"]);
+      $stmt->execute();
+      $count = $stmt->rowCount();
+      if($count == 0){
+        //Username ist frei
+        if($_POST["pword"] == $_POST["pwordconfirm"]){
+          //User anlegen
+          $stmt = $mysql->prepare("INSERT INTO accounts (USERNAME, PASSWORD) VALUES (:user, :pw)");
+          $stmt->bindParam(":user", $_POST["username"]);
+          $hash = password_hash($_POST["pword"], PASSWORD_BCRYPT);
+          $stmt->bindParam(":pw", $hash);
+          $stmt->execute();
+          echo "Dein Account wurde angelegt";
+        } else {
+          echo "Die Passwörter stimmen nicht überein";
+        }
+      } else {
+        echo "Der Username ist bereits vergeben";
+      }
+    }
+     ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
