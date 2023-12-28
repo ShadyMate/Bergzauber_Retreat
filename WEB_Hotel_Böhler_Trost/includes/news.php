@@ -22,11 +22,6 @@ if (!isset($dst)) {
 <head>
   <title>News</title>
   <?php include "header.php";?>
-    <style>
-        body{
-            height: 100%;
-        }
-    </style>
 </head>
 <body>
   <h1 class="title">Newspage</h1>

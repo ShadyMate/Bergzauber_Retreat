@@ -8,11 +8,6 @@ session_start();
     <meta charset="UTF-8">
     <title>Zimmerauswahl</title>
     <?php include "../includes/header.php"; ?>
-    <style>
-        body{
-            height: 100%;
-        }
-    </style>
 </head>
 <body>
 <header>

@@ -16,9 +16,6 @@ session_start();
           display: flex;
           flex-direction: row;
       }
-      body{
-          height: 100%;
-      }
   </style>
 </head>
 <body>

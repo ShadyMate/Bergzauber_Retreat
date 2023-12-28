@@ -73,11 +73,6 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
 <head>
     <title>Registrierung</title>
   <?php include "../includes/header.php"; ?>
-    <style>
-        body{
-            height: 130vh;
-        }
-    </style>
 </head>
 <header>
     <h1 class="title">Registrierung</h1>
