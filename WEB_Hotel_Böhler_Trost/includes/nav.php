@@ -48,6 +48,7 @@ if (isset($_SESSION['username'])) {
        }*/
        //session_destroy();
        ?>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="../includes/faq.php" style="padding-left: 20px; font-size: 25px;">FAQ</a>
         </li>
