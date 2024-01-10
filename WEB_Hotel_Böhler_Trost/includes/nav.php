@@ -31,6 +31,12 @@ if (!isset($_SESSION["registriert"])) {
        }
        ?>
         </li>
+          <li class="nav-item">
+          <a class="nav-link" href="../includes/login.php" style="padding-left: 20px; font-size: 25px;">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../includes/Zimmer.php" style="padding-left: 20px; font-size: 25px;">Zimmer</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="../includes/faq.php" style="padding-left: 20px; font-size: 25px;">FAQ</a>
         </li>

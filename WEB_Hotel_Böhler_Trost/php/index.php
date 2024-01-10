@@ -11,7 +11,12 @@ if (!isset($_SESSION["pword"])) {
   $_SESSION["pword"] = "";
 }
 ?>
-
+<!-- TODO: Navbar neu organisieren-->
+<!-- TODO: Buttons & Seiten für Aktivitäten und Spa Angebot hinzufügen-->
+<!-- TODO: User können Zimmer ansehen, und sehen wie viel ein Zimmer in etwa kostet, zum buchen Login-->
+<!-- TODO: Admin kann Zimmer anlegen, bearbeiten, löschen ? -->
+<!-- TODO: User können Spa Angebote ansehen, zum buchen Login-->
+<!-- TODO: Footer machen, FAQ (?), Impressum -->
 <!DOCTYPE html>
 <html lang="de">
 <head>

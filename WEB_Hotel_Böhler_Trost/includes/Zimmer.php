@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-
+<!-- TODO: Zimmer verschönern, Text bearbeiten, Preise und verschönern -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
