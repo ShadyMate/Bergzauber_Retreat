@@ -1,7 +1,9 @@
-<?php
-session_start();
-  if (!isset($_SESSION["reservierung"])) {
-    $_SESSION["reservierung"] = "";
+<?php 
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+  if(isset($_POST['submit'])) {
+    header('Location: ../php/index.php');
   }
   
   if(isset($_POST['logout'])) {
@@ -23,10 +25,11 @@ session_start();
 <body>
     <?php
  include "nav.php";
+ 
     ?>
     <div class="container">
     <form method="post">
-    <p>Vorname: <?php echo $_SESSION["firstname"]; ?></p>
+    <p>Vorname: <?php echo $_SESSION["firstname"];; ?></p>
     <p>Nachname: <?php echo $_SESSION["lastname"]; ?></p>
     <p>Email: <?php echo $_SESSION["email"]; ?></p>
     <p>Username: <?php echo $_SESSION["username"]; ?></p>
@@ -49,44 +52,43 @@ session_start();
     </div>
     <br>
     <?php
-        if($_SESSION["reservierung"] == 1) {
-        echo '<form>
-        <label>Sie haben eine Buchung von ';
-        echo $_SESSION["anreise"];
-        echo ' bis ';
-        echo $_SESSION["abreise"];
-        echo ' im Wert von ';
-        echo $_SESSION["gesamtkosten"];
-        echo '€.</label><br>
-        <label for="arrival">Anreisedatum: ';
-        echo $_SESSION["anreise"];
-        echo '</label><br>
-        <label for="departure">Abreisedatum: ';
-        echo $_SESSION["anreise"]; 
-        if ($_SESSION["frühstück"] == "Ihnen wird ein köstliches Frühstück gebracht.") {
-            echo '<br>';
-            echo $_SESSION["frühstück"];
-        } else {
-            $_SESSION["frühstück"] = "0";
+        if (isset($_SESSION['username'])) {
+            echo '<form>
+            <label>Sie haben eine Buchung von ';
+            echo $_SESSION["anreise"];
+            echo ' bis ';
+            echo $_SESSION["abreise"];
+            echo ' im Wert von ';
+            echo $_SESSION["gesamtkosten"];
+            echo '€.</label><br>
+            <label for="arrival">Anreisedatum: ';
+            echo $_SESSION["anreise"];
+            echo '</label><br>
+            <label for="departure">Abreisedatum: ';
+            echo $_SESSION["abreise"]; 
+            if ($_SESSION["frühstück"] == "Ihnen wird ein köstliches Frühstück gebracht.") {
+                echo '<br>';
+                echo $_SESSION["frühstück"];
+            } else {
+                $_SESSION["frühstück"] = "0";
+            }
+            if ($_SESSION["parkplatz"] == "Ihnen wird ein Parkplatz reserviert.") {
+                echo '<br>';
+                echo $_SESSION["parkplatz"];
+            } else {
+                $_SESSION["parkplatz"] = "0";
+            }
+            if ($_SESSION["haustier"] == "Für Ihre Haustiere wird gesorgt.") {
+                echo '<br>';
+                echo $_SESSION["haustier"];
+            } else {
+                $_SESSION["haustier"] = "0";
+            }
+            echo '</form>';
         }
-        if ($_SESSION["parkplatz"] == "Ihnen wird ein Parkplatz reserviert.") {
-            echo '<br>';
-            echo $_SESSION["parkplatz"];
-        } else {
-            $_SESSION["parkplatz"] = "0";
-        }
-        if ($_SESSION["haustier"] == "Für Ihre Haustiere wird gesorgt.") {
-            echo '<br>';
-            echo $_SESSION["haustier"];
-        } else {
-            $_SESSION["haustier"] = "0";
-        }
-        echo '</form>';
-        }
-        $_SESSION["reservierung"] = 0;
-        $_SESSION["frühstück"] = '';
+        /*$_SESSION["frühstück"] = '';
         $_SESSION["parkplatz"] = '';
-        $_SESSION["haustier"] = '';
+        $_SESSION["haustier"] = '';*/
 
         ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

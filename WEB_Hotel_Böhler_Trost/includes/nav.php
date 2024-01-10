@@ -1,8 +1,8 @@
-<?php
+<?php 
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
-$calling_file = basename($_SERVER['PHP_SELF']);
+/*$calling_file = basename($_SERVER['PHP_SELF']);
 if (!isset($_SESSION["username"])) {
   $_SESSION["username"] = "";
 }
@@ -11,7 +11,7 @@ if (!isset($_SESSION["loggedin"])) {
 }
 if (!isset($_SESSION["registriert"])) {
   $_SESSION["registriert"] = "";
-}
+}*/
 ?>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -23,14 +23,31 @@ if (!isset($_SESSION["registriert"])) {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
+        
+        </li>
         <?php
-       if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin" || ($_SESSION["registriert"] == "user") && $_SESSION["pword"] == "1234") {
+        if (session_status() == PHP_SESSION_NONE) {
+          session_start();
+        }
+include_once 'dbaccess.php';
+if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
+  mysqli_close($conn);
+}
+if (isset($_SESSION['username'])) {
+  echo '<a class="nav-link" href="../includes/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
+} else {
+  echo '<a class="nav-link" href="../includes/registrierung.php" style="padding-left: 20px; font-size: 25px;">Registrieren</a><a class="nav-link" href="../includes/login.php" style="font-size: 25px;">Einloggen</a>';
+}
+
+
+       /*if (isset($_SESSION['username'])) {
               echo '<a class="nav-link" href="../includes/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
+              //echo "Willkommen " . $_SESSION['username'] . "!";
        } else {
         echo '<a class="nav-link" href="../includes/registrierung.php" style="font-size: 25px;">Registrierung</a>';
-       }
+       }*/
+       //session_destroy();
        ?>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="../includes/faq.php" style="padding-left: 20px; font-size: 25px;">FAQ</a>
         </li>

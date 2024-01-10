@@ -43,7 +43,7 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
 //$cookie_value = $_POST["username"];
 //setcookie($cookie_name, $cookie_value, time() + (86400), "/"); // cookie hält für einen tag
 */?>
-<?php
+<?php /*
     if(isset($_POST["submit"])){
       require("mysql.php");
       $stmt = $mysql->prepare("SELECT * FROM userdaten WHERE username = :user"); //Username überprüfen
@@ -66,13 +66,27 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
       } else {
         echo "Der Username ist bereits vergeben";
       }
-    }
+    } */
      ?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <title>Registrierung</title>
-  <?php include "../includes/header.php"; ?>
+  <?php include "../includes/header.php";?>
+  <?php include "../includes/insertdbdata"; ?>
+  <?php 
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+include_once 'dbaccess.php';
+/*if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
+mysqli_close($conn);
+}*/
+    if(isset($_POST['submit'])) {
+      header('Location: ../php/index.php');
+    }
+  ?>
 </head>
 <header>
     <h1 class="title">Registrierung</h1>
@@ -102,7 +116,7 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
         <label for="pwordconfirm">Passwort Bestätigen:</label><br>
         <input type="password" id="pwordconfirm" name="pwordconfirm" required>
         <br><br>
-        <input type="submit" name="submit" value="Absenden">
+        <input type="submit" name="submit" value="Absenden"> 
         <input type="reset">
     </form>
 </div>

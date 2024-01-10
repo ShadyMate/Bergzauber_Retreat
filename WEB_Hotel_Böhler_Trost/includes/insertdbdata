@@ -1,0 +1,44 @@
+<?php // in diesem code werden die daten die bei der regestrierung eingegeben werden in der Datenbank gespeichert
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+include_once 'dbaccess.php';
+if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pword']) && isset($_POST['fname']) && isset($_POST['lname'])) { //Hier werden die Daten eines Users in die Datenbank gespeichert, jedoch nicht wenn er eine bereits existierende email eingibt.
+    $firstname = $_POST['fname'];
+    $lastname = $_POST['lname'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['pword'], PASSWORD_DEFAULT);
+    
+        $sql = "SELECT Email FROM user WHERE email = '$email'";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) { //wenn nichts vorhande, heißt es, die email existiert schon
+            exit('Die E-Mail-Adresse ist bereits vorhanden.');
+            } else {
+                $sql = "INSERT INTO user (Vorname, Nachname, Email, Username, Passwort) VALUES ('$firstname', '$lastname', '$email', '$username', '$password')";
+                if ($conn->query($sql) === TRUE) {
+                    echo "Neuer Datensatz erfolgreich hinzugefügt!";
+                    //echo $password;
+                    $_SESSION["firstname"] = $_POST['fname'];
+                    $_SESSION["lastname"] = $_POST['lname'];
+                    $_SESSION["email"] = $_POST['email'];
+                    $_SESSION["username"] = $_POST['username'];
+                    $_SESSION["pword"] = $_POST['pword'];
+                    //userid wird ausgegeben
+                    $stmt = $conn->prepare("SELECT userid FROM user WHERE Email = ?");
+                    $stmt->bind_param('s', $email);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    $user = $result->fetch_assoc();
+                    $_SESSION['userid'] = $user['userid'];
+                    $userid = $_SESSION['userid'];
+                    $zimmerid = $_SESSION['zimmerid'];
+                    //zimmerid wird zur datenbank hinzugefügt
+                    $sql = "UPDATE user SET zimmer_id = '$zimmerid' WHERE userid = (SELECT userid FROM user WHERE Email = '$email')";
+                    $result = $conn->query($sql);
+                }
+    } 
+    mysqli_close($conn);
+}
+?>

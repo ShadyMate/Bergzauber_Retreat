@@ -1,21 +1,24 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+include_once 'dbaccess.php';
+include "../includes/insertdbdatazimmer.php";
 
-    $fruehstueck = $_POST['frühstück'] ?? 0;
+   /* $fruehstueck = $_POST['frühstück'] ?? 0;
     $parkplatz = $_POST['parkplatz'] ?? 0;
     $haustiere = $_POST['haustiere'] ?? 0;
     $_SESSION["gesamtkosten"] = 0;
     $_SESSION["anreise"] = $_POST['arrival'] ?? '';
-    $_SESSION["abreise"] = $_POST['departure'] ?? '';
-    if (!isset($_SESSION["reservierung"])) {
+    $_SESSION["abreise"] = $_POST['departure'] ?? '';*/
+    /*if (!isset($_SESSION["reservierung"])) {
         $_SESSION["reservierung"] = "";
-      }
+      }*/
     
 
     if(isset($_POST['submit'])) {
         $_SESSION["gesamtkosten"] = $_SESSION["kosten"] + $fruehstueck + $parkplatz + $haustiere;
         //echo $gesamtkosten;
-        $_SESSION["reservierung"] = 1;
         echo '<script type="text/javascript">';
         echo 'alert("Die Buchung war erfolgreich!");';
         echo 'window.location.href = "../php/index.php";';
@@ -54,7 +57,7 @@ include "nav.php";
     <label for="kosten">Dieses Zimmer kostet <?php 
     echo $_SESSION["kosten"]; 
     ?>
-     Euro</label>
+     Euro pro Nacht.</label>
     <br>
     <br>
     <label for="arrival">Anreisedatum:</label><br>

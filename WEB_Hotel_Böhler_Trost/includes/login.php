@@ -1,4 +1,4 @@
-<?php
+<?php /*
 session_start();
 
 if (!isset($_SESSION["registriert"])) {
@@ -25,6 +25,45 @@ if(isset($_POST['submit'])) {
     echo 'alert("Etwas ist schief gelaufen!");'; 
     echo '</script>';
 }
+} */
+?>
+
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+include_once 'dbaccess.php';
+if (isset($_POST['username']) && isset($_POST['pword'])) {
+    //username und passwort aus dem Formular abrufen und in session speichern
+    $username = $_POST['username'];
+    $_SESSION['username'] = $_POST['username'];
+    $password = $_POST['pword']; // Passwort im Klartext
+    $_SESSION["pword"] = $_POST['pword'];
+
+    $sql = "SELECT userid, Username, Passwort, Email, Vorname, Nachname FROM user WHERE username = '$username'";
+    $result = $conn->query($sql);
+    //alle daten des users sind jetzt in sessions gespeichert
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $hashed_password = $row['Passwort'];
+            $_SESSION["email"] = $row["Email"];
+            $_SESSION["firstname"] = $row["Vorname"];
+            $_SESSION["lastname"] = $row["Nachname"];
+            $_SESSION["userid"] = $row["userid"];
+            //echo $_SESSION["firstname"];
+        }
+        
+        if (password_verify($password, $hashed_password)) { //hier sollen noch andere sachen stehen, das ist nur beispieltext
+            echo 'Erfolgreich eingeloggt!'; 
+            if(isset($_POST['submit'])) {
+                header('Location: ../php/index.php');
+              }
+        } else {
+            echo 'Falsches Passwort!';
+        }
+    } else {
+        echo 'Falscher Benutzername!';
+    }
 }
 ?>
 
@@ -48,8 +87,6 @@ include "nav.php";
 ?>
 <div class="container">
     <form method="post" class="text-center">
-    <form class="text-center">
-    <form method="post" class="text-center">
         
         <label for="username">Username:</label> <br>
         <input type="text" id="username" name="username" placeholder="Username" autocomplete="on" autofocus required> <br>
@@ -60,6 +97,5 @@ include "nav.php";
         <input type="submit" name = "submit" value="Login">
     </form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</form>
 </body>
 </html>

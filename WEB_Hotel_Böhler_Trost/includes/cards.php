@@ -5,10 +5,14 @@
             <h5 class="card-title">Zimmerangebot</h5>
             <p class="card-text">Hier finden Sie alle Angebote, sowie Infos zur Buchung</p>
             <?php
-                if ($_SESSION["username"] == "admin" && $_SESSION["pword"] == "admin" || ($_SESSION["registriert"] == "user") && $_SESSION["pword"] == "1234") {
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+              }
+            include_once 'dbaccess.php';
+                if (isset($_SESSION['username'])) {
                     echo '<a href="../includes/Zimmer.php" class="btn btn-primary">Zimmer buchen</a>';
                 } else {
-                    echo '<a href="../includes/registrierung.php" class="btn btn-primary">Sie müssen sich erst registrieren!</a>';
+                    echo '<a href="../includes/registrierung.php" class="btn btn-primary">Sie müssen sich erst registrieren oder einloggen!</a>';
                 }
             ?>
         </div>

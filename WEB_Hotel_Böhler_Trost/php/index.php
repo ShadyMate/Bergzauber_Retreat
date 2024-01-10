@@ -1,15 +1,9 @@
 <?php
-session_start();
-$calling_file = basename($_SERVER['PHP_SELF']);
-if (!isset($_SESSION["username"])) {
-  $_SESSION["username"] = "";
-}
-if (!isset($_SESSION["registriert"])) {
-  $_SESSION["registriert"] = "";
-}
-if (!isset($_SESSION["pword"])) {
-  $_SESSION["pword"] = "";
-}
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+include_once '../includes/dbaccess.php';
+//session_destroy();
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +21,7 @@ if (!isset($_SESSION["pword"])) {
     <h1 class="maintitle">Bergzauber Retreat</h1>
 </header>
 <body>
-
+        <p>hi</p>
   <?php include '../includes/nav.php'; ?>
   <?php include '../includes/cards.php'; ?>
     
