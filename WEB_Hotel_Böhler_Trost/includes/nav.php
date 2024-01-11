@@ -60,9 +60,14 @@ if (isset($_SESSION['username'])) {
         </li>
         <li class="nav-item">
           <?php
+          if (isset($_SESSION['rechte'])) {
             if ($_SESSION['rechte'] == "admin") {
-              echo '<a class="nav-link" href="../php/admin.php" style="padding-left: 20px; font-size: 25px;">Admin</a>';
+              echo '<a class="nav-link" href="../php/userverwaltung.php" style="padding-left: 20px; font-size: 25px;">Userverwaltung</a>';
             }
+            else {
+              $_SESSION['rechte'] = "placeholder";
+            }
+          }
           ?>
         </li>
       </ul>

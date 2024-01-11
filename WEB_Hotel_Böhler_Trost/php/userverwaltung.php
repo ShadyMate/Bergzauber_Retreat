@@ -29,14 +29,27 @@ if (session_status() == PHP_SESSION_NONE) {
     ?>
     <div class="container">
     <form method="post">
-    <p>User_ID: <?php echo $_SESSION["username"]; ?></p>
-    <p>Rechte: <?php echo $_SESSION["username"]; ?></p>
-    <p>Vorname: <?php echo $_SESSION["firstname"];; ?></p>
-    <p>Nachname: <?php echo $_SESSION["lastname"]; ?></p>
-    <p>Email: <?php echo $_SESSION["email"]; ?></p>
-    <p>Username: <?php echo $_SESSION["username"]; ?></p>
-    <p>Username: <?php echo $_SESSION["username"]; ?></p>
-    <p>Passwort: <?php echo $_SESSION["username"]; ?></p>
+    <?php
+        $sql = "SELECT * FROM user";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Daten für jeden Benutzer ausgeben
+        while($row = $result->fetch_assoc()) {
+            echo "User_ID: " . $row["userid"] . "<br>";
+            echo "Rechte: " . $row["Rechte"] . "<br>";
+            echo "Vorname: " . $row["Vorname"] . "<br>";
+            echo "Nachname: " . $row["Nachname"] . "<br>";
+            echo "E-mail: " . $row["Email"] . "<br>";
+            echo "Username: " . $row["Username"] . "<br>";
+            echo "Passwort: " . $row["Passwort"] . "<br>";
+            echo '<a href="../includes/userverwaltungchange.php">Hier klicken um Ihre Daten zu ändern.</a>';
+            echo "<br><br>";        
+        }
+    } else {
+        echo "Keine Benutzer gefunden.";
+    }
+    ?>
     <br>
     <br>
     <a href="../includes/change.php">Hier klicken um Ihre Daten zu ändern.</a>
