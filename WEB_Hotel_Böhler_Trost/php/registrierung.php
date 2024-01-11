@@ -78,7 +78,7 @@ if ($_SESSION["pword"] == "admin" && $_SESSION["pwordconfirm"] != "admin") { //p
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
-include_once 'dbaccess.php';
+include_once '../includes/dbaccess.php';
 include "../includes/insertdbdata";
 /*if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
 mysqli_close($conn);
@@ -92,7 +92,7 @@ mysqli_close($conn);
     <h1 class="title">Registrierung</h1>
 </header>
 <body>
-<?php include "nav.php";
+<?php include "../includes/nav.php";
 ?>
 <div class="container">
     <form method="post">
