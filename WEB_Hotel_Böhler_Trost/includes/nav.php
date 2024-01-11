@@ -23,7 +23,6 @@ if (!isset($_SESSION["registriert"])) {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-        
         </li>
         <?php
         if (session_status() == PHP_SESSION_NONE) {
@@ -48,8 +47,7 @@ if (isset($_SESSION['username'])) {
        }*/
        //session_destroy();
        ?>
-        </li>
-        <li class="nav-item">
+          <li class="nav-item">
           <a class="nav-link" href="../php/Zimmer.php" style="padding-left: 20px; font-size: 25px;">Zimmer</a>
         <li class="nav-item">
           <a class="nav-link" href="../php/faq.php" style="padding-left: 20px; font-size: 25px;">FAQ</a>
@@ -62,4 +60,5 @@ if (isset($_SESSION['username'])) {
       </ul>
     </div>
   </div>
+  <a class="navbar-brand ms-auto" href="../php/Profil.php">Profil <img src="../res/img/Profil.png" alt="Profil" width="50" height="50"></a>
 </nav>

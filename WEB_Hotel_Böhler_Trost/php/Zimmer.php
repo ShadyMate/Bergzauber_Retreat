@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
-include_once 'dbaccess.php';
+include_once '../includes/dbaccess.php';
 ?>
 <!-- TODO: Zimmer verschönern, Text bearbeiten, Preise und verschönern -->
 <!DOCTYPE html>

@@ -25,7 +25,6 @@ include_once '../includes/dbaccess.php';
     <h1 class="maintitle">Bergzauber Retreat</h1>
 </header>
 <body>
-        <p>hi</p>
   <?php include '../includes/nav.php'; ?>
   <?php include '../includes/cards.php'; ?>
   <?php include '../includes/footer.php'; ?>
