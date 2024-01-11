@@ -34,9 +34,9 @@ if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
   mysqli_close($conn);
 }
 if (isset($_SESSION['username'])) {
-  echo '<a class="nav-link" href="../includes/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
+  echo '<a class="nav-link" href="../php/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
 } else {
-  echo '<a class="nav-link" href="../includes/registrierung.php" style="padding-left: 20px; font-size: 25px;">Registrieren</a><a class="nav-link" href="../includes/login.php" style="font-size: 25px;">Einloggen</a>';
+  echo '<a class="nav-link" href="../php/registrierung.php" style="padding-left: 20px; font-size: 25px;">Registrieren</a><a class="nav-link" href="../php/login.php" style="font-size: 25px;">Login</a>';
 }
 
 
@@ -50,13 +50,10 @@ if (isset($_SESSION['username'])) {
        ?>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../includes/faq.php" style="padding-left: 20px; font-size: 25px;">FAQ</a>
+          <a class="nav-link" href="../php/faq.php" style="padding-left: 20px; font-size: 25px;">FAQ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../includes/impressum.php" style="padding-left: 20px; font-size: 25px;">Impressum</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../includes/news.php" style="padding-left: 20px; font-size: 25px;">News</a>
+          <a class="nav-link" href="../php/news.php" style="padding-left: 20px; font-size: 25px;">News</a>
         </li>
         <li class="nav-item">
       </li>

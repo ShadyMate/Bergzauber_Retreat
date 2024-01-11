@@ -24,7 +24,7 @@ if (session_status() == PHP_SESSION_NONE) {
 </header>
 <body>
     <?php
- include "nav.php";
+ include "../includes/nav.php";
  
     ?>
     <div class="container">
@@ -36,16 +36,16 @@ if (session_status() == PHP_SESSION_NONE) {
     <?php
       function partialPassword($password, $show = 2, $char = '*') { //die fkt zeigt das passwort nur zum Teil an
         $length = strlen($password);
-        return substr($password, 0, $show) . str_repeat($char, $length - $show);
+        return Profil . phpsubstr($password, 0, $show) . str_repeat($char, $length - $show);
     }
     $password = $_SESSION["pword"];
     echo "Passwort: " . partialPassword($password);
     ?>
     <br>
     <br>
-    <a href="change.php">Hier klicken um Ihre Daten zu ändern.</a>
+    <a href="../includes/change.php">Hier klicken um Ihre Daten zu ändern.</a>
     <br>
-    <form action="logout.php" method="post">
+    <form action="../includes/logout.php" method="post">
         <input type="submit" name="logout" value="Logout">
     </form>
     </form>

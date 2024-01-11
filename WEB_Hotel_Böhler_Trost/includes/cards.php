@@ -10,9 +10,9 @@
               }
             include_once 'dbaccess.php';
                 if (isset($_SESSION['username'])) {
-                    echo '<a href="../includes/Zimmer.php" class="btn btn-primary">Zimmer buchen</a>';
+                    echo '<a href="../php/Zimmer.php" class="btn btn-primary">Zimmer buchen</a>';
                 } else {
-                    echo '<a href="../includes/registrierung.php" class="btn btn-primary">Sie müssen sich erst registrieren oder einloggen!</a>';
+                    echo '<a href="../php/registrierung.php" class="btn btn-primary">Sie müssen sich erst registrieren oder einloggen!</a>';
                 }
             ?>
         </div>

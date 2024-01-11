@@ -21,12 +21,12 @@ if (!isset($dst)) {
 <html lang="en">
 <head>
   <title>News</title>
-  <?php include "header.php";?>
+  <?php include "../includes/header.php";?>
 </head>
 <body>
   <h1 class="title">Newspage</h1>
 <?php
-include "nav.php";
+include "../includes/nav.php";
 $target_dir = "../uploads/news/";
 if(isset($_POST["submit"])) {
   $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -115,5 +115,6 @@ if ($uploadOk == 0) {
     </form>
   </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<?php include "../includes/footer.php"; ?>
 </body>
 </html>

@@ -17,7 +17,7 @@ include_once 'dbaccess.php';
     <h1 class="title">Verfügbare Zimmer</h1>
 </header>
 <?php
-include "nav.php";
+include "../includes/nav.php";
 ?>
 <div class="container">
 <div id="carouselExampleCaptions" class="carousel slide">
