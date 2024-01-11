@@ -50,6 +50,8 @@ if (isset($_SESSION['username'])) {
        ?>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="../php/Zimmer.php" style="padding-left: 20px; font-size: 25px;">Zimmer</a>
+        <li class="nav-item">
           <a class="nav-link" href="../php/faq.php" style="padding-left: 20px; font-size: 25px;">FAQ</a>
         </li>
         <li class="nav-item">

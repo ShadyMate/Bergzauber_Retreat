@@ -23,7 +23,7 @@ include_once '../includes/dbaccess.php';
     <h1 class="title">Spa Angebot</h1>
 </header>
 <?php include "../includes/nav.php"; ?>
-<div class="card-deck">
+<div class="card-group">
     <div class="card">
         <div class="card-body text-center">
             <h4 class="card-title">Massagen</h4>
