@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 11. Jan 2024 um 16:03
+-- Erstellungszeit: 11. Jan 2024 um 16:05
 -- Server-Version: 10.4.28-MariaDB
 -- PHP-Version: 8.2.4
 
@@ -20,6 +20,95 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `hoteluser`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `user`
+--
+
+CREATE TABLE `user` (
+  `userid` int(32) NOT NULL,
+  `Rechte` varchar(32) NOT NULL,
+  `Vorname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Nachname` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Username` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `Passwort` varchar(80) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `user`
+--
+
+INSERT INTO `user` (`userid`, `Rechte`, `Vorname`, `Nachname`, `Email`, `Username`, `Passwort`) VALUES
+(1509, 'admin', 'Admin', 'Hotel', 'Hoteladmin@gmail.com', 'admin', '$2y$10$bCXzN5Vk..M7vHBEnqNCBeAdKsf1zzmautORGhJ1nBlkZUNtC1HWm'),
+(1510, 'registriert', 'Thomas', 'Trost', 'tomdi2002@gmx.at', 'asdf', '$2y$10$08maS1hWNs4WZDY6lS3yEOKOH0dRyoWU.5ii0h21eBaBA6AzeBBYO'),
+(1511, 'registriert', 'Thomas', 'Trost', 'tomi20dfdf02@gmx.at', 'asdf', '$2y$10$b9et.JitVE14PasmHuqeRuQSLVArZnLxe8DqvlFBkkGASqrNor.Tm');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `user_zimmer`
+--
+
+CREATE TABLE `user_zimmer` (
+  `userid` int(11) DEFAULT NULL,
+  `zimmer_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `user_zimmer`
+--
+
+INSERT INTO `user_zimmer` (`userid`, `zimmer_id`) VALUES
+(1496, 2506),
+(1496, 2506),
+(1496, 2506),
+(1496, 2506),
+(1496, 2506),
+(1496, 2506),
+(1496, 2507),
+(1496, 2507),
+(1496, 2507),
+(1496, 2507),
+(1496, 2508),
+(1496, 2509),
+(1496, 2510),
+(1496, 2511),
+(1496, 2511),
+(1496, 2511),
+(1496, 2511),
+(1496, 2515),
+(1496, 2515),
+(1496, 2495),
+(1496, 2518),
+(1496, 2519),
+(1496, 2520),
+(1496, 2520),
+(1496, 2520),
+(1497, 2533),
+(1497, 2534),
+(1497, 2535),
+(1497, 2537),
+(1497, 2538),
+(1497, 2539),
+(1497, 2540),
+(1497, 2541),
+(1497, 2542),
+(1497, 2543),
+(1499, 2544),
+(1499, 2545),
+(1499, 2546),
+(1501, 2547),
+(1501, 2548),
+(1508, 2549),
+(1508, 2550),
+(1508, 2551),
+(1508, 2552),
+(1508, 2553),
+(1509, 2554),
+(1510, 2555);
 
 -- --------------------------------------------------------
 
@@ -76,6 +165,19 @@ INSERT INTO `zimmer` (`zimmer_id`, `Kosten`, `Anreise`, `Abreise`, `Frühstück`
 --
 
 --
+-- Indizes für die Tabelle `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`userid`);
+
+--
+-- Indizes für die Tabelle `user_zimmer`
+--
+ALTER TABLE `user_zimmer`
+  ADD KEY `userid` (`userid`),
+  ADD KEY `zimmer_id` (`zimmer_id`);
+
+--
 -- Indizes für die Tabelle `zimmer`
 --
 ALTER TABLE `zimmer`
@@ -86,10 +188,27 @@ ALTER TABLE `zimmer`
 --
 
 --
+-- AUTO_INCREMENT für Tabelle `user`
+--
+ALTER TABLE `user`
+  MODIFY `userid` int(32) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1512;
+
+--
 -- AUTO_INCREMENT für Tabelle `zimmer`
 --
 ALTER TABLE `zimmer`
   MODIFY `zimmer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2556;
+
+--
+-- Constraints der exportierten Tabellen
+--
+
+--
+-- Constraints der Tabelle `user_zimmer`
+--
+ALTER TABLE `user_zimmer`
+  ADD CONSTRAINT `user_zimmer_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`),
+  ADD CONSTRAINT `user_zimmer_ibfk_2` FOREIGN KEY (`zimmer_id`) REFERENCES `zimmer` (`zimmer_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
