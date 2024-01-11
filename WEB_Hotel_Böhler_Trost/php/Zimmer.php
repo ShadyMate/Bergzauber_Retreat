@@ -19,7 +19,7 @@ include_once '../includes/dbaccess.php';
 <?php
 include "../includes/nav.php";
 ?>
-<div class="container">
+<div class="container" style="padding: 15px">
 <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -60,5 +60,6 @@ include "../includes/nav.php";
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<?php include "../includes/footer.php"; ?>
 </body>
 </html>
