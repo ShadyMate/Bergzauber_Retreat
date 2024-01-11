@@ -122,6 +122,7 @@ if ($result->num_rows > 0) {
         $result = mysqli_query($conn, $sql);*/
         //echo $_SESSION['gesamtkosten'];
         echo $_SESSION['userid'];
+        //echo $_SESSION['rechte'];
         $userid = $_SESSION['userid'];
 $sql = "SELECT zimmer.*
 FROM user
