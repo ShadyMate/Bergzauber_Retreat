@@ -10,7 +10,6 @@ include_once '../includes/dbaccess.php';
 <!-- TODO: User können Zimmer ansehen, und sehen wie viel ein Zimmer in etwa kostet, zum buchen Login-->
 <!-- TODO: Admin kann Zimmer anlegen, bearbeiten, löschen ? -->
 <!-- TODO: User können Spa Angebote ansehen, zum buchen Login-->
-<!-- TODO: Footer machen, FAQ (?), Impressum -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -29,6 +28,7 @@ include_once '../includes/dbaccess.php';
         <p>hi</p>
   <?php include '../includes/nav.php'; ?>
   <?php include '../includes/cards.php'; ?>
+  <?php include '../includes/footer.php'; ?>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

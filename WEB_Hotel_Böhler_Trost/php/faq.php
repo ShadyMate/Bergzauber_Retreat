@@ -5,6 +5,13 @@ session_start();
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <style>
+        footer{
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
     <title>FAQ</title>
   <?php include "../includes/header.php"; ?>
 </head>
@@ -12,9 +19,7 @@ session_start();
 <header>
     <h1 class="title">FAQ</h1>
 </header>
-<?php
-include "nav.php";
-?>
+<?php include "../includes/nav.php"; ?>
 <div class="container">
     <form style="width: 1000px">
     <section>
@@ -64,5 +69,6 @@ include "nav.php";
     </form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<?php include "../includes/footer.php"; ?>
 </body>
 </html>

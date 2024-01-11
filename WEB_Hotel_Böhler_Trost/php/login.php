@@ -32,7 +32,7 @@ if(isset($_POST['submit'])) {
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
-include_once 'dbaccess.php';
+include_once '../includes/dbaccess.php';
 if (isset($_POST['username']) && isset($_POST['pword'])) {
     //username und passwort aus dem Formular abrufen und in session speichern
     $username = $_POST['username'];
@@ -66,9 +66,15 @@ if (isset($_POST['username']) && isset($_POST['pword'])) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="de">
+<style>
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
 <head>
     <title>Login</title>
     <?php include "../includes/header.php"; ?>
@@ -83,7 +89,7 @@ if (isset($_POST['username']) && isset($_POST['pword'])) {
     <h1 class="title">Login</h1>
 </header>
 <?php
-include "nav.php";
+include "../includes/nav.php";
 ?>
 <div class="container">
     <form method="post" class="text-center">
@@ -97,5 +103,6 @@ include "nav.php";
         <input type="submit" name = "submit" value="Login">
     </form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<?php include "../includes/footer.php"; ?>
 </body>
 </html>

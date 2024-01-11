@@ -43,7 +43,7 @@ include "../includes/insertdbdatazimmer.php";
     <h1 class="title">Zimmer buchen</h1>
 </header>
 <?php
-include "nav.php";
+include "../includes/nav.php";
 ?>
 <body>
     <?php

@@ -13,6 +13,24 @@ h1 {
     align-items: center;
 }
 
+/* Card Styles */
+.card-deck {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    margin: 10px;
+    border-radius: 25px;
+    border-style: groove;
+    border-color: black;
+    background-color: white;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
 /* Image Styles */
 .picture {
     max-height: 100%;
@@ -38,12 +56,26 @@ form {
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url('../res/img/Hotel.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+}
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Footer Links Stil */
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
 }
 
 /* Title Styles */
@@ -130,11 +162,6 @@ input[type="checkbox"]:checked:hover {
 
 nav {
     margin-bottom: 2em;
-}
-
-/* Footer Styles */
-footer {
-    display: flex;
 }
 
 a {
