@@ -26,13 +26,15 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pword']
                     $_SESSION["username"] = $_POST['username'];
                     $_SESSION["pword"] = $_POST['pword'];
                     //userid wird ausgegeben
-                    $stmt = $conn->prepare("SELECT userid FROM user WHERE Email = ?");
+                    $stmt = $conn->prepare("SELECT userid, Rechte FROM user WHERE Email = ?");
                     $stmt->bind_param('s', $email);
                     $stmt->execute();
                     $result = $stmt->get_result();
                     $user = $result->fetch_assoc();
                     $_SESSION['userid'] = $user['userid'];
+                    $_SESSION['rechte'] = $user['rechte'];
                     $userid = $_SESSION['userid'];
+                    $rechte = $_SESSION['rechte'];
                 }
     } 
     mysqli_close($conn);

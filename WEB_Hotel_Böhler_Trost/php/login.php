@@ -40,7 +40,7 @@ if (isset($_POST['username']) && isset($_POST['pword'])) {
     $password = $_POST['pword']; // Passwort im Klartext
     $_SESSION["pword"] = $_POST['pword'];
 
-    $sql = "SELECT userid, Username, Passwort, Email, Vorname, Nachname FROM user WHERE username = '$username'";
+    $sql = "SELECT userid, Rechte, Username, Passwort, Email, Vorname, Nachname FROM user WHERE username = '$username'";
     $result = $conn->query($sql);
     //alle daten des users sind jetzt in sessions gespeichert
     if ($result->num_rows > 0) {
@@ -50,6 +50,7 @@ if (isset($_POST['username']) && isset($_POST['pword'])) {
             $_SESSION["firstname"] = $row["Vorname"];
             $_SESSION["lastname"] = $row["Nachname"];
             $_SESSION["userid"] = $row["userid"];
+            $_SESSION["rechte"] = $row["Rechte"];
             //echo $_SESSION["firstname"];
         }
         

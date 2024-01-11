@@ -34,6 +34,7 @@ include_once 'dbaccess.php';
 }*/
 if (isset($_SESSION['username'])) {
   echo '<a class="nav-link" href="../php/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
+  echo '<a class="nav-link" href="../php/logout.php" style="padding-left: 20px; font-size: 25px;">Logout</a>';
 } else {
   echo '<a class="nav-link" href="../php/registrierung.php" style="padding-left: 20px; font-size: 25px;">Registrieren</a><a class="nav-link" href="../php/login.php" style="font-size: 25px;">Login</a>';
 }
@@ -56,7 +57,12 @@ if (isset($_SESSION['username'])) {
           <a class="nav-link" href="../php/news.php" style="padding-left: 20px; font-size: 25px;">News</a>
         </li>
         <li class="nav-item">
-      </li>
+          <?php
+            if ($_SESSION['rechte'] == "admin") {
+              echo '<a class="nav-link" href="../php/admin.php" style="padding-left: 20px; font-size: 25px;">Admin</a>';
+            }
+          ?>
+        </li>
       </ul>
     </div>
   </div>

@@ -34,10 +34,10 @@ if (session_status() == PHP_SESSION_NONE) {
     <p>Email: <?php echo $_SESSION["email"]; ?></p>
     <p>Username: <?php echo $_SESSION["username"]; ?></p>
     <?php
-      function partialPassword($password, $show = 2, $char = '*') { //die fkt zeigt das passwort nur zum Teil an
-        $length = strlen($password);
-        return Profil . phpsubstr($password, 0, $show) . str_repeat($char, $length - $show);
-    }
+        function partialPassword($password, $show = 2, $char = '*') { 
+            $length = strlen($password);
+            return substr($password, 0, $show) . str_repeat($char, $length - $show);
+        }
     $password = $_SESSION["pword"];
     echo "Passwort: " . partialPassword($password);
     ?>
@@ -120,8 +120,9 @@ if ($result->num_rows > 0) {
         WHERE user.userid = '$userid'";
         
         $result = mysqli_query($conn, $sql);*/
-        echo $_SESSION['gesamtkosten'];
+        //echo $_SESSION['gesamtkosten'];
         echo $_SESSION['userid'];
+        //echo $_SESSION['rechte'];
         $userid = $_SESSION['userid'];
 $sql = "SELECT zimmer.*
 FROM user
