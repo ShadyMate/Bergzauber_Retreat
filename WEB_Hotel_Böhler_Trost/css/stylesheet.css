@@ -13,6 +13,7 @@ h1 {
     align-items: center;
 }
 
+/* Card Styles*/
 .card {
     margin: 10px;
     border-radius: 25px;
@@ -22,6 +23,11 @@ h1 {
     word-wrap: break-word;
 }
 
+/* Carousel Styles*/
+.carousel-item {
+    border: 40px solid white;
+    border-radius: 20px;
+}
 /* Image Styles */
 .picture {
     max-height: 100%;

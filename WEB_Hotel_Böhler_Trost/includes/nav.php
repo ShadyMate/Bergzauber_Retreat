@@ -23,7 +23,6 @@ if (!isset($_SESSION["registriert"])) {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-        
         </li>
         <?php
         if (session_status() == PHP_SESSION_NONE) {
@@ -35,7 +34,7 @@ include_once 'dbaccess.php';
 }*/
 if (isset($_SESSION['username'])) {
   echo '<a class="nav-link" href="../php/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
-  echo '<a class="nav-link" href="../php/logout.php" style="padding-left: 20px; font-size: 25px;">Logout</a>';
+  echo '<a class="nav-link" href="logout.php" style="padding-left: 20px; font-size: 25px;">Logout</a>';
 } else {
   echo '<a class="nav-link" href="../php/registrierung.php" style="padding-left: 20px; font-size: 25px;">Registrieren</a><a class="nav-link" href="../php/login.php" style="font-size: 25px;">Login</a>';
 }
@@ -49,8 +48,7 @@ if (isset($_SESSION['username'])) {
        }*/
        //session_destroy();
        ?>
-        </li>
-        <li class="nav-item">
+          <li class="nav-item">
           <a class="nav-link" href="../php/Zimmer.php" style="padding-left: 20px; font-size: 25px;">Zimmer</a>
         <li class="nav-item">
           <a class="nav-link" href="../php/faq.php" style="padding-left: 20px; font-size: 25px;">FAQ</a>
@@ -73,4 +71,5 @@ if (isset($_SESSION['username'])) {
       </ul>
     </div>
   </div>
+  <a class="navbar-brand ms-auto" href="../php/Profil.php">Profil <img src="../res/img/Profil.png" alt="Profil" width="50" height="50"></a>
 </nav>
