@@ -1,4 +1,4 @@
-<div class="card-group">
+<div class="card-deck">
     <div class="card" style="max-height: 100vh">
         <img class="card-img-top" src="../res/img/hotelzimmer.jpg" alt="Hotelzimmer">
         <div class="card-body text-center">
@@ -23,6 +23,7 @@
             <h5 class="card-title">Aktivitäten</h5>
             <p class="card-text">Rund um das Hotel gibt es viele Dinge zu tun und zu sehen.
                 Hier finden sie einige beliebte Aktivitäten</p>
+            <a href="#" class="btn btn-primary">Zu den Aktivitäten</a>
         </div>
     </div>
     <div class="card" style="max-height: 100vh">
@@ -30,6 +31,7 @@
         <div class="card-body text-center">
             <h5 class="card-title">Unser Spa Angebot</h5>
             <p class="card-text">Wir haben eine große Auswahl an Spa Angeboten für sie.</p>
+            <a href="../php/spa.php" class="btn btn-primary">Zum Spa Angebot</a>
         </div>
     </div>
 </div>
