@@ -1,4 +1,4 @@
-<div class="card-deck">
+<div class="card-group">
     <div class="card" style="max-height: 100vh">
         <img class="card-img-top" src="../res/img/hotelzimmer.jpg" alt="Hotelzimmer">
         <div class="card-body text-center">

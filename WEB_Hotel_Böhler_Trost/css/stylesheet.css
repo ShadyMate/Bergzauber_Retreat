@@ -13,21 +13,12 @@ h1 {
     align-items: center;
 }
 
-/* Card Styles */
-.card-deck {
-    margin-left: 10px;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: row;
-}
-
 .card {
     margin: 10px;
     border-radius: 25px;
     border-style: groove;
     border-color: black;
     background-color: white;
-    padding: 10px;
     word-wrap: break-word;
 }
 
