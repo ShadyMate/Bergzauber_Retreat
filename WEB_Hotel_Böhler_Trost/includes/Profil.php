@@ -52,7 +52,14 @@ if (session_status() == PHP_SESSION_NONE) {
     </div>
     <br>
     <?php
-        if (isset($_SESSION['username'])) {
+    /*
+        $sql = "SELECT zimmer.*
+        FROM user
+        JOIN user_zimmer ON user.userid = user_zimmer.userid
+        JOIN zimmer ON user_zimmer.zimmerid = zimmer.zimmer_id
+        WHERE user.userid = '{$_SESSION['userid']}'";
+        //zeigt die reservierungen an
+        if (isset($_SESSION['anreise']) && isset($_SESSION['abreise'])) {
             echo '<form>
             <label>Sie haben eine Buchung von ';
             echo $_SESSION["anreise"];
@@ -66,23 +73,17 @@ if (session_status() == PHP_SESSION_NONE) {
             echo '</label><br>
             <label for="departure">Abreisedatum: ';
             echo $_SESSION["abreise"]; 
-            if ($_SESSION["frühstück"] == "Ihnen wird ein köstliches Frühstück gebracht.") {
+            if ($_SESSION["frühstück"] == 1) {
                 echo '<br>';
-                echo $_SESSION["frühstück"];
-            } else {
-                $_SESSION["frühstück"] = "0";
+                echo "Ihnen wird ein köstliches Frühstück gebracht.";
             }
-            if ($_SESSION["parkplatz"] == "Ihnen wird ein Parkplatz reserviert.") {
+            if ($_SESSION["parkplatz"] == 1) {
                 echo '<br>';
-                echo $_SESSION["parkplatz"];
-            } else {
-                $_SESSION["parkplatz"] = "0";
+                echo "Ihnen wird ein Parkplatz reserviert.";
             }
-            if ($_SESSION["haustier"] == "Für Ihre Haustiere wird gesorgt.") {
+            if ($_SESSION["haustiere"] == 1) {
                 echo '<br>';
-                echo $_SESSION["haustier"];
-            } else {
-                $_SESSION["haustier"] = "0";
+                echo "Für Ihre Haustiere wird gesorgt.";
             }
             echo '</form>';
         }
@@ -90,6 +91,103 @@ if (session_status() == PHP_SESSION_NONE) {
         $_SESSION["parkplatz"] = '';
         $_SESSION["haustier"] = '';*/
 
+        /*$sql = "SELECT zimmer_id FROM zimmer";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Geht durch alle Zeilen, speichert aber nur die letzte zimmer_id
+    while($row = $result->fetch_assoc()) {
+        $_SESSION['zimmer_id'] = $row["zimmer_id"];
+    }
+    echo "Letzte Zimmer ID: " . $_SESSION['zimmer_id'];
+} else {
+    echo "Keine Zimmer gefunden.";
+}
+
+        $result = mysqli_query($conn, $sql);
+        
+        if (mysqli_num_rows($result) > 0) {
+            echo "Reservierungen gefunden.";
+        } else {
+            echo "Keine Reservierungen gefunden.";
+        }
+        
+                $userid = $_SESSION['userid'];
+                $sql = "SELECT zimmer.*
+        FROM user
+        JOIN user_zimmer ON user.userid = user_zimmer.userid
+        JOIN zimmer ON user_zimmer.zimmer_id = zimmer.zimmer_id
+        WHERE user.userid = '$userid'";
+        
+        $result = mysqli_query($conn, $sql);*/
+        echo $_SESSION['gesamtkosten'];
+        echo $_SESSION['userid'];
+        $userid = $_SESSION['userid'];
+$sql = "SELECT zimmer.*
+FROM user
+JOIN user_zimmer ON user.userid = user_zimmer.userid
+JOIN zimmer ON user_zimmer.zimmer_id = zimmer.zimmer_id
+WHERE user.userid = '$userid'";
+
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // Geht durch alle Zeilen und zeigt jede Reservierung an
+    while($row = mysqli_fetch_assoc($result)) {
+        echo '<form>';
+        echo '<label>Sie haben eine Buchung von ';
+        echo $row["Anreise"];
+        echo ' bis ';
+        echo $row["Abreise"];
+        echo ' im Wert von ';
+        echo $row["Kosten"];
+        echo '€.</label><br>';
+        if ($row["Frühstück"] == 1) {
+            echo '<br>';
+            echo "Ihnen wird ein köstliches Frühstück gebracht.";
+        }
+        if ($row["Parkplatz"] == 1) {
+            echo '<br>';
+            echo "Ihnen wird ein Parkplatz reserviert.";
+        }
+        if ($row["Haustiere"] == 1) {
+            echo '<br>';
+            echo "Für Ihre Haustiere wird gesorgt.";
+        }
+        echo '</form>';
+    }
+} else {
+    echo "Keine Reservierungen gefunden.";
+}
+
+/*if (mysqli_num_rows($result) > 0) {
+    // zeigt jede Reservierung an
+    while($row = mysqli_fetch_assoc($result)) {
+        echo '<form>';
+        echo '<label>Sie haben eine Buchung von ';
+        echo $row["Anreise"];
+        echo ' bis ';
+        echo $row["Abreise"];
+        echo ' im Wert von ';
+        echo $row["Kosten"];
+        echo '€.</label><br>';
+        if ($row["Frühstück"] == 1) {
+            echo '<br>';
+            echo "Ihnen wird ein köstliches Frühstück gebracht.";
+        }
+        if ($row["Parkplatz"] == 1) {
+            echo '<br>';
+            echo "Ihnen wird ein Parkplatz reserviert.";
+        }
+        if ($row["Haustiere"] == 1) {
+            echo '<br>';
+            echo "Für Ihre Haustiere wird gesorgt.";
+        }
+        echo '</form>';
+    }
+} else {
+    echo "Keine Reservierungen gefunden.";
+}*/
         ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

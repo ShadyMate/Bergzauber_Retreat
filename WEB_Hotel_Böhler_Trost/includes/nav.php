@@ -30,9 +30,9 @@ if (!isset($_SESSION["registriert"])) {
           session_start();
         }
 include_once 'dbaccess.php';
-if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
+/*if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
   mysqli_close($conn);
-}
+}*/
 if (isset($_SESSION['username'])) {
   echo '<a class="nav-link" href="../includes/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
 } else {

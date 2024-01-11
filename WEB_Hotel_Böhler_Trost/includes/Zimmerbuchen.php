@@ -5,32 +5,30 @@ if (session_status() == PHP_SESSION_NONE) {
 include_once 'dbaccess.php';
 include "../includes/insertdbdatazimmer.php";
 
-   /* $fruehstueck = $_POST['frühstück'] ?? 0;
+     $fruehstueck = $_POST['frühstück'] ?? 0;
     $parkplatz = $_POST['parkplatz'] ?? 0;
     $haustiere = $_POST['haustiere'] ?? 0;
-    $_SESSION["gesamtkosten"] = 0;
-    $_SESSION["anreise"] = $_POST['arrival'] ?? '';
-    $_SESSION["abreise"] = $_POST['departure'] ?? '';*/
+    //$_SESSION["gesamtkosten"] = 0;
     /*if (!isset($_SESSION["reservierung"])) {
         $_SESSION["reservierung"] = "";
       }*/
     
 
     if(isset($_POST['submit'])) {
-        $_SESSION["gesamtkosten"] = $_SESSION["kosten"] + $fruehstueck + $parkplatz + $haustiere;
+        //$_SESSION['gesamtkosten'] = $_SESSION["kosten"] + $frühstück + $parkplatz + $haustiere;
         //echo $gesamtkosten;
         echo '<script type="text/javascript">';
         echo 'alert("Die Buchung war erfolgreich!");';
         echo 'window.location.href = "../php/index.php";';
         echo '</script>';
-        if ($fruehstueck != 0) {
-            $_SESSION["frühstück"] = "Ihnen wird ein köstliches Frühstück gebracht.";
+        if ($_SESSION["frühstück"]) {
+            echo "Ihnen wird ein köstliches Frühstück gebracht.";
         }
-        if ($parkplatz != 0) {
-            $_SESSION["parkplatz"] = "Ihnen wird ein Parkplatz reserviert.";
+        if ($_SESSION["parkplatz"]) {
+            echo "Ihnen wird ein Parkplatz reserviert.";
         }
-        if ($haustiere != 0) {
-            $_SESSION["haustier"] = "Für Ihre Haustiere wird gesorgt.";
+        if ($_SESSION["haustier"]) {
+            echo "Für Ihre Haustiere wird gesorgt.";
         }
     }
 ?>
