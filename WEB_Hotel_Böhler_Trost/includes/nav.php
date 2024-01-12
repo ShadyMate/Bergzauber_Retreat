@@ -56,18 +56,14 @@ if (isset($_SESSION['username'])) {
         <li class="nav-item">
           <a class="nav-link" href="../php/news.php" style="padding-left: 20px; font-size: 25px;">News</a>
         </li>
-        <li class="nav-item">
           <?php
           if (isset($_SESSION['rechte'])) {
             if ($_SESSION['rechte'] == "admin") {
               echo '<a class="nav-link" href="../php/userverwaltung.php" style="padding-left: 20px; font-size: 25px;">Userverwaltung</a>';
-            }
-            else {
-              $_SESSION['rechte'] = "placeholder";
+              echo '<a class="nav-link" href="../php/reservierungen.php" style="padding-left: 20px; font-size: 25px;">Reservierungen</a>';
             }
           }
           ?>
-        </li>
       </ul>
     </div>
   </div>

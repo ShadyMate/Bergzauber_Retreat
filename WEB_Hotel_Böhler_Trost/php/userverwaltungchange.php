@@ -3,35 +3,12 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
 
-/*if(isset($_POST['change'])) {
-$_SESSION["firstname"] = $_POST['fname'];
-$_SESSION["lastname"] = $_POST['lname'];
-$_SESSION["email"] = $_POST['email'];
-$_SESSION["username"] = $_POST['username'];
-if($_SESSION["pword"] != $_POST["pword"]) {
-    echo '<script type="text/javascript">';
-    echo 'alert("Falsches Passwort!");'; 
-    echo '</script>';
-}
-else if($_SESSION["pword"] == $_POST["pword"]) {
-    $_SESSION["pword"] = $_POST["newpword"];
-    echo '<script type="text/javascript">';
-    echo 'alert("Daten erfolgreich geändert!");'; 
-    echo 'window.location.href = "../php/index.php";';
-    echo '</script>';
-}
-}*/
-//prüft ob die Rechte für das Zugreifen auf die Datenbank vorhanden sind
+include_once '../includes/dbaccess.php';
 
-include_once 'dbaccess.php';
+$_SESSION['userid'] = $_GET['userid'];
+//echo $_SESSION['userid'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-/*$stmt = $conn->prepare("SELECT userid FROM user WHERE username = ?");
-$stmt->bind_param('s', $username);
-$stmt->execute();
-$result = $stmt->get_result();
-$user = $result->fetch_assoc();
-$_SESSION['userid'] = $user['userid'];*/
+if(isset($_POST['submit'])) {
 
     // Daten aus dem Formular abrufen
     
@@ -39,54 +16,26 @@ $_SESSION['userid'] = $user['userid'];*/
     $lastname = $_POST['lname'];
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = $_POST['pword']; // Passwort im Klartext
-    $_SESSION["pword"] = $_POST['pword'];
 
-    $sql = "SELECT Passwort FROM user WHERE userid = '{$_SESSION['userid']}'";
-    $result = $conn->query($sql);
-    //passwort hashen
-    if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $hashed_password = $row['Passwort'];
-    }
-   //vergleicht ob richtiges passwort eingegebn wird
-        if (password_verify($password, $hashed_password)) {
-            echo 'Erfolgreich Daten geändert!';
             // Datenbank aktualisieren
             $_SESSION["email"] = $_POST['email'];
             $_SESSION["firstname"] = $_POST['fname'];
             $_SESSION["lastname"] = $_POST['lname'];
             $_SESSION["username"] = $_POST['username'];
-            $password = password_hash($_POST['pword'], PASSWORD_DEFAULT);
                 $sql = "SELECT Userid, Email FROM user WHERE email = '$email'"; //Hier wird überprüft ob die Email bereits existiert
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     exit('Die E-Mail-Adresse ist bereits vorhanden.');
                     } else {
-                        $stmt = $conn->prepare("UPDATE user SET Vorname = ?, Nachname = ?, Email = ?, Username = ?, Passwort = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
-                        $stmt->bind_param('sssss', $firstname, $lastname, $email, $username, $password);
+                        $stmt = $conn->prepare("UPDATE user SET Vorname = ?, Nachname = ?, Email = ?, Username = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
+                        $stmt->bind_param('ssss', $firstname, $lastname, $email, $username);
                         $stmt->execute();
-                        $_SESSION['firstname'] = $firstname;
-                        echo $firstname;
-                        
-                        header('Location: ../includes/profil.php');
+                        header('Location: ../php/userverwaltung.php');
                     }
         } else {
-            $password = password_hash($_POST['pword'], PASSWORD_DEFAULT);
-            echo $_SESSION['userid']; /*
-            echo '<script type="text/javascript">';
-            echo 'alert("Falsches Passwort!");';
-            echo '</script>';*/
+            echo 'Fehler!';
         }
 
-            //momentaner code zur bestätigung der änderung
-    /*if ($stmt->affected_rows === 0) {
-        echo $_SESSION['userid'];
-        exit('Keine Zeilen aktualisiert');
-    } else {
-        echo 'Daten erfolgreich aktualisiert';
-    }*/
-}
 $conn->close();
 
 ?>
@@ -100,10 +49,11 @@ $conn->close();
     <h1 class="title">Meine Profildaten</h1>
 </header>
 <body>
-<?php include "nav.php";
+<?php include "../includes/nav.php";
 ?>
 <div class="container">
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="text-center">
+    <form method="post" class="text-center">
+    <label for="fname">UserID: <?php echo $_SESSION['userid']; echo "<br><br>"?></label><br> 
     <label for="fname">Vorname:</label><br> 
     <input type="text" id="fname" name="fname" required><br>
     <label for="lname">Nachname:</label><br>
@@ -113,12 +63,8 @@ $conn->close();
     <br>
     <label for="username">Username:</label><br>
     <input type="text" id="username" name="username" required><br>
-    <label for="pword">Altes Passwort:</label><br>
-    <input type="password" id="pword" name="pword" required><br>
-    <label for="newpword">Neues Passwort </label><br>
-    <input type="password" id="newpword" name="newpword" required>
     <br><br>
-    <input type="submit" id="change" name="change" value="Bestätigen">
+    <input type="submit" id="submit" name="submit" value="Bestätigen">
     </form>
     <br>
 </div>

@@ -155,6 +155,8 @@ if (mysqli_num_rows($result) > 0) {
             echo '<br>';
             echo "Für Ihre Haustiere wird gesorgt.";
         }
+        echo '<br>Status Ihrer Reservierung: ';
+        echo $row["Status"];
         echo '</form>';
     }
 } else {
