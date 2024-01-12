@@ -29,7 +29,6 @@ include_once '../includes/dbaccess.php';
             <h4 class="card-title">Massagen</h4>
             <p class="card-text">Wir bieten eine Vielzahl an verschiedenen Massagen von der klassischen Massage bishin zur Thai Massage.</p>
             <p class="card-text">Preis: Ab 75€ pro Stunde</p>
-            <p class="card-text">Dauer: 1 Stunde</p>
             <p class="card-text">Um dieses Angebot zu Buchen wenden sie sich an die Rezeption.</p>
         </div>
     </div>

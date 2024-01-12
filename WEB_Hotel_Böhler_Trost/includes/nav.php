@@ -27,13 +27,11 @@ if (!isset($_SESSION["registriert"])) {
         <?php
         if (session_status() == PHP_SESSION_NONE) {
           session_start();
-        }
-include_once 'dbaccess.php';
-/*if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
+        }include_once 'dbaccess.php';
+if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
   mysqli_close($conn);
-}*/
-if (isset($_SESSION['username'])) {
-  echo '<a class="nav-link" href="../php/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
+}
+/*if (isset($_SESSION['username'])) {
   echo '<a class="nav-link" href="logout.php" style="padding-left: 20px; font-size: 25px;">Logout</a>';
 } else {
   echo '<a class="nav-link" href="../php/registrierung.php" style="padding-left: 20px; font-size: 25px;">Registrieren</a><a class="nav-link" href="../php/login.php" style="font-size: 25px;">Login</a>';
@@ -45,9 +43,9 @@ if (isset($_SESSION['username'])) {
               //echo "Willkommen " . $_SESSION['username'] . "!";
        } else {
         echo '<a class="nav-link" href="../includes/registrierung.php" style="font-size: 25px;">Registrierung</a>';
-       }*/
+       }
        //session_destroy();
-       ?>
+       */?>
           <li class="nav-item">
           <a class="nav-link" href="../php/Zimmer.php" style="padding-left: 20px; font-size: 25px;">Zimmer</a>
         <li class="nav-item">
@@ -55,6 +53,12 @@ if (isset($_SESSION['username'])) {
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../php/news.php" style="padding-left: 20px; font-size: 25px;">News</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="../php/aktivitaeten.php" style="padding-left: 20px; font-size: 25px;">Aktivitäten</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../php/spa.php" style="padding-left: 20px; font-size: 25px;">Spa</a>
         </li>
         <li class="nav-item">
           <?php
