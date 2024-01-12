@@ -15,13 +15,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <!DOCTYPE html>
 <html lang="de">
-<style>
-    footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-</style>
 <head>
     <title>Homepage</title>
     <?php include "../includes/header.php"; ?>
@@ -142,7 +135,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // Geht durch alle Zeilen und zeigt jede Reservierung an
     while($row = mysqli_fetch_assoc($result)) {
-        echo '<form>';
+        echo '<form style="margin-bottom: 25px">';
         echo '<label>Sie haben eine Buchung von ';
         echo $row["Anreise"];
         echo ' bis ';

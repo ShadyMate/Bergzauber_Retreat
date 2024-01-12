@@ -86,7 +86,7 @@ if ($uploadOk == 0) {
     </form>';
   }
     ?>
-<main class="main container">
+<main class="main container" style="padding-bottom: 30px">
     <form>
       <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
