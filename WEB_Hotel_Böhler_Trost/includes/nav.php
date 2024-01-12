@@ -31,21 +31,13 @@ if (!isset($_SESSION["registriert"])) {
 if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
   mysqli_close($conn);
 }
-/*if (isset($_SESSION['username'])) {
-  echo '<a class="nav-link" href="logout.php" style="padding-left: 20px; font-size: 25px;">Logout</a>';
-} else {
-  echo '<a class="nav-link" href="../php/registrierung.php" style="padding-left: 20px; font-size: 25px;">Registrieren</a><a class="nav-link" href="../php/login.php" style="font-size: 25px;">Login</a>';
-}
 
-
-       /*if (isset($_SESSION['username'])) {
-              echo '<a class="nav-link" href="../includes/Profil.php" style="padding-left: 20px; font-size: 25px;">Profil</a>';
-              //echo "Willkommen " . $_SESSION['username'] . "!";
-       } else {
-        echo '<a class="nav-link" href="../includes/registrierung.php" style="font-size: 25px;">Registrierung</a>';
+       if (!isset($_SESSION['username'])) {
+        echo '<a class="nav-link" href="../php/registrierung.php" style="font-size: 25px;">Registrierung</a>';
+        echo '<a class="nav-link" href="../php/login.php" style="font-size: 25px;">Login</a>';
        }
        //session_destroy();
-       */?>
+       ?>
           <li class="nav-item">
           <a class="nav-link" href="../php/Zimmer.php" style="padding-left: 20px; font-size: 25px;">Zimmer</a>
         <li class="nav-item">
@@ -60,20 +52,20 @@ if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
         <li class="nav-item">
           <a class="nav-link" href="../php/spa.php" style="padding-left: 20px; font-size: 25px;">Spa</a>
         </li>
-        <li class="nav-item">
           <?php
           if (isset($_SESSION['rechte'])) {
             if ($_SESSION['rechte'] == "admin") {
               echo '<a class="nav-link" href="../php/userverwaltung.php" style="padding-left: 20px; font-size: 25px;">Userverwaltung</a>';
-            }
-            else {
-              $_SESSION['rechte'] = "placeholder";
+              echo '<a class="nav-link" href="../php/reservierungen.php" style="padding-left: 20px; font-size: 25px;">Reservierungen</a>';
             }
           }
           ?>
-        </li>
       </ul>
     </div>
   </div>
-  <a class="navbar-brand ms-auto" href="../php/Profil.php">Profil <img src="../res/img/Profil.png" alt="Profil" width="50" height="50"></a>
+  <?php
+  if (isset($_SESSION['username'])) {
+  echo '<a class="navbar-brand ms-auto" href="../php/Profil.php">Profil <img src="../res/img/Profil.png" alt="Profil" width="50" height="50"></a>';
+}
+?>
 </nav>

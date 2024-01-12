@@ -9,7 +9,6 @@ include_once 'dbaccess.php';
     /*$stmt = $conn->prepare("UPDATE zimmer SET frühstück = ?, parkplatz = ?, haustiere = ? WHERE zimmer_id = '{$_SESSION['zimmerid']}'"); //tabelle gehört nicht geupdatet sonder insert into
     $stmt->bind_param('iii', $frühstück, $parkplatz, $haustiere);
     $stmt->execute();*/
-    
     $frühstück = isset($_POST['frühstück']) ? 1 : 0;
     if ($frühstück == 1) {
         $frühstückpreis = 10;
@@ -69,11 +68,10 @@ try {
 
        
 
-                $sql = "INSERT INTO zimmer (Kosten, Anreise, Abreise, Frühstück, Parkplatz, Haustiere) VALUES ('{$_SESSION['gesamtkosten']}', '{$_SESSION['anreise']}', '{$_SESSION['abreise']}', '$frühstück', '$parkplatz', '$haustiere')";
-                $result = $conn->query($sql);
+       $sql = "INSERT INTO zimmer (Kosten, `Status`, Anreise, Abreise, Frühstück, Parkplatz, Haustiere) VALUES ('{$_SESSION['gesamtkosten']}', 'Neu', '{$_SESSION['anreise']}', '{$_SESSION['abreise']}', '$frühstück', '$parkplatz', '$haustiere')";                $result = $conn->query($sql);
 
                 $sql = "SELECT zimmer_id FROM zimmer";
-$result = $conn->query($sql);
+                $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // Geht durch alle Zeilen, speichert aber nur die letzte zimmer_id
@@ -84,6 +82,16 @@ if ($result->num_rows > 0) {
 } else {
     echo "Keine Zimmer gefunden.";
 }
+
+                $sqlStatus = "SELECT `Status` FROM zimmer WHERE zimmer_id = '{$_SESSION['zimmer_id']}'";
+                $result = $conn->query($sqlStatus);
+
+                if ($result->num_rows > 0) {
+                    // Geht durch alle Zeilen, speichert aber nur den letzten Status
+                    while($row = $result->fetch_assoc()) {
+                        $_SESSION['Status'] = $row["Status"];
+                    }
+                }
 
                 $sqluser_zimmer = "INSERT INTO user_zimmer (userid, zimmer_id) VALUES ('{$_SESSION['userid']}', '{$_SESSION['zimmer_id']}')";
         
