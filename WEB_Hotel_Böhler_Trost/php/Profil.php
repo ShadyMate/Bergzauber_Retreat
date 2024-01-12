@@ -15,6 +15,13 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <!DOCTYPE html>
 <html lang="de">
+<style>
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
 <head>
     <title>Homepage</title>
     <?php include "../includes/header.php"; ?>

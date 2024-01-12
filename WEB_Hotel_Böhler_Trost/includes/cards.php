@@ -23,7 +23,7 @@
             <h5 class="card-title">Aktivitäten</h5>
             <p class="card-text">Rund um das Hotel gibt es viele Dinge zu tun und zu sehen.
                 Hier finden sie einige beliebte Aktivitäten</p>
-            <a href="#" class="btn btn-primary">Zu den Aktivitäten</a>
+            <a href="../php/aktivitaeten.php" class="btn btn-primary">Zu den Aktivitäten</a>
         </div>
     </div>
     <div class="card" style="max-height: 100vh">
