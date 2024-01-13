@@ -31,24 +31,42 @@ include "../includes/nav.php";
       <img src="../res/img/Zimmer1.jpeg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h3>Jr. Suite</h3>
-        <h4>Zwei Single Beds, ab 100 €</h4>
-          <a href="Zimmerbuchen.php?kosten=100" class="btn btn-primary">Hier buchen</a>
+        <h4>Zwei Single Beds, ab 100 €</h4>
+          <?php if (!isset($_SESSION['username'])) {
+              echo '<a href="../php/registrierung.php" class="btn btn-primary">Um dieses Zimmer zu buchen, müssen sie sich registrieren!</a>';
+          }
+            else {
+                echo '<a href="Zimmerbuchen.php?kosten=100" class="btn btn-primary">Hier buchen</a>';
+            }
+          ?>
       </div>
     </div>
     <div class="carousel-item">
       <img src="../res/img/Zimmer2.jpeg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
           <h3>Sr. Suite</h3>
-          <h4>Ein Doppelbett in einem größeren Zimmer ab 200 €</h4>
-          <a href="Zimmerbuchen.php?kosten=200" class="btn btn-primary">Hier buchen</a>
+          <h4>Ein Doppelbett in einem größeren Zimmer ab 20 €</h4>
+          <?php if (!isset($_SESSION['username'])) {
+              echo '<a href="../php/registrierung.php" class="btn btn-primary">Um dieses Zimmer zu buchen, müssen sie sich registrieren!</a>';
+          }
+            else {
+                echo '<a href="Zimmerbuchen.php?kosten=200" class="btn btn-primary">Hier buchen</a>';
+            }
+            ?>
       </div>
     </div>
     <div class="carousel-item">
       <img src="../res/img/Zimmer3.jpeg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
           <h3>Deluxe Suite</h3>
-          <h4>Unsere luxuriöseste Suite, mit dem besten Ausblick in ganz Lech ab 400 €</h4>
-          <a href="Zimmerbuchen.php?kosten=400" class="btn btn-primary">Hier buchen</a>
+          <h4>Unsere luxuriöseste Suite, mit dem besten Ausblick in ganz Lech ab 400 €</h4>
+            <?php if (!isset($_SESSION['username'])) {
+                echo '<a href="../php/registrierung.php" class="btn btn-primary">Um dieses Zimmer zu buchen, müssen sie sich registrieren!</a>';
+            }
+                else {
+                    echo '<a href="Zimmerbuchen.php?kosten=400" class="btn btn-primary">Hier buchen</a>';
+                }
+                ?>
       </div>
     </div>
   </div>

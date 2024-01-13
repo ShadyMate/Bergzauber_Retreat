@@ -43,8 +43,8 @@ if (session_status() == PHP_SESSION_NONE) {
     ?>
     <br>
     <br>
-    <a href="../includes/change.php">Hier klicken um Ihre Daten zu ändern.</a>
-    <br>
+    <form action="../includes/change.php" method="post">
+        <input type="submit" name="change" value="Daten ändern">
     <form action="../includes/logout.php" method="post">
         <input type="submit" name="logout" value="Logout">
     </form>
