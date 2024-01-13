@@ -63,11 +63,11 @@ include "../includes/nav.php";
     <label for="departure">Abreisedatum:</label><br>
     <input type="date" id="departure" name="departure" required><br>
     <input type="checkbox" id="frühstück" name="frühstück" value="10">
-    <label for="frühstück"> Frühstück (+10 Euro)</label><br>
+    <label for="frühstück"> Frühstück (+30 Euro)</label><br>
     <input type="checkbox" id="parkplatz" name="parkplatz" value="25">
-    <label for="parkplatz"> Parkplatz (+25 Euro)</label><br>
+    <label for="parkplatz"> Parkplatz (+10 Euro)</label><br>
     <input type="checkbox" id="haustiere" name="haustiere" value="20">
-    <label for="haustiere"> Mitnahme von Haustieren (+20 Euro)</label><br>
+    <label for="haustiere"> Mitnahme von Haustieren (+50 Euro)</label><br>
     <input type="submit" name="submit" value="Reservieren">
     </form>
 

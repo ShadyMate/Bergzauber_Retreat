@@ -4,17 +4,7 @@
         <div class="card-body text-center">
             <h5 class="card-title">Zimmerangebot</h5>
             <p class="card-text">Hier finden Sie alle Angebote, sowie Infos zur Buchung</p>
-            <?php
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-              }
-            include_once 'dbaccess.php';
-                if (isset($_SESSION['username'])) {
-                    echo '<a href="../php/Zimmer.php" class="btn btn-primary">Zimmer buchen</a>';
-                } else {
-                    echo '<a href="../php/registrierung.php" class="btn btn-primary">Sie müssen sich erst registrieren oder einloggen!</a>';
-                }
-            ?>
+            <a href="../php/Zimmer.php" class="btn btn-primary">Zu den Zimmern</a>
         </div>
     </div>
     <div class="card" style="max-height: 100vh">

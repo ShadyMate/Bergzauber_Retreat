@@ -49,8 +49,8 @@ if (session_status() == PHP_SESSION_NONE) {
     ?>
     <br>
     <br>
-    <a href="../includes/change.php">Hier klicken um Ihre Daten zu ändern.</a>
-    <br>
+    <form action="../includes/change.php" method="post">
+        <input type="submit" name="change" value="Daten ändern">
     <form action="../includes/logout.php" method="post">
         <input type="submit" name="logout" value="Logout">
     </form>
@@ -141,7 +141,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // Geht durch alle Zeilen und zeigt jede Reservierung an
     while($row = mysqli_fetch_assoc($result)) {
-        echo '<form>';
+        echo '<form style="margin-bottom: 25px">';
         echo '<label>Sie haben eine Buchung von ';
         echo $row["Anreise"];
         echo ' bis ';
