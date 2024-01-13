@@ -44,7 +44,13 @@ if (session_status() == PHP_SESSION_NONE) {
             echo "Username: " . $row["Username"] . "<br>";
             echo "Passwort: " . $row["Passwort"] . "<br>";
             echo '<a href="../php/userverwaltungchange.php?userid=' . $row["userid"] . '">Hier klicken um Ihre Daten zu ändern.</a><br>';
-            echo '<a href="../includes/delete_user.php?userid=' . $row["userid"] . '" class="btn">Benutzer löschen</a>';              
+            if ($row["Aktiviert"] == 1) {
+                echo "Benutzer ist aktiviert.<br>";
+            } else {
+                echo "Benutzer ist deaktiviert.<br>";
+            }
+            echo '<a href="../includes/activate_user.php?userid=' . $row["userid"] . '" class="btn">Benutzer aktivieren</a>';
+            echo '<a href="../includes/deactivate_user.php?userid=' . $row["userid"] . '" class="btn">Benutzer deaktivieren</a>';              
             echo "<br><br>";      
         }
     } else {

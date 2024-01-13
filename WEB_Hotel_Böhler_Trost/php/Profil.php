@@ -17,7 +17,6 @@ if (session_status() == PHP_SESSION_NONE) {
 <html lang="de">
 <style>
     footer {
-        position: fixed;
         bottom: 0;
         width: 100%;
     }

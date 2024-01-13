@@ -13,8 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $conn->prepare("UPDATE zimmer SET `Status` = ? WHERE zimmer_id = ?");
         $stmt->bind_param('si', $status, $zimmer_id);
         $stmt->execute();
-
         echo "Status erfolgreich aktualisiert.";
+        
     } else {
         echo "Fehler: Nicht alle notwendigen Daten wurden übermittelt.";
     }

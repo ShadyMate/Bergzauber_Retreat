@@ -48,7 +48,9 @@ if (mysqli_num_rows($result) > 0) {
             echo '<br>';
             echo "Für Ihre Haustiere wird gesorgt.";
         }
-        echo '<br>Status Ihrer Reservierung: ';
+        echo '<br>Status der Reservierung: ';
+        echo $row['Status'];
+        echo '<br>';
         echo '<select name="status">';
         echo '<option value="Neu">Neu</option>';
         echo '<option value="Bestätigt">Bestätigt</option>';
@@ -74,6 +76,7 @@ $(document).ready(function(){
       data: $(this).serialize(),
       success: function(response){
         alert(response);
+        location.reload();
       }
     });
   });

@@ -1,4 +1,4 @@
-<?php
+<?php /*
     session_start();
 if (!isset($_SESSION["success"])) {
       $_SESSION["success"] = "";
@@ -15,7 +15,7 @@ if (!isset($dst)) {
     if (!isset($file)) {
       $file = "";
     }
-
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +27,7 @@ if (!isset($dst)) {
   <h1 class="title">Newspage</h1>
 <?php
 include "../includes/nav.php";
+/*
 $target_dir = "../uploads/news/";
 if(isset($_POST["submit"])) {
   $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -85,35 +86,45 @@ if ($uploadOk == 0) {
     <input type="submit" value="Upload Image" name="submit">
     </form>';
   }
-    ?>
-<main class="main container">
-    <form>
-      <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
-          <?php
-          $dir = "../uploads/news/";
-          $files = scandir($dir);
-          $active = 'active';
-          foreach($files as $file) {
-          if ($file === '.' || $file === '..') continue;
-            echo "<div class='carousel-item $active'>";
-            echo "<img src='$dir$file' class='d-block w-100' alt='Image'>";
-            echo "</div>";
-            $active = '';
-            }
-          ?>
-        </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </form>
-  </main>
+   */?>
+   <?php
+   //man kann nur beiträge hinzufügen wenn man admin ist
+    if (isset($_SESSION['rechte']) && $_SESSION['rechte'] == 'admin') {
+      echo '<form action="../includes/news_upload.php" method="post" enctype="multipart/form-data">
+      Ein Bild hochladen:
+      <input type="file" name="fileToUpload" id="fileToUpload">
+      <br>
+      <br>
+      Text eingeben:
+      <textarea name="textToUpload" id="textToUpload"></textarea>
+      <br>
+      <input type="submit" value="Bild und Text hochladen" name="submit">
+    </form>';
+    }
+   ?>
+<form>
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+
+include_once '../includes/dbaccess.php';
+$sql = "SELECT newsid, Datum, Bilddatei, `Text` FROM newsbeiträge ORDER BY newsid DESC";
+  $result = $conn->query($sql);
+  
+  if ($result->num_rows > 0) {
+    // Output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo '<img src='.$row["Bilddatei"].' alt="Newsbild">';
+      echo '<p>'.$row["Text"].'</p>';
+      echo $row["newsid"];
+      echo '<p>'.$row["Datum"].'</p>';
+    }
+  } else {
+    echo "Keine Newsbeiträge gefunden";
+  }
+?>
+</form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <?php include "../includes/footer.php"; ?>
 </body>

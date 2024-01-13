@@ -40,7 +40,7 @@ if (isset($_POST['username']) && isset($_POST['pword'])) {
     $password = $_POST['pword']; // Passwort im Klartext
     $_SESSION["pword"] = $_POST['pword'];
 
-    $sql = "SELECT userid, Rechte, Username, Passwort, Email, Vorname, Nachname FROM user WHERE username = '$username'";
+    $sql = "SELECT userid, Aktiviert, Rechte, Username, Passwort, Email, Vorname, Nachname FROM user WHERE username = '$username'";
     $result = $conn->query($sql);
     //alle daten des users sind jetzt in sessions gespeichert
     if ($result->num_rows > 0) {
@@ -50,20 +50,23 @@ if (isset($_POST['username']) && isset($_POST['pword'])) {
             $_SESSION["firstname"] = $row["Vorname"];
             $_SESSION["lastname"] = $row["Nachname"];
             $_SESSION["userid"] = $row["userid"];
+            $_SESSION["aktiviert"] = $row["Aktiviert"];
             $_SESSION["rechte"] = $row["Rechte"];
             //echo $_SESSION["firstname"];
         }
         
-        if (password_verify($password, $hashed_password)) { //hier sollen noch andere sachen stehen, das ist nur beispieltext
+        if (password_verify($password, $hashed_password) && $_SESSION["aktiviert"] == 1) { //überprüft ob das passwort richtig ist
             echo 'Erfolgreich eingeloggt!'; 
             if(isset($_POST['submit'])) {
                 header('Location: ../php/index.php');
               }
+        } else if ($_SESSION["aktiviert"] == 0) {
+            echo "<script>alert('Ihr Account wurde deaktiviert!'); window.location.href='../php/login.php';</script>";
         } else {
-            echo 'Falsches Passwort!';
+            echo "<script>alert('Falsches Passwort!'); window.location.href='../php/login.php';</script>";
         }
     } else {
-        echo 'Falscher Benutzername!';
+        echo "<script>alert('Falscher Benutzername!'); window.location.href='../php/login.php';</script>";
     }
 }
 ?>

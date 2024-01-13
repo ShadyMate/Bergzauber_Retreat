@@ -10,13 +10,21 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pword']
     $email = $_POST['email'];
     $password = password_hash($_POST['pword'], PASSWORD_DEFAULT);
     
-        $sql = "SELECT Email FROM user WHERE email = '$email'";
-        $result = $conn->query($sql);
-        
-        if ($result->num_rows > 0) { //wenn nichts vorhande, heißt es, die email existiert schon
-            exit('Die E-Mail-Adresse ist bereits vorhanden.');
-            } else {
-                $sql = "INSERT INTO user (Rechte, Vorname, Nachname, Email, Username, Passwort) VALUES ('registriert', '$firstname', '$lastname', '$email', '$username', '$password')";
+    $sql = "SELECT Email, Username FROM user WHERE email = '$email' OR username = '$username'";
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+        // Wenn die E-Mail-Adresse oder der Benutzername bereits existieren
+        while($row = $result->fetch_assoc()) {
+            if($row["Email"] == $email) {
+                echo "<script>alert('Die E-mail Adresse ist bereits vorhanden!'); window.location.href='../php/registrierung.php';</script>";
+            }
+            if($row["Username"] == $username) {
+                echo "<script>alert('Der Username ist bereits vorhanden!'); window.location.href='../php/registrierung.php';</script>";
+            }
+        }
+    } else {
+                $sql = "INSERT INTO user (Aktiviert, Rechte, Vorname, Nachname, Email, Username, Passwort) VALUES ('1', 'registriert', '$firstname', '$lastname', '$email', '$username', '$password')";
                 if ($conn->query($sql) === TRUE) {
                     echo "Neuer Datensatz erfolgreich hinzugefügt!";
                     //echo $password;
@@ -26,15 +34,18 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pword']
                     $_SESSION["username"] = $_POST['username'];
                     $_SESSION["pword"] = $_POST['pword'];
                     //userid wird ausgegeben
-                    $stmt = $conn->prepare("SELECT userid, Rechte FROM user WHERE Email = ?");
+                    $stmt = $conn->prepare("SELECT userid, Aktiviert, Rechte FROM user WHERE Email = ?");
                     $stmt->bind_param('s', $email);
                     $stmt->execute();
                     $result = $stmt->get_result();
                     $user = $result->fetch_assoc();
                     $_SESSION['userid'] = $user['userid'];
+                    $_SESSION['aktiviert'] = $user['Aktiviert'];
                     $_SESSION['rechte'] = $user['rechte'];
                     $userid = $_SESSION['userid'];
+                    $aktiviert = $_SESSION['aktiviert'];
                     $rechte = $_SESSION['rechte'];
+                    header('Location: ../php/index.php');
                 }
     } 
     mysqli_close($conn);

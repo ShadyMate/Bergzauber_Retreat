@@ -83,9 +83,9 @@ include "../includes/insertdbdata";
 /*if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
 mysqli_close($conn);
 }*/
-    if(isset($_POST['submit'])) {
+    /*if(isset($_POST['submit'])) {
       header('Location: ../php/index.php');
-    }
+    }*/
   ?>
 </head>
 <header>
