@@ -5,18 +5,11 @@ if (session_status() == PHP_SESSION_NONE) {
 include_once '../includes/dbaccess.php';
 //session_destroy();
 ?>
-<!-- TODO: User können Zimmer ansehen, und sehen wie viel ein Zimmer in etwa kostet, zum buchen Login-->
-<!-- TODO: Admin kann Zimmer anlegen, bearbeiten, löschen ? -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <title>Bergzauber Retreat</title>
     <?php include "../includes/header.php"; ?>
-    <style>
-        body {
-            height: 100%;
-        }
-    </style>
 </head>
 <header>
     <h1 class="maintitle">Bergzauber Retreat</h1>
