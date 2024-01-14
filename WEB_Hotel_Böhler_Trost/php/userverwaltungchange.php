@@ -5,7 +5,11 @@ if (session_status() == PHP_SESSION_NONE) {
 
 include_once '../includes/dbaccess.php';
 
-$_SESSION['userid'] = $_GET['userid'];
+if (isset($_GET['userid'])) {
+    $_SESSION['userid'] = $_GET['userid'];
+    // Der Rest Ihres Codes
+}
+$userid = $_SESSION['userid'];
 //echo $_SESSION['userid'];
 
 if(isset($_POST['submit'])) {
@@ -38,7 +42,7 @@ if(isset($_POST['submit'])) {
     $sql = "SELECT Userid, Username FROM user WHERE Username = '{$_SESSION['username']}'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
-        exit('Der Benutzername ist bereits vorhanden.');
+        echo "<script>alert('Der Benutzername ist bereits vorhanden.'); window.location.href='../php/userverwaltungchange.php';</script>";
     } else {
         $stmt = $conn->prepare("UPDATE user SET Vorname = ?, Nachname = ?, Email = ?, Username = ?, Passwort = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
         $stmt->bind_param('sssss', $firstname, $lastname, $email, $username, $password);
@@ -46,7 +50,7 @@ if(isset($_POST['submit'])) {
         $_SESSION['firstname'] = $firstname;
         echo $firstname;
         
-        header('Location: ../php/profil.php');
+        header('Location: ../php/userverwaltung.php');
     }
 }
 $conn->close(); 

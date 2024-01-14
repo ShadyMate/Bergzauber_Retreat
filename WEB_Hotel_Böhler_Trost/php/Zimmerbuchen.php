@@ -72,6 +72,7 @@ include "../includes/nav.php";
     </form>
 
     <script>
+        document.getElementById('arrival').min = new Date().toISOString().split("T")[0];
         document.getElementById('departure').min = new Date().toISOString().split("T")[0];
         document.getElementById('arrival').addEventListener('change', function() {
         document.getElementById('departure').min = document.getElementById('arrival').value;

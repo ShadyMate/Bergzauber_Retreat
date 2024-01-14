@@ -25,7 +25,12 @@ if (session_status() == PHP_SESSION_NONE) {
 <body>
     <?php
  include "../includes/nav.php";
- 
+ if (!isset($_SESSION['adminid'])) {
+    $_SESSION['adminid'] = $_SESSION['userid'];
+}
+
+$_SESSION['userid'] = $_SESSION['adminid'];
+echo $_SESSION['userid'];
     ?>
     <div class="container">
     <form method="post">

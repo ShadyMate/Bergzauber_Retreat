@@ -31,7 +31,21 @@ if (session_status() == PHP_SESSION_NONE) {
 <body>
     <?php
  include "../includes/nav.php";
- 
+ $sql = "SELECT userid, Aktiviert, Rechte, Username, Passwort, Email, Vorname, Nachname FROM user WHERE userid = '{$_SESSION['userid']}'";
+ $result = $conn->query($sql);
+ //alle daten des users sind jetzt in sessions gespeichert
+ if ($result->num_rows > 0) {
+     while($row = $result->fetch_assoc()) {
+         $hashed_password = $row['Passwort'];
+         $_SESSION["email"] = $row["Email"];
+         $_SESSION["firstname"] = $row["Vorname"];
+         $_SESSION["lastname"] = $row["Nachname"];
+         $_SESSION["userid"] = $row["userid"];
+         $_SESSION["aktiviert"] = $row["Aktiviert"];
+         $_SESSION["rechte"] = $row["Rechte"];
+         $_SESSION["username"] = $row["Username"];
+     }
+    }
     ?>
     <div class="container">
     <form method="post">
@@ -127,7 +141,7 @@ if ($result->num_rows > 0) {
         
         $result = mysqli_query($conn, $sql);*/
         //echo $_SESSION['gesamtkosten'];
-        echo $_SESSION['userid'];
+        //echo $_SESSION['userid'];
         //echo $_SESSION['rechte'];
         $userid = $_SESSION['userid'];
 $sql = "SELECT zimmer.*

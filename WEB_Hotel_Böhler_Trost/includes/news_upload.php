@@ -78,7 +78,7 @@ if ($stmt->execute() === TRUE) {
   }
 }
 
-function create_thumbnail($source_image_path, $thumbnail_image_path, $width = 700, $height = 700)
+function create_thumbnail($source_image_path, $thumbnail_image_path, $width = 500, $height = 500)
 {
     list($source_width, $source_height, $source_type) = getimagesize($source_image_path);
     switch ($source_type) {
