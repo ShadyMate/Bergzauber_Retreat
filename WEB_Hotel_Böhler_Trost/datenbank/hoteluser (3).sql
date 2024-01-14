@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 14. Jan 2024 um 13:32
+-- Erstellungszeit: 14. Jan 2024 um 13:46
 -- Server-Version: 10.4.28-MariaDB
 -- PHP-Version: 8.2.4
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `hoteluser`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `newsbeiträge`
+--
+
+CREATE TABLE `newsbeiträge` (
+  `newsid` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `Datum` datetime DEFAULT NULL,
+  `Bilddatei` varchar(128) NOT NULL,
+  `Text` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `newsbeiträge`
+--
+
+INSERT INTO `newsbeiträge` (`newsid`, `userid`, `Datum`, `Bilddatei`, `Text`) VALUES
+(3010, 1509, NULL, '../uploads/thumbnails/Studen.jpg', 'Dies ist ein Text'),
+(3017, 1518, '2024-01-13 17:32:52', '../uploads/thumbnails/Studen.jpg', 'sfdsdghdfghfgfg');
 
 -- --------------------------------------------------------
 
@@ -169,6 +191,13 @@ INSERT INTO `zimmer` (`zimmer_id`, `Kosten`, `Status`, `Anreise`, `Abreise`, `Fr
 --
 
 --
+-- Indizes für die Tabelle `newsbeiträge`
+--
+ALTER TABLE `newsbeiträge`
+  ADD PRIMARY KEY (`newsid`),
+  ADD KEY `user_id` (`userid`);
+
+--
 -- Indizes für die Tabelle `user`
 --
 ALTER TABLE `user`
@@ -192,6 +221,12 @@ ALTER TABLE `zimmer`
 --
 
 --
+-- AUTO_INCREMENT für Tabelle `newsbeiträge`
+--
+ALTER TABLE `newsbeiträge`
+  MODIFY `newsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3018;
+
+--
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
@@ -206,6 +241,12 @@ ALTER TABLE `zimmer`
 --
 -- Constraints der exportierten Tabellen
 --
+
+--
+-- Constraints der Tabelle `newsbeiträge`
+--
+ALTER TABLE `newsbeiträge`
+  ADD CONSTRAINT `newsbeiträge_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints der Tabelle `user_zimmer`

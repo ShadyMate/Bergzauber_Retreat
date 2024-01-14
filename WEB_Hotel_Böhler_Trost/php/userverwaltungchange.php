@@ -11,6 +11,14 @@ $_SESSION['userid'] = $_GET['userid'];
 if(isset($_POST['submit'])) {
 
         // Daten aus dem Formular abrufen
+         // Daten aus dem Formular abrufen
+    
+    $firstname = $_POST['fname'];
+    $lastname = $_POST['lname'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['pword']; // Passwort im Klartext
+    $_SESSION["pword"] = $_POST['pword'];
         
     // Datenbank aktualisieren
     $_SESSION["email"] = $_POST['email'];
