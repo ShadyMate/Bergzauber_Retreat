@@ -10,33 +10,40 @@ $_SESSION['userid'] = $_GET['userid'];
 
 if(isset($_POST['submit'])) {
 
-    // Daten aus dem Formular abrufen
-    
-    $firstname = $_POST['fname'];
-    $lastname = $_POST['lname'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
+        // Daten aus dem Formular abrufen
+        
+    // Datenbank aktualisieren
+    $_SESSION["email"] = $_POST['email'];
+    $_SESSION["firstname"] = $_POST['fname'];
+    $_SESSION["lastname"] = $_POST['lname'];
+    $_SESSION["username"] = $_POST['username'];
+    $password = password_hash($_POST['pword'], PASSWORD_DEFAULT);
 
-            // Datenbank aktualisieren
-            $_SESSION["email"] = $_POST['email'];
-            $_SESSION["firstname"] = $_POST['fname'];
-            $_SESSION["lastname"] = $_POST['lname'];
-            $_SESSION["username"] = $_POST['username'];
-                $sql = "SELECT Userid, Email FROM user WHERE email = '$email'"; //Hier wird überprüft ob die Email bereits existiert
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    exit('Die E-Mail-Adresse ist bereits vorhanden.');
-                    } else {
-                        $stmt = $conn->prepare("UPDATE user SET Vorname = ?, Nachname = ?, Email = ?, Username = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
-                        $stmt->bind_param('ssss', $firstname, $lastname, $email, $username);
-                        $stmt->execute();
-                        header('Location: ../php/userverwaltung.php');
-                    }
-        } else {
-            echo 'Fehler!';
-        }
+    // Überprüfen, ob die E-Mail-Adresse bereits existiert
+    $sql = "SELECT Userid, Email FROM user WHERE email = '$email'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        exit('Die E-Mail-Adresse ist bereits vorhanden.');
+    } 
 
-$conn->close();
+    // Überprüfen, ob der Benutzername bereits existiert
+    $sql = "SELECT Userid, Username FROM user WHERE Username = '{$_SESSION['username']}'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        exit('Der Benutzername ist bereits vorhanden.');
+    } else {
+        $stmt = $conn->prepare("UPDATE user SET Vorname = ?, Nachname = ?, Email = ?, Username = ?, Passwort = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
+        $stmt->bind_param('sssss', $firstname, $lastname, $email, $username, $password);
+        $stmt->execute();
+        $_SESSION['firstname'] = $firstname;
+        echo $firstname;
+        
+        header('Location: ../php/profil.php');
+    }
+}
+$conn->close(); 
+
+
 
 ?>
 <!DOCTYPE html>
@@ -46,7 +53,7 @@ $conn->close();
   <?php include "../includes/header.php"; ?>
 </head>
 <header>
-    <h1 class="title">Meine Profildaten</h1>
+    <h1 class="title">Profildaten ändern</h1>
 </header>
 <body>
 <?php include "../includes/nav.php";
@@ -63,6 +70,8 @@ $conn->close();
     <br>
     <label for="username">Username:</label><br>
     <input type="text" id="username" name="username" required><br>
+    <label for="pword">Passwort:</label><br>
+    <input type="password" id="pword" name="pword" required><br>
     <br><br>
     <input type="submit" id="submit" name="submit" value="Bestätigen">
     </form>

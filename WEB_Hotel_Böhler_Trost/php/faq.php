@@ -27,12 +27,12 @@ session_start();
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        Wo ist das Hotel?
+        Wie funktioniert die Website?
       </button>
     </h2>
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
       <div class="accordion-body">
-        <strong>In den Alpen.</strong> 
+        <strong>In der Navbar sehen Sie die verschiedenen Auswahlmöglichkeiten welche Sie anklicken können um auf der Website navigieren zu können. Wenn Sie sich auf der Website registrieren sind Sie in der Lage Zimmer zu buchen.</strong> 
       </div>
     </div>
   </div>

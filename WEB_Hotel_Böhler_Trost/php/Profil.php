@@ -2,8 +2,8 @@
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
-  if(isset($_POST['submit'])) {
-    header('Location: ../php/index.php');
+  if(isset($_POST['change'])) {
+    header('Location: ../includes/change.php');
   }
   
   if(isset($_POST['logout'])) {
@@ -49,9 +49,9 @@ if (session_status() == PHP_SESSION_NONE) {
     ?>
     <br>
     <br>
-    <form action="../includes/change.php" method="post">
+    <form action="../php/logout.php" method="post">
         <input type="submit" name="change" value="Daten ändern">
-    <form action="../includes/logout.php" method="post">
+    <form action="../php/logout.php" method="post">
         <input type="submit" name="logout" value="Logout">
     </form>
     </form>

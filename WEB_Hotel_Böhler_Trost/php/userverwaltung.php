@@ -43,7 +43,7 @@ if (session_status() == PHP_SESSION_NONE) {
             echo "E-mail: " . $row["Email"] . "<br>";
             echo "Username: " . $row["Username"] . "<br>";
             echo "Passwort: " . $row["Passwort"] . "<br>";
-            echo '<a href="../php/userverwaltungchange.php?userid=' . $row["userid"] . '">Hier klicken um Ihre Daten zu ändern.</a><br>';
+            echo '<a href="../php/userverwaltungchange.php?userid=' . $row["userid"] . '">Hier klicken um die Daten zu ändern.</a><br>';
             if ($row["Aktiviert"] == 1) {
                 echo "Benutzer ist aktiviert.<br>";
             } else {

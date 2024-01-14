@@ -3,35 +3,9 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
 
-/*if(isset($_POST['change'])) {
-$_SESSION["firstname"] = $_POST['fname'];
-$_SESSION["lastname"] = $_POST['lname'];
-$_SESSION["email"] = $_POST['email'];
-$_SESSION["username"] = $_POST['username'];
-if($_SESSION["pword"] != $_POST["pword"]) {
-    echo '<script type="text/javascript">';
-    echo 'alert("Falsches Passwort!");'; 
-    echo '</script>';
-}
-else if($_SESSION["pword"] == $_POST["pword"]) {
-    $_SESSION["pword"] = $_POST["newpword"];
-    echo '<script type="text/javascript">';
-    echo 'alert("Daten erfolgreich geändert!");'; 
-    echo 'window.location.href = "../php/index.php";';
-    echo '</script>';
-}
-}*/
-//prüft ob die Rechte für das Zugreifen auf die Datenbank vorhanden sind
-
 include_once 'dbaccess.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-/*$stmt = $conn->prepare("SELECT userid FROM user WHERE username = ?");
-$stmt->bind_param('s', $username);
-$stmt->execute();
-$result = $stmt->get_result();
-$user = $result->fetch_assoc();
-$_SESSION['userid'] = $user['userid'];*/
 
     // Daten aus dem Formular abrufen
     
@@ -41,7 +15,7 @@ $_SESSION['userid'] = $user['userid'];*/
     $email = $_POST['email'];
     $password = $_POST['pword']; // Passwort im Klartext
     $_SESSION["pword"] = $_POST['pword'];
-
+}
     $sql = "SELECT Passwort FROM user WHERE userid = '{$_SESSION['userid']}'";
     $result = $conn->query($sql);
     //passwort hashen
@@ -50,44 +24,38 @@ $_SESSION['userid'] = $user['userid'];*/
             $hashed_password = $row['Passwort'];
     }
    //vergleicht ob richtiges passwort eingegebn wird
-        if (password_verify($password, $hashed_password)) {
-            echo 'Erfolgreich Daten geändert!';
-            // Datenbank aktualisieren
-            $_SESSION["email"] = $_POST['email'];
-            $_SESSION["firstname"] = $_POST['fname'];
-            $_SESSION["lastname"] = $_POST['lname'];
-            $_SESSION["username"] = $_POST['username'];
-            $password = password_hash($_POST['pword'], PASSWORD_DEFAULT);
-                $sql = "SELECT Userid, Email FROM user WHERE email = '$email'"; //Hier wird überprüft ob die Email bereits existiert
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    exit('Die E-Mail-Adresse ist bereits vorhanden.');
-                    } else {
-                        $stmt = $conn->prepare("UPDATE user SET Vorname = ?, Nachname = ?, Email = ?, Username = ?, Passwort = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
-                        $stmt->bind_param('sssss', $firstname, $lastname, $email, $username, $password);
-                        $stmt->execute();
-                        $_SESSION['firstname'] = $firstname;
-                        echo $firstname;
-                        
-                        header('Location: ../includes/profil.php');
-                    }
-        } else {
-            $password = password_hash($_POST['pword'], PASSWORD_DEFAULT);
-            echo $_SESSION['userid']; /*
-            echo '<script type="text/javascript">';
-            echo 'alert("Falsches Passwort!");';
-            echo '</script>';*/
-        }
+   if (password_verify($password, $hashed_password)) {
+    echo 'Erfolgreich Daten geändert!';
+    // Datenbank aktualisieren
+    $_SESSION["email"] = $_POST['email'];
+    $_SESSION["firstname"] = $_POST['fname'];
+    $_SESSION["lastname"] = $_POST['lname'];
+    $_SESSION["username"] = $_POST['username'];
+    $password = password_hash($_POST['pword'], PASSWORD_DEFAULT);
 
-            //momentaner code zur bestätigung der änderung
-    /*if ($stmt->affected_rows === 0) {
-        echo $_SESSION['userid'];
-        exit('Keine Zeilen aktualisiert');
+    // Überprüfen, ob die E-Mail-Adresse bereits existiert
+    $sql = "SELECT Userid, Email FROM user WHERE email = '$email'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        exit('Die E-Mail-Adresse ist bereits vorhanden.');
+    } 
+
+    // Überprüfen, ob der Benutzername bereits existiert
+    $sql = "SELECT Userid, Username FROM user WHERE Username = '{$_SESSION['username']}'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        exit('Der Benutzername ist bereits vorhanden.');
     } else {
-        echo 'Daten erfolgreich aktualisiert';
-    }*/
+        $stmt = $conn->prepare("UPDATE user SET Vorname = ?, Nachname = ?, Email = ?, Username = ?, Passwort = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
+        $stmt->bind_param('sssss', $firstname, $lastname, $email, $username, $password);
+        $stmt->execute();
+        $_SESSION['firstname'] = $firstname;
+        echo $firstname;
+        
+        header('Location: ../php/profil.php');
+    }
 }
-$conn->close();
+$conn->close(); 
 
 ?>
 <!DOCTYPE html>
