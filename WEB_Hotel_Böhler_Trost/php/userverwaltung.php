@@ -20,7 +20,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <?php include "../includes/header.php"; ?>
 </head>
 <header>
-    <h1 class="title">Meine Profildaten</h1>
+    <h1 class="title">Userverwaltung</h1>
 </header>
 <body>
     <?php
@@ -33,8 +33,6 @@ if (session_status() == PHP_SESSION_NONE) {
 $_SESSION['userid'] = $_SESSION['adminid'];
 echo $_SESSION['userid'];
     ?>
-    <div class="container">
-    <form method="post">
     <?php
         $sql = "SELECT * FROM user";
     $result = $conn->query($sql);
@@ -42,6 +40,7 @@ echo $_SESSION['userid'];
     if ($result->num_rows > 0) {
         // Daten für jeden Benutzer ausgeben
         while($row = $result->fetch_assoc()) {
+            echo "<div class=';container'><form method='post'>";
             echo "User_ID: " . $row["userid"] . "<br>";
             echo "Rechte: " . $row["Rechte"] . "<br>";
             echo "Vorname: " . $row["Vorname"] . "<br>";
@@ -49,30 +48,21 @@ echo $_SESSION['userid'];
             echo "E-mail: " . $row["Email"] . "<br>";
             echo "Username: " . $row["Username"] . "<br>";
             echo "Passwort: " . $row["Passwort"] . "<br>";
-            echo '<a href="../php/userverwaltungchange.php?userid=' . $row["userid"] . '">Hier klicken um die Daten zu ändern.</a><br>';
+            echo '<a href="../php/userverwaltungchange.php?userid=' . $row["userid"] . '" class="btn btn-warning">Daten ändern</a><br>';
             if ($row["Aktiviert"] == 1) {
-                echo "Benutzer ist aktiviert.<br>";
+                echo "<a style='color: green'>Benutzer ist aktiviert.</a><br>";
             } else {
-                echo "Benutzer ist deaktiviert.<br>";
+                echo "<a style='color: red; font-weight: bold'>Benutzer ist deaktiviert.</a><br>";
             }
-            echo '<a href="../includes/activate_user.php?userid=' . $row["userid"] . '" class="btn">Benutzer aktivieren</a>';
-            echo '<a href="../includes/deactivate_user.php?userid=' . $row["userid"] . '" class="btn">Benutzer deaktivieren</a>';              
-            echo "<br><br>";      
+            echo '<a href="../includes/activate_user.php?userid=' . $row["userid"] . '" class="btn btn-success">Benutzer aktivieren</a>';
+            echo '<a href="../includes/deactivate_user.php?userid=' . $row["userid"] . '" class="btn btn-danger">Benutzer deaktivieren</a>';
+            echo "</form></div>";
         }
     } else {
         echo "Keine Benutzer gefunden.";
     }
     ?>
-    <br>
-    <br>
-    <a href="../php/userverwaltungchange.php">Hier klicken um Ihre Daten zu ändern.</a>
-    <br>
-    <form action="../includes/logout.php" method="post">
-        <input type="submit" name="logout" value="Logout">
-    </form>
-    </form>
-    </div>
-    <br>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<?php include "../includes/footer.php"; ?>
 </body>
 </html>
