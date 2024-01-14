@@ -2,18 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
-/*$calling_file = basename($_SERVER['PHP_SELF']);
-if (!isset($_SESSION["username"])) {
-  $_SESSION["username"] = "";
-}
-if (!isset($_SESSION["loggedin"])) {
-  $_SESSION["loggedin"] = "";
-}
-if (!isset($_SESSION["registriert"])) {
-  $_SESSION["registriert"] = "";
-}*/
 ?>
-
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="../php/index.php"><img src="../res/img/Logo.png" alt="Logo" width="50" height="50">Home</a>
@@ -27,16 +16,16 @@ if (!isset($_SESSION["registriert"])) {
         <?php
         if (session_status() == PHP_SESSION_NONE) {
           session_start();
-        }include_once 'dbaccess.php';
+        }
+include_once 'dbaccess.php';
 if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
   mysqli_close($conn);
 }
-
+        //wenn kein username vorhanden ist(also noch nicht registriert), dann wird der login und der registrier button angezeigt
        if (!isset($_SESSION['username'])) {
         echo '<a class="nav-link" href="../php/registrierung.php" style="font-size: 25px;">Registrierung</a>';
         echo '<a class="nav-link" href="../php/login.php" style="font-size: 25px;">Login</a>';
        }
-       //session_destroy();
        ?>
           <li class="nav-item">
           <a class="nav-link" href="../php/Zimmer.php" style="padding-left: 20px; font-size: 25px;">Zimmer</a>
@@ -53,6 +42,7 @@ if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
           <a class="nav-link" href="../php/spa.php" style="padding-left: 20px; font-size: 25px;">Spa</a>
         </li>
           <?php
+          //wenn ein user eingeloggt ist, wird überprüft ob er admin ist, wenn ja, wird der userverwaltung und reservierungen button angezeigt
           if (isset($_SESSION['rechte'])) {
             if ($_SESSION['rechte'] == "admin") {
               echo '<a class="nav-link" href="../php/userverwaltung.php" style="padding-left: 20px; font-size: 25px;">Userverwaltung</a>';
@@ -64,6 +54,7 @@ if (is_resource($conn) && get_resource_type($conn) === 'mysql link') {
     </div>
   </div>
   <?php
+  //wenn ein user eingeloggt ist, wird der profil button angezeigt
   if (isset($_SESSION['username'])) {
   echo '<a class="navbar-brand ms-auto" href="../php/Profil.php">Profil <img src="../res/img/Profil.png" alt="Profil" width="50" height="50"></a>';
 }

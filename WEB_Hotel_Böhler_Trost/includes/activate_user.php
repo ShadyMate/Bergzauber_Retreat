@@ -1,6 +1,6 @@
 <?php
 include_once 'dbaccess.php';
-
+//Hier wird einfach der user aktiviert
 if (isset($_GET['userid'])) {
     $userid = $_GET['userid'];
 

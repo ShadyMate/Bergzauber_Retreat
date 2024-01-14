@@ -8,15 +8,9 @@ include "../includes/insertdbdatazimmer.php";
      $fruehstueck = $_POST['frühstück'] ?? 0;
     $parkplatz = $_POST['parkplatz'] ?? 0;
     $haustiere = $_POST['haustiere'] ?? 0;
-    //$_SESSION["gesamtkosten"] = 0;
-    /*if (!isset($_SESSION["reservierung"])) {
-        $_SESSION["reservierung"] = "";
-      }*/
-    
 
+    //wenn die Buchung wird man auf die main page weitergeleitet
     if(isset($_POST['submit'])) {
-        //$_SESSION['gesamtkosten'] = $_SESSION["kosten"] + $frühstück + $parkplatz + $haustiere;
-        //echo $gesamtkosten;
         echo '<script type="text/javascript">';
         echo 'alert("Die Buchung war erfolgreich!");';
         echo 'window.location.href = "../php/index.php";';
@@ -72,6 +66,7 @@ include "../includes/nav.php";
     </form>
 
     <script>
+        //das script ist dazu da, dass mein kein datum nehmen kann, das vor dem heutigen datum liegt
         document.getElementById('arrival').min = new Date().toISOString().split("T")[0];
         document.getElementById('departure').min = new Date().toISOString().split("T")[0];
         document.getElementById('arrival').addEventListener('change', function() {

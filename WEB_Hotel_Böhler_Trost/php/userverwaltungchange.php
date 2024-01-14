@@ -7,11 +7,10 @@ include_once '../includes/dbaccess.php';
 
 if (isset($_GET['userid'])) {
     $_SESSION['userid'] = $_GET['userid'];
-    // Der Rest Ihres Codes
 }
 $userid = $_SESSION['userid'];
-//echo $_SESSION['userid'];
-    
+        //fast identisch zu change.php
+        //updatet den Vornamen
          if(isset($_POST['submit_fname'])) {
             $firstname = $_POST['fname'];
             $_SESSION['firstname'] = $_POST['fname'];
@@ -22,9 +21,8 @@ $userid = $_SESSION['userid'];
         $stmt->execute();
 
         header('Location: ../php/userverwaltungchange.php');
-            // Aktualisieren Sie nur das Vorname-Feld in der Datenbank
         }
-    
+        //updatet den Nachnamen
          if(isset($_POST['submit_lname'])) {
             $lastname = $_POST['lname'];
             $_SESSION['lastname'] = $_POST['lname'];    
@@ -34,7 +32,6 @@ $userid = $_SESSION['userid'];
         $stmt->execute();
 
         header('Location: ../php/userverwaltungchange.php');
-            // Aktualisieren Sie nur das Vorname-Feld in der Datenbank
         }
 
         if(isset($_POST['submit_email'])) {
@@ -52,9 +49,9 @@ $userid = $_SESSION['userid'];
         $stmt->execute();
         }
         header('Location: ../php/userverwaltungchange.php');
-            // Aktualisieren Sie nur das Vorname-Feld in der Datenbank
         }
         
+        //updatet den Username
         if(isset($_POST['submit_username'])) {
             // Überprüfen, ob die E-Mail-Adresse bereits existiert
             $username = $_POST['username'];
@@ -70,9 +67,9 @@ $userid = $_SESSION['userid'];
         $stmt->execute();
         }
         header('Location: ../php/userverwaltungchange.php');
-            // Aktualisieren Sie nur das Vorname-Feld in der Datenbank
         }
         
+        //updatet das Passwort
         if(isset($_POST['submit_passwort'])) {
             $password = password_hash($_POST['pword'], PASSWORD_DEFAULT);
             $_SESSION['pword'] = $_POST['pword'];
@@ -83,43 +80,7 @@ $userid = $_SESSION['userid'];
         $stmt->execute();
 
         header('Location: ../php/userverwaltungchange.php');
-            // Aktualisieren Sie nur das Vorname-Feld in der Datenbank
-        }/*
-    $lastname = $_POST['lname'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['pword']; // Passwort im Klartext
-    $_SESSION["pword"] = $_POST['pword'];
-        
-    // Datenbank aktualisieren
-    $_SESSION["email"] = $_POST['email'];
-    $_SESSION["firstname"] = $_POST['fname'];
-    $_SESSION["lastname"] = $_POST['lname'];
-    $_SESSION["username"] = $_POST['username'];
-    $password = password_hash($_POST['pword'], PASSWORD_DEFAULT);
-
-    // Überprüfen, ob die E-Mail-Adresse bereits existiert
-    $sql = "SELECT Userid, Email FROM user WHERE email = '$email'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        exit('Die E-Mail-Adresse ist bereits vorhanden.');
-    } 
-
-    // Überprüfen, ob der Benutzername bereits existiert
-    $sql = "SELECT Userid, Username FROM user WHERE Username = '{$_SESSION['username']}'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        echo "<script>alert('Der Benutzername ist bereits vorhanden.'); window.location.href='../php/userverwaltungchange.php';</script>";
-    } else {
-        $stmt = $conn->prepare("UPDATE user SET Vorname = ?, Nachname = ?, Email = ?, Username = ?, Passwort = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
-        $stmt->bind_param('sssss', $firstname, $lastname, $email, $username, $password);
-        $stmt->execute();
-        $_SESSION['firstname'] = $firstname;
-        echo $firstname;
-        
-        header('Location: ../php/userverwaltung.php');
-    }
-}*/
+        }
 $conn->close(); 
 
 

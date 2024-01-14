@@ -1,4 +1,5 @@
 <?php
+//main page der Website
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }

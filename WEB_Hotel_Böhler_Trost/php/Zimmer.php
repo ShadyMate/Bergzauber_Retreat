@@ -4,7 +4,6 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 include_once '../includes/dbaccess.php';
 ?>
-<!-- TODO: Zimmer verschönern, Text bearbeiten, Preise und verschönern -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -32,10 +31,13 @@ include "../includes/nav.php";
       <div class="carousel-caption d-none d-md-block">
         <h3>Jr. Suite</h3>
         <h4>Zwei Single Beds, ab 100 €</h4>
-          <?php if (!isset($_SESSION['username'])) {
+          <?php 
+          //wenn der user nicht eingeloggt ist, wird er auf die registrierungsseite weitergeleitet
+          if (!isset($_SESSION['username'])) {
               echo '<a href="../php/registrierung.php" class="btn btn-primary">Um dieses Zimmer zu buchen, müssen sie sich registrieren!</a>';
           }
             else {
+              //wenn der user eingeloggt ist, wird er auf die buchungsseite weitergeleitet
                 echo '<a href="Zimmerbuchen.php?kosten=100" class="btn btn-primary">Hier buchen</a>';
             }
           ?>
@@ -47,9 +49,11 @@ include "../includes/nav.php";
           <h3>Sr. Suite</h3>
           <h4>Ein Doppelbett in einem größeren Zimmer ab 20 €</h4>
           <?php if (!isset($_SESSION['username'])) {
+            //wenn der user nicht eingeloggt ist, wird er auf die registrierungsseite weitergeleitet
               echo '<a href="../php/registrierung.php" class="btn btn-primary">Um dieses Zimmer zu buchen, müssen sie sich registrieren!</a>';
           }
             else {
+              //wenn der user eingeloggt ist, wird er auf die buchungsseite weitergeleitet
                 echo '<a href="Zimmerbuchen.php?kosten=200" class="btn btn-primary">Hier buchen</a>';
             }
             ?>
@@ -61,9 +65,11 @@ include "../includes/nav.php";
           <h3>Deluxe Suite</h3>
           <h4>Unsere luxuriöseste Suite, mit dem besten Ausblick in ganz Lech ab 400 €</h4>
             <?php if (!isset($_SESSION['username'])) {
+              //wenn der user nicht eingeloggt ist, wird er auf die registrierungsseite weitergeleitet
                 echo '<a href="../php/registrierung.php" class="btn btn-primary">Um dieses Zimmer zu buchen, müssen sie sich registrieren!</a>';
             }
                 else {
+                  //wenn der user eingeloggt ist, wird er auf die buchungsseite weitergeleitet
                     echo '<a href="Zimmerbuchen.php?kosten=400" class="btn btn-primary">Hier buchen</a>';
                 }
                 ?>

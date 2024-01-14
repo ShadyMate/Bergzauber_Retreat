@@ -1,22 +1,3 @@
-<?php /*
-    session_start();
-if (!isset($_SESSION["success"])) {
-      $_SESSION["success"] = "";
-    }
-if (!isset($_SESSION["success"])) {
-      $_SESSION["success"] = "";
-    }
-if (!isset($dst)) {
-      $dst = null;
-    }
-    if (!isset($new_folder_path)) {
-      $new_folder_path = "";
-    }
-    if (!isset($file)) {
-      $file = "";
-    }
-*/
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,12 +35,11 @@ include "../includes/nav.php";
       $result = $conn->query($sql);
 
       if ($result->num_rows > 0) {
-          // Output data of each row
+          // Alle Daten des Beitrags werden ausgegeben
           while($row = $result->fetch_assoc()) {
               echo '<div class="card">';
               echo '<img src='.$row["Bilddatei"].' alt="Newsbild" class="card-img-top resized-image">';
               echo '<p class="center">'.$row["Text"].'</p>';
-              echo '<p class="center">'.$row["newsid"].'</p>';
               echo '<p class="center">'.$row["Datum"].'</p>';
               echo '</div>';
           }

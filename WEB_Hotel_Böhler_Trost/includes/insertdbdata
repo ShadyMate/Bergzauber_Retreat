@@ -3,7 +3,8 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
 include_once 'dbaccess.php';
-if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pword']) && isset($_POST['fname']) && isset($_POST['lname'])) { //Hier werden die Daten eines Users in die Datenbank gespeichert, jedoch nicht wenn er eine bereits existierende email eingibt.
+//Hier werden die Daten eines Users in die Datenbank gespeichert, jedoch nicht wenn er eine bereits existierende email eingibt.
+if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pword']) && isset($_POST['fname']) && isset($_POST['lname'])) { 
     $firstname = $_POST['fname'];
     $lastname = $_POST['lname'];
     $username = $_POST['username'];
@@ -23,17 +24,15 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pword']
                 echo "<script>alert('Der Username ist bereits vorhanden!'); window.location.href='../php/registrierung.php';</script>";
             }
         }
-    } else {
+    } else {    // Wenn die E-Mail-Adresse und der Benutzername noch nicht existieren werden die Daten des users in die Datenbank gespeichert
                 $sql = "INSERT INTO user (Aktiviert, Rechte, Vorname, Nachname, Email, Username, Passwort) VALUES ('1', 'registriert', '$firstname', '$lastname', '$email', '$username', '$password')";
                 if ($conn->query($sql) === TRUE) {
-                    echo "Neuer Datensatz erfolgreich hinzugefügt!";
-                    //echo $password;
                     $_SESSION["firstname"] = $_POST['fname'];
                     $_SESSION["lastname"] = $_POST['lname'];
                     $_SESSION["email"] = $_POST['email'];
                     $_SESSION["username"] = $_POST['username'];
                     $_SESSION["pword"] = $_POST['pword'];
-                    //userid wird ausgegeben
+                    //userid, Status und Rechte werden ausgegeben
                     $stmt = $conn->prepare("SELECT userid, Aktiviert, Rechte FROM user WHERE Email = ?");
                     $stmt->bind_param('s', $email);
                     $stmt->execute();
@@ -45,7 +44,8 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pword']
                     $userid = $_SESSION['userid'];
                     $aktiviert = $_SESSION['aktiviert'];
                     $rechte = $_SESSION['rechte'];
-                    header('Location: ../php/index.php');
+                    echo "<script>alert('Erfolgreich registriert!'); window.location.href='../php/index.php';</script>";
+                    exit();
                 }
     } 
     mysqli_close($conn);

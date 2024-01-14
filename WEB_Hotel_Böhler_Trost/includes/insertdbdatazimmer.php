@@ -1,14 +1,9 @@
-<?php // in diesem code werden die daten die bei der regestrierung eingegeben werden in der Datenbank gespeichert
+<?php // Hier wird die Reservierung in die Datenbank eingetragen
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
 include_once 'dbaccess.php';
 
-
-    // Erstellen Sie die SQL-Abfrage
-    /*$stmt = $conn->prepare("UPDATE zimmer SET frühstück = ?, parkplatz = ?, haustiere = ? WHERE zimmer_id = '{$_SESSION['zimmerid']}'"); //tabelle gehört nicht geupdatet sonder insert into
-    $stmt->bind_param('iii', $frühstück, $parkplatz, $haustiere);
-    $stmt->execute();*/
     $frühstück = isset($_POST['frühstück']) ? 1 : 0;
     if ($frühstück == 1) {
         $frühstückpreis = 10;
@@ -32,42 +27,14 @@ include_once 'dbaccess.php';
     }
     $_SESSION["anreise"] = $_POST['arrival'] ?? '';
     $_SESSION["abreise"] = $_POST['departure'] ?? '';
+    if(isset($_GET['kosten'])) {
+        $_SESSION["kosten"] = $_GET['kosten'];
+     }
     $_SESSION['gesamtkosten'] = $_SESSION["kosten"] + $frühstückpreis + $parkplatzpreis +  $haustierepreis;
     
 
     if(isset($_POST['submit'])) {
-
-        /*$stmt = $conn->prepare("SELECT zimmer_id FROM user WHERE Email = ?");
-        $stmt->bind_param('s', $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $zimmerid = $result->fetch_assoc();
-        $_SESSION['zimmerid'] = $zimmerid['zimmer_id'];
-        $zimmerid = $_SESSION['zimmerid'];*/
-
-        // Starten Sie die Transaktion
-/*$conn->begin_transaction();
-
-try {
-    // Führen Sie die erste UPDATE-Anweisung aus
-    $conn->query("UPDATE user SET zimmer_id = '{$_SESSION['zimmerid']}' WHERE userid = '{$_SESSION['userid']}'");
-
-    // Führen Sie die zweite UPDATE-Anweisung aus
-    $conn->query("UPDATE zimmer SET zimmer_id = '{$_SESSION['zimmerid']}' WHERE userid = '{$_SESSION['userid']}'");
-
-    // Wenn beide UPDATE-Anweisungen erfolgreich sind, bestätigen Sie die Transaktion
-    $conn->commit();
-} catch (mysqli_sql_exception $exception) {
-    // Wenn eine der UPDATE-Anweisungen fehlschlägt, machen Sie die Transaktion rückgängig
-    $conn->rollback();
-}*/
-
-        //$sqluser = "UPDATE user SET zimmer_id = '{$_SESSION['zimmerid']}' WHERE userid = (SELECT userid FROM user WHERE Email = '{$_SESSION['email']}')";
-       // $result = $conn->query($sqluser);
-       //$_SESSION["gesamtkosten"] = $_SESSION["kosten"] + $frühstück + $parkplatz + $haustiere;
-
-       
-
+        //Die Daten werden in die Datenbank eingetragen
        $sql = "INSERT INTO zimmer (Kosten, `Status`, Anreise, Abreise, Frühstück, Parkplatz, Haustiere) VALUES ('{$_SESSION['gesamtkosten']}', 'Neu', '{$_SESSION['anreise']}', '{$_SESSION['abreise']}', '$frühstück', '$parkplatz', '$haustiere')";                $result = $conn->query($sql);
 
                 $sql = "SELECT zimmer_id FROM zimmer";
@@ -78,11 +45,11 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $_SESSION['zimmer_id'] = $row["zimmer_id"];
     }
-    echo "Letzte Zimmer ID: " . $_SESSION['zimmer_id'];
+    //echo "Letzte Zimmer ID: " . $_SESSION['zimmer_id'];
 } else {
     echo "Keine Zimmer gefunden.";
 }
-
+                //Hier wird der Status der Zimmer in der Datenbank in der Session Status gespeichert
                 $sqlStatus = "SELECT `Status` FROM zimmer WHERE zimmer_id = '{$_SESSION['zimmer_id']}'";
                 $result = $conn->query($sqlStatus);
 
@@ -92,22 +59,10 @@ if ($result->num_rows > 0) {
                         $_SESSION['Status'] = $row["Status"];
                     }
                 }
-
+                //in der zwischentabelle werden die userid und die zimmer_id gespeichert
                 $sqluser_zimmer = "INSERT INTO user_zimmer (userid, zimmer_id) VALUES ('{$_SESSION['userid']}', '{$_SESSION['zimmer_id']}')";
         
                 $result = $conn->query($sqluser_zimmer);
-        
-                $sql = "SELECT *
-        FROM user_zimmer
-        WHERE userid = '{$_SESSION['userid']}'";
-        
-        $result = mysqli_query($conn, $sql);
-        
-        if (mysqli_num_rows($result) > 0) {
-            echo "Reservierungen gefunden.";
-        } else {
-            echo "Keine Reservierungen gefunden.";
-        }
         
         $userid = $_SESSION['userid'];
         $sql = "SELECT zimmer.*

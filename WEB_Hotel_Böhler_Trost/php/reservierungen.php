@@ -23,7 +23,7 @@ JOIN zimmer ON user_zimmer.zimmer_id = zimmer.zimmer_id";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
-    // Geht durch alle Zeilen und zeigt jede Reservierung an
+    // Geht durch alle Zeilen und zeigt jede Reservierung für den admin an
     while($row = mysqli_fetch_assoc($result)) {
         echo '<form method="post" action="../includes/update_status.php">';
         echo '<label>Benutzer ' . $row["userid"] . ' hat eine Buchung von ';
@@ -63,7 +63,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "Keine Reservierungen gefunden.";
 }
 ?>
-    <!--dieses skript verhindert das weiterleiten auf update_status.php und aktualisiert die Datenbank direkt auf dieser Seite mithilfe von update_status.php!-->
+    <!--das skript verhindert das weiterleiten auf update_status.php und aktualisiert die Datenbank direkt auf dieser Seite mithilfe von update_status.php!-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){

@@ -1,6 +1,10 @@
-<?php
+<?php //hier wird der status geändert
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Stellen Sie sicher, dass die notwendigen POST-Daten vorhanden sind
+    // Überprüfen, ob alle notwendigen Daten übermittelt wurden
     if (isset($_POST['zimmer_id']) && isset($_POST['status'])) {
         $zimmer_id = $_POST['zimmer_id'];
         $status = $_POST['status'];
