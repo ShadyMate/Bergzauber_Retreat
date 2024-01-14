@@ -31,7 +31,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
 //nach dem ändern des users will ich wieder die userid des admins haben
 $_SESSION['userid'] = $_SESSION['adminid'];
-echo $_SESSION['userid'];
     ?>
     <?php
         $sql = "SELECT * FROM user";
