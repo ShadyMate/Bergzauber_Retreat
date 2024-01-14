@@ -1,7 +1,7 @@
 Die Anmeldedaten für die Datenbank:
 
 CREATE USER 'Thomas'@'localhost';
-ALTER USER 'Thomas'@'localhost' IDENTIFIED BY 'password';
+ALTER USER 'Thomas'@'localhost' IDENTIFIED BY '1234';
 GRANT ALL PRIVILEGES ON `hoteluser`.* TO 'Thomas'@'localhost';
 FLUSH PRIVILEGES;
 
