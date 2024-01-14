@@ -82,5 +82,6 @@ $(document).ready(function(){
   });
 });
 </script>
+<?php include "../includes/footer.php"; ?>
 </body>
 </html>
