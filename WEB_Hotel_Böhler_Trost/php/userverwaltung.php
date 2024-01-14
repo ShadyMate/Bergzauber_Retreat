@@ -20,7 +20,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <?php include "../includes/header.php"; ?>
 </head>
 <header>
-    <h1 class="title">Meine Profildaten</h1>
+    <h1 class="title">Userverwaltung</h1>
 </header>
 <body>
     <?php
@@ -32,8 +32,6 @@ if (session_status() == PHP_SESSION_NONE) {
 $_SESSION['userid'] = $_SESSION['adminid'];
 echo $_SESSION['userid'];
     ?>
-    <div class="container">
-    <form method="post">
     <?php
         $sql = "SELECT * FROM user";
     $result = $conn->query($sql);
@@ -41,6 +39,7 @@ echo $_SESSION['userid'];
     if ($result->num_rows > 0) {
         // Daten für jeden Benutzer ausgeben
         while($row = $result->fetch_assoc()) {
+            echo "<div class=';container'><form method='post'>";
             echo "User_ID: " . $row["userid"] . "<br>";
             echo "Rechte: " . $row["Rechte"] . "<br>";
             echo "Vorname: " . $row["Vorname"] . "<br>";
@@ -56,16 +55,13 @@ echo $_SESSION['userid'];
             }
             echo '<a href="../includes/activate_user.php?userid=' . $row["userid"] . '" class="btn btn-success">Benutzer aktivieren</a>';
             echo '<a href="../includes/deactivate_user.php?userid=' . $row["userid"] . '" class="btn btn-danger">Benutzer deaktivieren</a>';
-            echo "<br><br>";      
+            echo "</form></div>";
         }
     } else {
         echo "Keine Benutzer gefunden.";
     }
     ?>
-    </form>
-    </form>
-    </div>
-    <br>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<?php include "../includes/footer.php"; ?>
 </body>
 </html>
