@@ -21,8 +21,8 @@ h1 {
     border-color: black;
     background-color: white;
     word-wrap: break-word;
+    width: 40%;
 }
-
 /* Carousel Styles*/
 .carousel-item {
     border: 40px solid white;
@@ -48,6 +48,7 @@ form {
     border-color: black;
     border-radius: 25px;
     padding: 3vh 10vw;
+    text-align: center;
 }
 
 /* Body Styles */

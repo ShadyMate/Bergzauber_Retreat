@@ -27,66 +27,7 @@ if (!isset($dst)) {
   <h1 class="title">Newspage</h1>
 <?php
 include "../includes/nav.php";
-/*
-$target_dir = "../uploads/news/";
-if(isset($_POST["submit"])) {
-  $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-  // rest of your code...
-$target_dir = "../uploads/news/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-  if($check !== false) {
-    echo "File ist ein Bild. - " . $check["mime"] . ". ";
-    $uploadOk = 1;
-  } else {
-    echo "File ist kein Bild. ";
-    $uploadOk = 0;
-  }
-}
-
-// Check if file already exists
-if (file_exists($target_file)) {
-  echo "Dieses Bild existiert bereits! ";
-  $uploadOk = 0;
-}
-
-// Check file size
-if ($_FILES["fileToUpload"]["size"] > 5000000) {
-  echo "Das Bild ist zu groß. ";
-  $uploadOk = 0;
-}
-
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-  echo "Es ist ein Fehler aufgetreten. Nur JPG, JPEG, PNG & GIF dateien sind erlaubt. ";
-  $uploadOk = 0;
-}
-
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-  echo "Dieses Bild existiert bereits! ";
-// if everything is ok, try to upload file
-} else {
-  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    echo "Das Bild ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " wurde erfolgreich hochgeladen! ";
-  } else {
-    echo "Ein Fehler ist aufgetreten.";
-  }
-}
-}
-    if ($_SESSION["success"] == "trueadmin") {
-    echo '<form enctype="multipart/form-data" method="post" class="text-center">
-    <input type="file" name="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-    </form>';
-  }
-   */?>
+?>
    <?php
    //man kann nur beiträge hinzufügen wenn man admin ist
     if (isset($_SESSION['rechte']) && $_SESSION['rechte'] == 'admin') {
@@ -102,29 +43,31 @@ if ($uploadOk == 0) {
     </form>';
     }
    ?>
-<form>
-<?php
-if (session_status() == PHP_SESSION_NONE) {
-  session_start();
-}
+  <div class="card-group">
+      <?php
+      if (session_status() == PHP_SESSION_NONE) {
+          session_start();
+      }
 
-include_once '../includes/dbaccess.php';
-$sql = "SELECT newsid, Datum, Bilddatei, `Text` FROM newsbeiträge ORDER BY newsid DESC";
-  $result = $conn->query($sql);
-  
-  if ($result->num_rows > 0) {
-    // Output data of each row
-    while($row = $result->fetch_assoc()) {
-      echo '<img src='.$row["Bilddatei"].' alt="Newsbild">';
-      echo '<p>'.$row["Text"].'</p>';
-      echo $row["newsid"];
-      echo '<p>'.$row["Datum"].'</p>';
-    }
-  } else {
-    echo "Keine Newsbeiträge gefunden";
-  }
-?>
-</form>
+      include_once '../includes/dbaccess.php';
+      $sql = "SELECT newsid, Datum, Bilddatei, `Text` FROM newsbeiträge ORDER BY newsid DESC";
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+          // Output data of each row
+          while($row = $result->fetch_assoc()) {
+              echo '<div class="card">';
+              echo '<img src='.$row["Bilddatei"].' alt="Newsbild" class="card-img-top resized-image">';
+              echo '<p class="center">'.$row["Text"].'</p>';
+              echo '<p class="center">'.$row["newsid"].'</p>';
+              echo '<p class="center">'.$row["Datum"].'</p>';
+              echo '</div>';
+          }
+      } else {
+          echo "Keine Newsbeiträge gefunden";
+      }
+      ?>
+  </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <?php include "../includes/footer.php"; ?>
 </body>
