@@ -11,13 +11,80 @@ if (isset($_GET['userid'])) {
 }
 $userid = $_SESSION['userid'];
 //echo $_SESSION['userid'];
-
-if(isset($_POST['submit'])) {
-
-        // Daten aus dem Formular abrufen
-         // Daten aus dem Formular abrufen
     
-    $firstname = $_POST['fname'];
+         if(isset($_POST['submit_fname'])) {
+            $firstname = $_POST['fname'];
+            $_SESSION['firstname'] = $_POST['fname'];
+
+        //updatet die datenbank
+        $stmt = $conn->prepare("UPDATE user SET Vorname = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
+        $stmt->bind_param('s', $firstname);
+        $stmt->execute();
+
+        header('Location: ../php/userverwaltungchange.php');
+            // Aktualisieren Sie nur das Vorname-Feld in der Datenbank
+        }
+    
+         if(isset($_POST['submit_lname'])) {
+            $lastname = $_POST['lname'];
+            $_SESSION['lastname'] = $_POST['lname'];    
+
+        $stmt = $conn->prepare("UPDATE user SET Nachname = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
+        $stmt->bind_param('s', $lastname);
+        $stmt->execute();
+
+        header('Location: ../php/userverwaltungchange.php');
+            // Aktualisieren Sie nur das Vorname-Feld in der Datenbank
+        }
+
+        if(isset($_POST['submit_email'])) {
+            // Überprüfen, ob die E-Mail-Adresse bereits existiert
+            $email = $_POST['email'];
+            $_SESSION['email'] = $_POST['email'];    
+        $sql = "SELECT Userid, Email FROM user WHERE email = '$email'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            echo "<script>alert('Die E-Mail Adresse ist bereits vorhanden!'); window.location.href='../php/userverwaltungchange.php';</script>";
+            exit();
+        } else {
+        $stmt = $conn->prepare("UPDATE user SET Email = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        }
+        header('Location: ../php/userverwaltungchange.php');
+            // Aktualisieren Sie nur das Vorname-Feld in der Datenbank
+        }
+        
+        if(isset($_POST['submit_username'])) {
+            // Überprüfen, ob die E-Mail-Adresse bereits existiert
+            $username = $_POST['username'];
+            $_SESSION['username'] = $_POST['username'];    
+            $sql = "SELECT Userid, Username FROM user WHERE Username = '$username'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            echo "<script>alert('Der Username ist bereits vorhanden!'); window.location.href='../php/userverwaltungchange.php';</script>";
+            exit();
+        } else {
+        $stmt = $conn->prepare("UPDATE user SET Username = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        }
+        header('Location: ../php/userverwaltungchange.php');
+            // Aktualisieren Sie nur das Vorname-Feld in der Datenbank
+        }
+        
+        if(isset($_POST['submit_passwort'])) {
+            $password = password_hash($_POST['pword'], PASSWORD_DEFAULT);
+            $_SESSION['pword'] = $_POST['pword'];
+
+        //updatet die datenbank
+        $stmt = $conn->prepare("UPDATE user SET Passwort = ? WHERE userid = '{$_SESSION['userid']}'"); //Hier wird die Datenbank aktualisiert
+        $stmt->bind_param('s', $password);
+        $stmt->execute();
+
+        header('Location: ../php/userverwaltungchange.php');
+            // Aktualisieren Sie nur das Vorname-Feld in der Datenbank
+        }/*
     $lastname = $_POST['lname'];
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -52,7 +119,7 @@ if(isset($_POST['submit'])) {
         
         header('Location: ../php/userverwaltung.php');
     }
-}
+}*/
 $conn->close(); 
 
 
@@ -73,19 +140,21 @@ $conn->close();
 <div class="container">
     <form method="post" class="text-center">
     <label for="fname">UserID: <?php echo $_SESSION['userid']; echo "<br><br>"?></label><br> 
-    <label for="fname">Vorname:</label><br> 
-    <input type="text" id="fname" name="fname" required><br>
-    <label for="lname">Nachname:</label><br>
-    <input type="text" id="lname" name="lname" required><br>
-    <label for="email">E-Mail:</label><br>
-    <input type="email" id="email" name="email" required>
-    <br>
-    <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username" required><br>
-    <label for="pword">Passwort:</label><br>
-    <input type="password" id="pword" name="pword" required><br>
-    <br><br>
-    <input type="submit" id="submit" name="submit" value="Bestätigen">
+    <label for="fname">Vorname: <?php echo $_SESSION['firstname']; echo "<br><br>"?></label><br> 
+    <input type="text" id="fname" name="fname"><br>
+    <input type="submit" id="submit_fname" name="submit_fname" value="Vorname ändern"><br><br>
+    <label for="lastname">Nachname: <?php echo $_SESSION['lastname']; echo "<br><br>"?></label><br> 
+    <input type="text" id="lname" name="lname"><br>
+    <input type="submit" id="submit_lname" name="submit_lname" value="Nachname ändern"><br>
+    <label for="email">E-Mail: <?php echo $_SESSION['email']; echo "<br><br>"?></label><br> 
+    <input type="email" id="email" name="email"><br>
+    <input type="submit" id="submit_email" name="submit_email" value="E-Mail ändern"><br>
+    <label for="username">Username: <?php echo $_SESSION['username']; echo "<br><br>"?></label><br> 
+    <input type="text" id="username" name="username"><br>
+    <input type="submit" id="submit_username" name="submit_username" value="Username ändern"><br>
+    <label for="pword">Passwort: <?php echo $_SESSION['pword']; echo "<br><br>"?></label><br> 
+    <input type="text" id="pword" name="pword"><br>
+    <input type="submit" id="submit_passwort" name="submit_passwort" value="Passwort ändern"><br>
     </form>
     <br>
 </div>

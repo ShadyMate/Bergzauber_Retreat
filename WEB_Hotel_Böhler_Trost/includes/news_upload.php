@@ -115,6 +115,6 @@ function create_thumbnail($source_image_path, $thumbnail_image_path, $width = 50
     return true;
 }
 
-// Verwendung der Funktion
+
 header('Location: ../php/news.php?'.time());
 ?>

@@ -46,29 +46,47 @@ if (isset($_POST['username']) && isset($_POST['pword'])) {
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $hashed_password = $row['Passwort'];
-            $_SESSION["email"] = $row["Email"];
+            $_SESSION["aktiviert"] = $row["Aktiviert"];
+            /*$_SESSION["email"] = $row["Email"];
             $_SESSION["firstname"] = $row["Vorname"];
             $_SESSION["lastname"] = $row["Nachname"];
             $_SESSION["userid"] = $row["userid"];
             $_SESSION["aktiviert"] = $row["Aktiviert"];
-            $_SESSION["rechte"] = $row["Rechte"];
+            $_SESSION["rechte"] = $row["Rechte"];*/
             //echo $_SESSION["firstname"];
         }
         
         if (password_verify($password, $hashed_password) && $_SESSION["aktiviert"] == 1) { //überprüft ob das passwort richtig ist
             echo 'Erfolgreich eingeloggt!'; 
+            $sql = "SELECT userid, Aktiviert, Rechte, Username, Passwort, Email, Vorname, Nachname FROM user WHERE username = '$username'";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $_SESSION["email"] = $row["Email"];
+                    $_SESSION["firstname"] = $row["Vorname"];
+                    $_SESSION["lastname"] = $row["Nachname"];
+                    $_SESSION["userid"] = $row["userid"];
+                    $_SESSION["aktiviert"] = $row["Aktiviert"];
+                    $_SESSION["rechte"] = $row["Rechte"];
+                    //echo $_SESSION["firstname"];
+                }
             if(isset($_POST['submit'])) {
                 header('Location: ../php/index.php');
               }
+            }
         } else if ($_SESSION["aktiviert"] == 0) {
             echo "<script>alert('Ihr Account wurde deaktiviert!'); window.location.href='../php/login.php';</script>";
+            session_destroy();
         } else {
             echo "<script>alert('Falsches Passwort!'); window.location.href='../php/login.php';</script>";
+            session_destroy();
         }
     } else {
         echo "<script>alert('Falscher Benutzername!'); window.location.href='../php/login.php';</script>";
+        session_destroy();
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
