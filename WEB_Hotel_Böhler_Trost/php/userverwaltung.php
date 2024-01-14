@@ -48,26 +48,20 @@ echo $_SESSION['userid'];
             echo "E-mail: " . $row["Email"] . "<br>";
             echo "Username: " . $row["Username"] . "<br>";
             echo "Passwort: " . $row["Passwort"] . "<br>";
-            echo '<a href="../php/userverwaltungchange.php?userid=' . $row["userid"] . '">Hier klicken um die Daten zu ändern.</a><br>';
+            echo '<a href="../php/userverwaltungchange.php?userid=' . $row["userid"] . '" class="btn btn-warning">Daten ändern</a><br>';
             if ($row["Aktiviert"] == 1) {
-                echo "Benutzer ist aktiviert.<br>";
+                echo "<a style='color: green'>Benutzer ist aktiviert.</a><br>";
             } else {
-                echo "Benutzer ist deaktiviert.<br>";
+                echo "<a style='color: red; font-weight: bold'>Benutzer ist deaktiviert.</a><br>";
             }
-            echo '<a href="../includes/activate_user.php?userid=' . $row["userid"] . '" class="btn">Benutzer aktivieren</a>';
-            echo '<a href="../includes/deactivate_user.php?userid=' . $row["userid"] . '" class="btn">Benutzer deaktivieren</a>';              
+            echo '<a href="../includes/activate_user.php?userid=' . $row["userid"] . '" class="btn btn-success">Benutzer aktivieren</a>';
+            echo '<a href="../includes/deactivate_user.php?userid=' . $row["userid"] . '" class="btn btn-danger">Benutzer deaktivieren</a>';
             echo "<br><br>";      
         }
     } else {
         echo "Keine Benutzer gefunden.";
     }
     ?>
-    <br>
-    <br>
-    <a href="../php/userverwaltungchange.php">Hier klicken um Ihre Daten zu ändern.</a>
-    <br>
-    <form action="../includes/logout.php" method="post">
-        <input type="submit" name="logout" value="Logout">
     </form>
     </form>
     </div>
