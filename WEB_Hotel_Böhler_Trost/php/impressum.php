@@ -8,19 +8,25 @@ session_start();
     <title>Impressum</title>
   <?php include "../includes/header.php"; ?>
   <style>
-      nav{
-          margin-bottom: 1em;
-      }
-
       .split{
           display: flex;
           flex-direction: row;
       }
-      footer{
-          position: fixed;
-          left: 0;
-          bottom: 0;
-          width: 100%;
+      .box {
+           flex: 1;
+           padding: 10px;
+       }
+      .container {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+      }
+
+      @media (min-width: 600px) {
+          .container {
+              flex-direction: row;
+          }
       }
   </style>
 </head>
@@ -30,24 +36,6 @@ session_start();
 </header>
 <?php include "../includes/nav.php"; ?>
 <div class="split">
-<style>
-.box {
-    flex: 1;
-    padding: 10px;
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    
-}
-
-@media (min-width: 600px) {
-    .container {
-        flex-direction: row;
-    }
-}
-</style>
 <div class="container">
     <div class="box">
         <form>
@@ -94,8 +82,8 @@ session_start();
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</div>
+</div>
+<?php include "../includes/footer.php"; ?>
 </body>
-<footer>
-    <?php include "../includes/footer.php"; ?>
-</footer>
 </html>

@@ -2,7 +2,7 @@
 h1 {
     padding-top: 0.02em;
     text-align: center;
-    font-family: Copperplate, fantasy;
+    font-family: sans-serif, Arial;
     padding-bottom: 0.02em;
 }
 
@@ -11,18 +11,33 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 /* Card Styles*/
 .card {
     margin: 10px;
-    border-radius: 25px;
+    border-radius: 40px;
     border-style: groove;
     border-color: black;
     background-color: white;
     word-wrap: break-word;
+    flex: 1 0 auto;
+    min-height: 300px;
+}
+.card-img-top {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
 }
 
+.card-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+}
 /* Carousel Styles*/
 .carousel-item {
     border: 40px solid white;
@@ -48,6 +63,7 @@ form {
     border-color: black;
     border-radius: 25px;
     padding: 3vh 10vw;
+    text-align: center;
 }
 
 /* Body Styles */
@@ -79,10 +95,12 @@ footer a {
 /* Title Styles */
 .maintitle {
     font-size: 7vw;
+    font-weight: bolder;
 }
 
 .title {
     font-size: 5vw;
+    font-weight: bolder;
 }
 
 .secondary-title {
@@ -155,7 +173,8 @@ input[type="checkbox"]:checked:hover {
 
 /* Navigation Styles */
 .navbar {
-    font-family: Copperplate, fantasy;
+    font-family: sans-serif, Arial;
+    font-weight: bold;
 }
 
 nav {
@@ -170,6 +189,12 @@ a {
 @media (min-width: 600px) {
     .container {
         flex-direction: row;
+    }
+}
+@media (max-width: 768px) {
+    .card {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
 

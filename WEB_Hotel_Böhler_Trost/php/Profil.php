@@ -70,7 +70,6 @@ if (session_status() == PHP_SESSION_NONE) {
     </form>
     </form>
     </div>
-    <br>
     <?php
     /*
         $sql = "SELECT zimmer.*
